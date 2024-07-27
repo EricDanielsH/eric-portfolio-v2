@@ -16,7 +16,7 @@ export default function Footer() {
             width={400}
             height={400}
             alt="Eric Daniels"
-            className="opacity-30 w-[90%]" 
+            className="opacity-30 w-[60%] md:w-[90%]" 
             style={{ objectFit: "contain" }}
           />
         </div>
