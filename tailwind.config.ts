@@ -20,6 +20,7 @@ module.exports = {
       },
       animation: {
         aurora: "aurora 60s linear infinite",
+        fadeInSlideUp: "fadeInSlideUp 0.9s ease-out",
       },
       keyframes: {
         aurora: {
@@ -30,6 +31,21 @@ module.exports = {
             backgroundPosition: "350% 50%, 350% 50%",
           },
         },
+        fadeInSlideUp: {
+          "0%": {
+            opacity: "0",
+            transform: "translateY(10px)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateY(0)",
+          },
+        },
+      },
+      animationDelay: {
+        short: "0.3s",
+        medium: "0.6s",
+        long: "1s",
       },
     },
   },
@@ -49,6 +65,14 @@ module.exports = {
           type: "color",
         },
       );
+    },
+    function({ addUtilities, theme }) {
+      const delays = theme("animationDelay");
+      const utilities = Object.keys(delays).reduce((acc, key) => {
+        acc[`.delay-${key}`] = { "animation-delay": delays[key] };
+        return acc;
+      }, {});
+      addUtilities(utilities, ["responsive", "hover"]);
     },
   ],
 };

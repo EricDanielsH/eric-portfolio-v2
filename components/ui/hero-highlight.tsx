@@ -30,7 +30,7 @@ export const HeroHighlight = ({
   return (
     <div
       className={cn(
-        "relative min-h-32 bg-slate-950 shadow-lg rounded-2xl w-full group border border-slate-800 hover:border-red-500 transition duration-300 ease-in-out cursor-pointer",
+        "relative min-h-32 bg-neutral-950 shadow-lg rounded-2xl w-full group border border-neutral-800 hover:border-red-500 transition duration-300 ease-in-out cursor-pointer",
         containerClassName
       )}
       onMouseMove={handleMouseMove}

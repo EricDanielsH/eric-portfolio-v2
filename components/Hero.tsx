@@ -1,21 +1,30 @@
 "use client";
 
-import { motion } from "framer-motion";
-import React from "react";
+import { motion, useAnimation } from "framer-motion";
+import React, { useEffect } from "react";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import Image from "next/image";
 
 export function AuroraBackgroundDemo() {
+  const controls = useAnimation();
+
+  useEffect(() => {
+    controls.start({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: 0.3,
+        duration: 0.8,
+        ease: "easeInOut",
+      },
+    });
+  }, [controls]);
+
   return (
     <AuroraBackground className="px-8 relative z-10">
       <motion.div
-        initial={{ opacity: 0.0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{
-          delay: 0.3,
-          duration: 0.8,
-          ease: "easeInOut",
-        }}
+        initial={{ opacity: 0, y: 40 }}
+        animate={controls}
         className="relative flex flex-col items-center justify-center px-4"
       >
         <div className="font-extralight text-xs md:text-lg text-neutral-200">

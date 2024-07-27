@@ -2,15 +2,15 @@ import { HeroHighlightDemo as ProjectCard } from "@/components/ProjectCard";
 
 export default function Projects() {
   return (
-    <section className="container min-h-[60vh] px-8  bg-slate-950 text-white max-w-2xl">
-      <h2 className="text-2xl md:text-5xl font-semibold text-white mb-8 tracking-tight">
+    <section className="container min-h-[60vh] px-8 bg-neutral-950 text-white max-w-2xl">
+      <h2 className="text-2xl md:text-5xl font-semibold text-white mb-8 tracking-tight animate-fade-in-slide-up delay-long">
         Projects
       </h2>
       <div className="flex flex-col gap-8">
         <ProjectCard
           title="LUCribCheck"
           description={
-            " Share and discover reviews on homes in Lancaster, UK, helping others make informed decisions about properties and neighborhoods."
+            "Share and discover reviews on homes in Lancaster, UK, helping others make informed decisions about properties and neighborhoods."
           }
           techStack={[
             "Next.js",
