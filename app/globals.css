@@ -2,28 +2,91 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+/* globals.css */
+@font-face {
+  font-family: "OverusedGrotesk";
+  src: url("/fonts/overused_grotesk/OverusedGrotesk-Regular.otf")
+    format("opentype");
+  font-weight: 400;
+  font-style: normal;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+@font-face {
+  font-family: "OverusedGrotesk";
+  src: url("/fonts/overused_grotesk/OverusedGrotesk-Medium.otf")
+    format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "OverusedGrotesk";
+  src: url("/fonts/overused_grotesk/OverusedGrotesk-Semibold.otf")
+    format("opentype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "OverusedGrotesk";
+  src: url("/fonts/overused_grotesk/OverusedGrotesk-Bold.otf")
+    format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "OverusedGrotesk";
+  src: url("/fonts/overused_grotesk/OverusedGrotesk-ExtraBold.otf")
+    format("opentype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "OverusedGrotesk";
+  src: url("/fonts/overused_grotesk/OverusedGrotesk-Black.otf")
+    format("opentype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+
+
+@font-face {
+  font-family: "OverusedGrotesk";
+  src: url("/fonts/overused_grotesk/OverusedGrotesk-Regular-Italic.otf")
+    format("opentype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "OverusedGrotesk";
+  src: url("/fonts/overused_grotesk/OverusedGrotesk-Medium-Italic.otf")
+    format("opentype");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "OverusedGrotesk";
+  src: url("/fonts/overused_grotesk/OverusedGrotesk-Semibold-Italic.otf")
+    format("opentype");
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "OverusedGrotesk";
+  src: url("/fonts/overused_grotesk/OverusedGrotesk-Bold-Italic.otf")
+    format("opentype");
+  font-weight: 700;
+  font-style: italic;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: "OverusedGroteks", sans-serif;
 }
 
 @layer utilities {
