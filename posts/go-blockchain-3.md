@@ -2,12 +2,11 @@
 title: "Database Persistence and CLI Integration | Blockchain in Go: Part 3"
 summary: "You will learn how to persist our blockchain data in a database using BoltDB. You will also create a simple command-line interface to interact with our blockchain."
 date: "14 June 2024"
+lastmod: "16 June 2024"
 author: "Eric Daniels"
 tags: ["go", "blockchain", "tutorial", "crypto"]
 draft: false
 ---
-
-Last updated: June 16, 2024
 
 # Introduction
 

@@ -4,7 +4,10 @@ import matter from "gray-matter";
 
 export interface Post {
   title: string;
+  summary: string;
   date: string;
+  lastmod: string;
+  tags: string[];
   content: string;
 }
 
@@ -16,7 +19,10 @@ export const getPostBySlug = (slug: string): Post => {
 
   return {
     title: data.title,
+    summary: data.summary,
     date: data.date,
+    lastmod: data.lastmod,
+    tags: data.tags,
     content,
   };
 };

@@ -2,12 +2,11 @@
 title: "Basics of a Blockchain | Blockchain in Go: Part 1"
 summary: "Learn the basics of blockchain and how to build a simple blockchain in Go."
 date: "30 May 2024"
+lastmod: "30 May 2024"
 author: "Eric Daniels"
 tags: ["go", "blockchain", "tutorial", "crypto"]
 draft: false
 ---
-
-Last updated: May 30, 2024
 
 # Introduction
 
