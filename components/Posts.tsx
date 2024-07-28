@@ -6,7 +6,7 @@ import React from "react";
 import Link from "next/link";
 
 export default function Projects() {
-  const MAX_POSTS = 2;
+  const MAX_POSTS = 5;
   const folder = "./posts/";
   const files = fs.readdirSync(folder);
 
@@ -57,7 +57,7 @@ export default function Projects() {
         {latestPosts.map(
           (post, index) =>
             !post.draft && (
-              <article key={index} className=" mb-4 flex gap-8 items-start">
+              <article key={index} className=" mb-4 flex flex-col items-start">
                 <p className="text-neutral-600 text-sm flex-none">
                   {format(post.date, "dd MMMM yyyy")}
                 </p>
