@@ -25,7 +25,7 @@ export function AuroraBackgroundDemo() {
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={controls}
-        className="relative flex flex-col items-center justify-center px-4"
+        className="mt-10 relative flex flex-col items-center justify-center px-4"
       >
         <div className="font-extralight text-xs md:text-lg text-neutral-200">
           Hey! I&apos;m

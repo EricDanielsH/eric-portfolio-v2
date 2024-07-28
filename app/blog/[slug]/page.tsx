@@ -45,7 +45,7 @@ const PostPage: NextPage<PostPageProps> = ({ params }) => {
 
   return (
     <section className="container min-h-[60vh] px-8 bg-neutral-900 text-white max-w-2xl">
-      <h1 className="text-xl md:text-5xl font-semibold text-neutral-100 mt-10 tracking-tight mb-4">
+      <h1 className="text-xl md:text-5xl font-semibold text-neutral-100 mt-20 tracking-tight mb-4">
         {post.title}
       </h1>
       <p className="text-neutral-400 tracking-tight mb-4">{post.summary}</p>
