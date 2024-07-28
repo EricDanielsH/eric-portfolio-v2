@@ -34,7 +34,7 @@ const Pagination: React.FC<PaginationProps> = ({ items, itemsPerPage }) => {
     <div>
       <div className="flex flex-col gap-2">
         {currentItems.map((post, index) => (
-          <article key={index} className="mb-4 flex gap-8 items-start">
+          <article key={index} className="mb-4 flex flex-col items-start">
             <p className="text-neutral-600 text-sm flex-none">
               {format(post.date, "dd MMMM yyyy")}
             </p>
