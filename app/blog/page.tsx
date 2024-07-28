@@ -47,6 +47,7 @@ export default function Projects() {
       <p className="text-neutral-400 tracking-tight mb-10">
         Explore a collection of articles, insights, and stories where I share my
         journey, knowledge, and experiences in software engineering.
+
       </p>
       <div className="flex flex-col gap-2">
         {sortedPosts.map(
@@ -58,7 +59,7 @@ export default function Projects() {
                 </p>
 
                 <Link href={`/blog/${post.slug}`}>
-                  <h2 className="text-xl font-bold text-[#cc0000]">
+                  <h2 className="text-xl font-bold text-[#ff1717]">
                     {post.title}
                   </h2>
                   <p className="text-neutral-500 text-base">{post.summary}</p>

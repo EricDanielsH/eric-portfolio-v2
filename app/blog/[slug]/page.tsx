@@ -48,10 +48,10 @@ const PostPage: NextPage<PostPageProps> = ({ params }) => {
       <h1 className="text-5xl font-semibold text-neutral-100 mt-10 tracking-tight">
         {post.title}
       </h1>
-      <p className="text-neutral-400 tracking-tight mb-10">
+      <p className="text-neutral-500 tracking-tight mb-10">
         {format(new Date(post.date), "dd MMMM yyyy")}
       </p>
-      <article className="prose xl:prose-lg prose-invert prose-neutral text-neutral-300 prose-a:text-[#cc0000]  prose-code:text-neutral-100">
+      <article className="prose xl:prose-lg prose-invert prose-neutral text-neutral-300 prose-a:text-[#ff1717]  prose-code:text-neutral-100">
         <Markdown>{post.content}</Markdown>
       </article>
       <div></div>

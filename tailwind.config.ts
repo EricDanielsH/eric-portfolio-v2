@@ -14,6 +14,9 @@ module.exports = {
     container: {
       center: true,
     },
+    a: {
+      color: "#ff1717",
+    },
     extend: {
       fontFamily: {
         "overused-grotesk": ["OverusedGrotesk", "sans-serif"],

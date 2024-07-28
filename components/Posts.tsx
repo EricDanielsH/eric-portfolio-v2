@@ -1,19 +1,82 @@
 import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
+import { format, parse } from "date-fns";
+import React from "react";
+import Link from "next/link";
 
 export default function Projects() {
+  const MAX_POSTS = 2;
+  const folder = "./posts/";
+  const files = fs.readdirSync(folder);
+
+  const posts = files.map((fileName) => {
+    const filePath = path.join(folder, fileName);
+    const fileContents = fs.readFileSync(filePath, "utf8");
+    const { data } = matter(fileContents);
+    const slug = fileName.replace(/\.md$/, "");
+
+    // Parse the date from "05 June 2023" to a Date object
+    let date;
+    try {
+      date = parse(data.date, "dd MMMM yyyy", new Date());
+      if (isNaN(date.getTime())) {
+        throw new Error("Invalid date");
+      }
+    } catch (error) {
+      console.error(`Error parsing date for file ${fileName}:`, error);
+      date = new Date(); // Fallback to current date or handle as needed
+    }
+
+    return {
+      slug,
+      title: data.title,
+      summary: data.summary,
+      date, // Store the Date object
+      draft: data.draft,
+    };
+  });
+
+  // Sort posts by date in descending order (most recent first)
+  const sortedPosts = posts.sort((a, b) => b.date.getTime() - a.date.getTime());
+
+  const latestPosts = sortedPosts.slice(0, MAX_POSTS);
+
   return (
     <section className="container min-h-[60vh] px-8 bg-neutral-900 text-white max-w-2xl">
-      <h2 className="text-2xl md:text-5xl font-semibold text-white mb-8 tracking-tight animate-fade-in-slide-up delay-long">
+      <h1 className="text-5xl font-semibold text-neutral-100 mt-10 tracking-tight animate-fade-in-slide-up delay-long mb-4">
         Posts
-      </h2>
-      <p>
+      </h1>
+      <p className="text-neutral-400 tracking-tight mb-10">
         Explore a collection of articles, insights, and stories where I share my
-        journey, knowledge, and experiences in software engineering. From
-        in-depth tutorials and tech trends to personal reflections and project
-        highlights, this blog is designed to inspire and inform. Join me in
-        discovering the fascinating world of coding, development, and beyond.
+        journey, knowledge, and experiences in software engineering.
+        <br />
+        <br /> Some of my latest posts:
       </p>
-      <div className="flex flex-col gap-8"></div>
+      <div className="flex flex-col gap-2 mb-4">
+        {latestPosts.map(
+          (post, index) =>
+            !post.draft && (
+              <article key={index} className=" mb-4 flex gap-8 items-start">
+                <p className="text-neutral-600 text-sm flex-none">
+                  {format(post.date, "dd MMMM yyyy")}
+                </p>
+
+                <Link href={`/blog/${post.slug}`}>
+                  <h2 className="text-xl font-bold text-[#ff1717]">
+                    {post.title}
+                  </h2>
+                  <p className="text-neutral-500 text-base">{post.summary}</p>
+                </Link>
+              </article>
+            ),
+        )}
+      </div>
+      <Link href="/blog" className="w-fit">
+        <div className="text-[#ff1717] text-center underline font-bold">
+          View all posts
+        </div>
+      </Link>
     </section>
   );
 }
