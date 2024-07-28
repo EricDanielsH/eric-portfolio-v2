@@ -45,7 +45,7 @@ export default function Projects() {
 
   return (
     <section className="container min-h-[60vh] px-8 bg-neutral-900 text-white max-w-2xl">
-      <h1 className="text-5xl font-semibold text-neutral-100 mt-10 tracking-tight animate-fade-in-slide-up delay-long mb-4">
+      <h1 className="text-xl md:text-4xl font-semibold text-neutral-100 mt-10 tracking-tight animate-fade-in-slide-up delay-long mb-4">
         Posts
       </h1>
       <p className="text-neutral-400 tracking-tight mb-10">

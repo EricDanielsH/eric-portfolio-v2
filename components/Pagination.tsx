@@ -40,8 +40,8 @@ const Pagination: React.FC<PaginationProps> = ({ items, itemsPerPage }) => {
             </p>
             <Link href={`/blog/${post.slug}`}>
               <div>
-                <h2 className="text-xl font-bold text-[#ff1717] tracking-tight">{post.title}</h2>
-                <p className="text-neutral-500 text-base tracking-tight leading-[140%]">{post.summary}</p>
+                <h2 className="text-lg md:text-2xl font-bold text-[#ff1717] tracking-tight">{post.title}</h2>
+                <p className="text-neutral-500 text-base  tracking-tight leading-[130%]">{post.summary}</p>
               </div>
             </Link>
           </article>

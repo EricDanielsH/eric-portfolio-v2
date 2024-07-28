@@ -45,7 +45,7 @@ const PostPage: NextPage<PostPageProps> = ({ params }) => {
 
   return (
     <section className="container min-h-[60vh] px-8 bg-neutral-900 text-white max-w-2xl">
-      <h1 className="text-5xl font-semibold text-neutral-100 mt-10 tracking-tight mb-4">
+      <h1 className="text-xl md:text-5xl font-semibold text-neutral-100 mt-10 tracking-tight mb-4">
         {post.title}
       </h1>
       <p className="text-neutral-400 tracking-tight mb-4">{post.summary}</p>
@@ -73,7 +73,7 @@ const PostPage: NextPage<PostPageProps> = ({ params }) => {
 
       <hr className="border-[#ff1717] my-8" />
 
-      <article className="prose xl:prose-lg prose-invert prose-neutral text-neutral-300 prose-a:text-[#ff1717]  prose-code:text-neutral-100 prose-headings:tracking-tight prose-p:tracking-tight prose-p:leading-[160%]">
+      <article className="prose xl:prose-lg prose-invert prose-neutral text-neutral-300 prose-a:text-[#ff1717]  prose-code:text-neutral-100 prose-headings:tracking-tight prose-headings:text-neutral-200 prose-p:tracking-tight prose-p:leading-[160%]">
         <Markdown>{post.content}</Markdown>
       </article>
       <div></div>

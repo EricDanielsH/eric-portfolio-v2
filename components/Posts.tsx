@@ -44,7 +44,7 @@ export default function Projects() {
 
   return (
     <section className="container min-h-[60vh] px-8 bg-neutral-900 text-white max-w-2xl">
-      <h1 className="text-5xl font-semibold text-neutral-100 mt-10 tracking-tight animate-fade-in-slide-up delay-long mb-4">
+      <h1 className="text-xl md:text-4xl font-semibold text-neutral-100 mt-10 tracking-tight animate-fade-in-slide-up delay-long mb-4">
         Posts
       </h1>
       <p className="text-neutral-400 tracking-tight mb-10">
@@ -63,7 +63,7 @@ export default function Projects() {
                 </p>
 
                 <Link href={`/blog/${post.slug}`}>
-                  <h2 className="text-xl font-bold text-[#ff1717]">
+                  <h2 className="text-lg md:text-2xl font-bold text-[#ff1717]">
                     {post.title}
                   </h2>
                   <p className="text-neutral-500 text-base">{post.summary}</p>

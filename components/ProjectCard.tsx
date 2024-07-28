@@ -27,7 +27,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           initial="initial"
           animate="animate"
           transition={{ duration: 0.5, delay: 0.6, ease: [0.4, 0.0, 0.2, 1] }}
-          className="text-lg md:text-xl font-bold text-base-200 leading-relaxed text-left w-full mb-4 tracking-tight"
+          className="text-lg md:text-2xl font-bold text-base-200 leading-relaxed text-left w-full mb-2 tracking-tight"
         >
           {title}
         </motion.h3>
@@ -36,7 +36,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           initial="initial"
           animate="animate"
           transition={{ duration: 0.9, delay: 0.7, ease: [0.6, 0.0, 0.2, 1] }}
-          className="text-neutral-500 text-sm md:text-md text-left w-full mb-4 leading-[140%] flex-grow"
+          className="text-neutral-500 text-base text-left w-full mb-4 leading-[140%] flex-grow"
         >
           {description}
         </motion.p>
