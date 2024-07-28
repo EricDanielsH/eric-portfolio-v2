@@ -50,6 +50,7 @@ module.exports = {
     },
   },
   plugins: [
+    require("@tailwindcss/typography"),
     addVariablesForColors,
     function({ matchUtilities, theme }: any) {
       matchUtilities(

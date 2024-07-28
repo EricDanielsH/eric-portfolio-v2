@@ -1,8 +1,8 @@
-import { HeroHighlightDemo as ProjectCard } from "@/components/ProjectCard";
+import { ProjectCard } from "@/components/ProjectCard";
 
 export default function Projects() {
   return (
-    <section className="container min-h-[60vh] px-8 bg-neutral-950 text-white max-w-2xl">
+    <section className="container min-h-[60vh] px-8 bg-neutral-900 text-white max-w-2xl mb-20">
       <h2 className="text-2xl md:text-5xl font-semibold text-white mb-8 tracking-tight animate-fade-in-slide-up delay-long">
         Projects
       </h2>

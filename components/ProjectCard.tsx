@@ -14,7 +14,7 @@ interface ProjectCardProps {
   techStack: string[];
 }
 
-export const HeroHighlightDemo: React.FC<ProjectCardProps> = ({
+export const ProjectCard: React.FC<ProjectCardProps> = ({
   title,
   description,
   techStack,
