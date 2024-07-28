@@ -40,7 +40,7 @@ export default function Projects() {
   const sortedPosts = posts.sort((a, b) => b.date.getTime() - a.date.getTime());
 
   return (
-    <section className="container min-h-[60vh] px-8 bg-neutral-950 text-white max-w-2xl">
+    <section className="container min-h-[60vh] px-8 bg-neutral-900 text-white max-w-2xl">
       <h1 className="text-5xl font-semibold text-neutral-100 mt-10 tracking-tight animate-fade-in-slide-up delay-long mb-4">
         Posts
       </h1>
