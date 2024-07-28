@@ -8,7 +8,7 @@ import Pagination from "@/components/Pagination";
 export default function Projects() {
   const folder = "./posts/";
   const files = fs.readdirSync(folder);
-  const MAX_POSTS = 3;
+  const MAX_POSTS = 5;
 
   const posts = files.map((fileName) => {
     const filePath = path.join(folder, fileName);

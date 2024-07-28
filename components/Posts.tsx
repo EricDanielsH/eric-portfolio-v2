@@ -73,7 +73,7 @@ export default function Projects() {
         )}
       </div>
       <Link href="/blog" className="w-fit">
-        <div className="text-[#ff1717] text-center underline font-bold">
+        <div className="text-[#ff1717] cursor-pointer text-center underline font-bold">
           View all posts
         </div>
       </Link>
