@@ -70,12 +70,13 @@ module.exports = {
         },
       );
     },
-    function({ addUtilities, theme }) {
+    function({ addUtilities, theme }: any) {
       const delays = theme("animationDelay");
-      const utilities = Object.keys(delays).reduce((acc, key) => {
-        acc[`.delay-${key}`] = { "animation-delay": delays[key] };
-        return acc;
-      }, {});
+      const utilities: { [key: string]: { "animation-delay": string } } =
+        Object.keys(delays).reduce((acc:any, key:any) => {
+          acc[`.delay-${key}`] = { "animation-delay": delays[key] };
+          return acc;
+        }, {});
       addUtilities(utilities, ["responsive", "hover"]);
     },
   ],
