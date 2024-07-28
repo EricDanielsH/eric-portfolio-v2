@@ -43,8 +43,7 @@ export function AuroraBackgroundDemo() {
         />
         <div className="font-extralight text-small md:text-1xl text-neutral-400 py-2 text-center leading-[140%] tracking-tight">
           Junior Software Engineer specializing in the creation of
-          pixel-perfect, engaging, and accessible SaaS products and web
-          applications.
+          pixel-perfect, engaging, and accessible digital experiences.
         </div>
       </motion.div>
     </AuroraBackground>
