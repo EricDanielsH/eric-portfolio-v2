@@ -1,13 +1,14 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import { format, parse } from "date-fns";
+import { parse } from "date-fns";
 import React from "react";
-import Link from "next/link";
+import Pagination from "@/components/Pagination";
 
 export default function Projects() {
   const folder = "./posts/";
   const files = fs.readdirSync(folder);
+  const MAX_POSTS = 3;
 
   const posts = files.map((fileName) => {
     const filePath = path.join(folder, fileName);
@@ -39,6 +40,9 @@ export default function Projects() {
   // Sort posts by date in descending order (most recent first)
   const sortedPosts = posts.sort((a, b) => b.date.getTime() - a.date.getTime());
 
+  // Filter out drafts
+  const publishedPosts = sortedPosts.filter((post) => !post.draft);
+
   return (
     <section className="container min-h-[60vh] px-8 bg-neutral-900 text-white max-w-2xl">
       <h1 className="text-5xl font-semibold text-neutral-100 mt-10 tracking-tight animate-fade-in-slide-up delay-long mb-4">
@@ -47,27 +51,8 @@ export default function Projects() {
       <p className="text-neutral-400 tracking-tight mb-10">
         Explore a collection of articles, insights, and stories where I share my
         journey, knowledge, and experiences in software engineering.
-
       </p>
-      <div className="flex flex-col gap-2">
-        {sortedPosts.map(
-          (post, index) =>
-            !post.draft && (
-              <article key={index} className=" mb-4 flex gap-8 items-start">
-                <p className="text-neutral-600 text-sm flex-none">
-                  {format(post.date, "dd MMMM yyyy")}
-                </p>
-
-                <Link href={`/blog/${post.slug}`}>
-                  <h2 className="text-xl font-bold text-[#ff1717]">
-                    {post.title}
-                  </h2>
-                  <p className="text-neutral-500 text-base">{post.summary}</p>
-                </Link>
-              </article>
-            ),
-        )}
-      </div>
+      <Pagination items={publishedPosts} itemsPerPage={MAX_POSTS} />
     </section>
   );
 }
