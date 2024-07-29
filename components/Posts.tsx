@@ -44,7 +44,7 @@ export default function Projects() {
   const latestPosts = sortedPosts.slice(0, MAX_POSTS);
 
   return (
-    <section className="container min-h-[60vh] px-8 bg-neutral-900 text-white max-w-2xl">
+    <section className="pt-[10vh] container min-h-[60vh] px-8 bg-neutral-900 text-white max-w-2xl mb-20">
       <Link
         href="/blog"
         className="w-fit hover:text-[#ff1717] transition duration-300 flex justify-center items-center"

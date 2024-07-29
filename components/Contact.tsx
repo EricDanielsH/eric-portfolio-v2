@@ -4,7 +4,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="container max-h-[60vh] px-8 bg-neutral-900 text-white max-w-lg mt-[10vh] mb-14 flex flex-col items-center"
+      className="container max-h-[60vh] px-8 bg-neutral-900 text-white max-w-lg pt-[10vh] mb-20 flex flex-col items-center"
     >
       <h2 className="text-xl md:text-4xl font-semibold text-center text-white mb-4 tracking-tight animate-fade-in-slide-up delay-long">
         Get in touch
