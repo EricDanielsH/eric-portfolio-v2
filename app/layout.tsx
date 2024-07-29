@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Eric Daniels' Site",
+  title: "Eric Daniels",
   description:
     "Eric Daniels' portfolio. Here you can find my projects, blog posts, and more.",
 };
