@@ -17,7 +17,7 @@ export default function Contact() {
       <Button href="mailto:hey@gmail.com">
         <a
           href="mailto:eric@ericdaniels.dev"
-          className="text-lg md:text-xl font-semibold text-neutral-100 font-mono tracking-tighter"
+          className="text-lg md:text-xl font-semibold text-neutral-100 font-mono tracking-tighter hover:text-[#ff1717] transition duration-200"
         >
           Say Hi
         </a>

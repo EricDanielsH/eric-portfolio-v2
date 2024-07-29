@@ -1,8 +1,8 @@
 // components/Pagination.tsx
-"use client"
-import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { format } from 'date-fns';
+"use client";
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import { format } from "date-fns";
 
 interface PaginationProps {
   items: {
@@ -34,14 +34,18 @@ const Pagination: React.FC<PaginationProps> = ({ items, itemsPerPage }) => {
     <div>
       <div className="flex flex-col gap-2">
         {currentItems.map((post, index) => (
-          <article key={index} className="mb-4 flex flex-col items-start">
+          <article key={index} className="mb-4 flex flex-col items-start group">
             <p className="text-neutral-600 text-sm flex-none font-mono tracking-tighter">
               {format(post.date, "dd MMMM yyyy")}
             </p>
             <Link href={`/blog/${post.slug}`}>
               <div>
-                <h2 className="text-lg md:text-2xl font-bold text-[#ff1717] tracking-tight">{post.title}</h2>
-                <p className="text-neutral-500 text-base  tracking-tight leading-[130%]">{post.summary}</p>
+                <h2 className="text-lg md:text-2xl font-bold text-neutral-200 tracking-tight group-hover:text-[#ff1717] transition duration-200">
+                  {post.title}
+                </h2>
+                <p className="text-neutral-500 text-base tracking-tight leading-[130%]">
+                  {post.summary}
+                </p>
               </div>
             </Link>
           </article>
@@ -59,7 +63,9 @@ const Pagination: React.FC<PaginationProps> = ({ items, itemsPerPage }) => {
           Page {currentPage} of {totalPages}
         </span>
         <button
-          onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+          onClick={() =>
+            setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+          }
           disabled={currentPage === totalPages}
           className="px-4 py-2 bg-neutral-800 text-white rounded disabled:opacity-50 font-mono tracking-tighter"
         >

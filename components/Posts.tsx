@@ -4,6 +4,7 @@ import matter from "gray-matter";
 import { format, parse } from "date-fns";
 import React from "react";
 import Link from "next/link";
+import { RxOpenInNewWindow } from "react-icons/rx";
 
 export default function Projects() {
   const MAX_POSTS = 5;
@@ -44,9 +45,15 @@ export default function Projects() {
 
   return (
     <section className="container min-h-[60vh] px-8 bg-neutral-900 text-white max-w-2xl">
-      <h1 className="text-xl md:text-4xl font-semibold text-neutral-100 mt-10 tracking-tight animate-fade-in-slide-up delay-long mb-4">
-        Posts
-      </h1>
+      <Link
+        href="/blog"
+        className="w-fit hover:text-[#ff1717] transition duration-300 flex justify-center items-center"
+      >
+        <h1 className="text-xl md:text-4xl font-semibold text-neutral-100 mt-10 tracking-tight animate-fade-in-slide-up delay-long mb-4">
+          Posts
+        </h1>
+        <RxOpenInNewWindow />
+      </Link>
       <p className="text-neutral-400 tracking-tight mb-10">
         Explore a collection of articles, insights, and stories where I share my
         journey, knowledge, and experiences in software engineering.
@@ -57,16 +64,22 @@ export default function Projects() {
         {latestPosts.map(
           (post, index) =>
             !post.draft && (
-              <article key={index} className=" mb-4 flex flex-col items-start">
+              <article
+                key={index}
+                className="mb-4 flex flex-col items-start group"
+              >
                 <p className="text-neutral-600 text-sm flex-none font-mono tracking-tighter">
                   {format(post.date, "dd MMMM yyyy")}
                 </p>
-
                 <Link href={`/blog/${post.slug}`}>
-                  <h2 className="text-lg md:text-2xl font-bold text-[#ff1717]">
-                    {post.title}
-                  </h2>
-                  <p className="text-neutral-500 text-base">{post.summary}</p>
+                  <div>
+                    <h2 className="text-lg md:text-2xl font-bold text-neutral-200 tracking-tight group-hover:text-[#ff1717] transition duration-200">
+                      {post.title}
+                    </h2>
+                    <p className="text-neutral-500 text-base tracking-tight leading-[130%]">
+                      {post.summary}
+                    </p>
+                  </div>
                 </Link>
               </article>
             ),
