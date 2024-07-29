@@ -35,7 +35,7 @@ const Pagination: React.FC<PaginationProps> = ({ items, itemsPerPage }) => {
       <div className="flex flex-col gap-2">
         {currentItems.map((post, index) => (
           <article key={index} className="mb-4 flex flex-col items-start">
-            <p className="text-neutral-600 text-sm flex-none">
+            <p className="text-neutral-600 text-sm flex-none font-mono tracking-tighter">
               {format(post.date, "dd MMMM yyyy")}
             </p>
             <Link href={`/blog/${post.slug}`}>
@@ -47,21 +47,21 @@ const Pagination: React.FC<PaginationProps> = ({ items, itemsPerPage }) => {
           </article>
         ))}
       </div>
-      <div className="flex justify-between mt-10">
+      <div className="flex justify-between items-center mt-10">
         <button
           onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
           disabled={currentPage === 1}
-          className="px-4 py-2 bg-neutral-800 text-white rounded disabled:opacity-50"
+          className="px-4 py-2 bg-neutral-800 text-white rounded disabled:opacity-50 font-mono tracking-tighter"
         >
           Previous
         </button>
-        <span className="text-neutral-400">
+        <span className="text-neutral-400 font-mono tracking-tighter">
           Page {currentPage} of {totalPages}
         </span>
         <button
           onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
           disabled={currentPage === totalPages}
-          className="px-4 py-2 bg-neutral-800 text-white rounded disabled:opacity-50"
+          className="px-4 py-2 bg-neutral-800 text-white rounded disabled:opacity-50 font-mono tracking-tighter"
         >
           Next
         </button>

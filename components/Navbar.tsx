@@ -32,7 +32,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className="fixed h-[8vh] w-full z-30 mb-20 font-mono">
+    <nav className="fixed h-[8vh] w-full z-30 mb-20 font-mono tracking-tighter">
       <div className="bg-neutral-900/50 px-6 md:px-14 backdrop-blur w-full h-full flex items-center justify-between">
         <Link href="/">
           <Image src="/geass.svg" alt="Logo" width={55} height={40} />

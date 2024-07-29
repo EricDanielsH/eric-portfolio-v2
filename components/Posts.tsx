@@ -58,7 +58,7 @@ export default function Projects() {
           (post, index) =>
             !post.draft && (
               <article key={index} className=" mb-4 flex flex-col items-start">
-                <p className="text-neutral-600 text-sm flex-none">
+                <p className="text-neutral-600 text-sm flex-none font-mono tracking-tighter">
                   {format(post.date, "dd MMMM yyyy")}
                 </p>
 
@@ -73,7 +73,7 @@ export default function Projects() {
         )}
       </div>
       <Link href="/blog" className="w-fit">
-        <div className="text-[#ff1717] cursor-pointer text-center underline font-bold">
+        <div className="text-[#ff1717] cursor-pointer text-center underline font-bold font-mono tracking-tighter">
           View all posts
         </div>
       </Link>

@@ -50,7 +50,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           {techStack.map((t, index) => (
             <li
               key={index}
-              className="text-xs md:text-sm text-red-500 border rounded-full px-2 border-red-800"
+              className="text-xs md:text-sm text-red-500 border rounded-full px-2 border-red-800 font-mono tracking-tighter"
             >
               {t}
             </li>
