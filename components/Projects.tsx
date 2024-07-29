@@ -12,6 +12,7 @@ export default function Projects() {
       <div className="flex flex-col gap-8">
         <ProjectCard
           title="LUCribCheck"
+          link="https://lucribcheck.com/"
           description={
             "Share and discover reviews on homes in Lancaster, UK, helping others make informed decisions about properties and neighborhoods."
           }
@@ -26,6 +27,7 @@ export default function Projects() {
         />
         <ProjectCard
           title="HealthBuddy"
+          link="https://drive.google.com/file/d/1UC5hHXO_k3-I8PoQ3owwLltYfy8i2MuS/view?usp=share_link"
           description={
             "Keep you and your Buddy healthy. Calorie tracking app that helps users maintain a healthy lifestyle."
           }
@@ -34,7 +36,10 @@ export default function Projects() {
 
         <ProjectCard
           title="Blockchain"
-          description={"A simple blockchain implementation in Go."}
+          link="https://github.com/EricDanielsH/go-blockchain"
+          description={
+            "A simple blockchain implementation in Go, developed using insights and techniques shared on my blog."
+          }
           techStack={["Go", "BoltDB"]}
         />
       </div>
