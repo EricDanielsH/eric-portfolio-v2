@@ -51,10 +51,10 @@ const PostPage: NextPage<PostPageProps> = ({ params }) => {
       <p className="text-neutral-400 tracking-tight mb-4">{post.summary}</p>
       <div className="flex justify-between font-mono tracking-tighter">
         <p className="text-neutral-500 tracking-tight">
-          Created on {format(new Date(post.date), "dd MMMM yyyy")}
+          Created on <br/>{format(new Date(post.date), "dd MMMM yyyy")}
         </p>
         <p className="text-neutral-500 tracking-tight">
-          Updated on {format(new Date(post.lastmod), "dd MMMM yyyy")}
+          Updated on <br/> {format(new Date(post.lastmod), "dd MMMM yyyy")}
         </p>
       </div>
 
