@@ -7,10 +7,11 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const menuRef = useRef<HTMLUListElement | null>(null);
   const links = [
-    { name: "About", href: "#about" },
-    { name: "Projects", href: "#projects" },
+    { name: "Home", href: "/" },
+    { name: "About", href: "/#about" },
+    { name: "Projects", href: "/#projects" },
     { name: "Blog", href: "/blog" },
-    { name: "Contact Me", href: "#contact"}
+    { name: "Contact Me", href: "/#contact" },
   ];
 
   const toggleMenu = () => {
@@ -31,7 +32,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className="fixed h-[8vh] w-full z-30 mb-20">
+    <nav className="fixed h-[8vh] w-full z-30 mb-20 font-mono">
       <div className="bg-neutral-900/50 px-6 md:px-14 backdrop-blur w-full h-full flex items-center justify-between">
         <Link href="/">
           <Image src="/geass.svg" alt="Logo" width={55} height={40} />
@@ -84,6 +85,7 @@ export default function Navbar() {
             <li
               key={index}
               className="my-2 md:my-0 hover:text-[#ff1717] transition duration-300 font-medium"
+              onClick={toggleMenu}
             >
               <Link href={link.href}>{link.name}</Link>
             </li>
