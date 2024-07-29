@@ -2,11 +2,11 @@ import { Button } from "@/components/ui/moving-border";
 
 export default function Contact() {
   return (
-    <section className="container max-h-[60vh] px-8 bg-neutral-900 text-white max-w-2xl mt-20 mb-14 flex flex-col items-center">
-      <h2
-        id="Contact"
-        className="text-xl md:text-4xl font-semibold text-center text-white mb-4 tracking-tight animate-fade-in-slide-up delay-long"
-      >
+    <section
+      id="contact"
+      className="container max-h-[60vh] px-8 bg-neutral-900 text-white max-w-lg mt-20 mb-14 flex flex-col items-center"
+    >
+      <h2 className="text-xl md:text-4xl font-semibold text-center text-white mb-4 tracking-tight animate-fade-in-slide-up delay-long">
         Get in touch
       </h2>
       <p className="text-base md:text-lg text-neutral-200 text-center mb-14">
@@ -16,9 +16,10 @@ export default function Contact() {
       </p>
       <Button href="mailto:hey@gmail.com">
         <a
-          href="mailto:eric@ericdaniels.dev" className="text-lg md:text-xl font-semibold text-neutral-100"
+          href="mailto:eric@ericdaniels.dev"
+          className="text-lg md:text-xl font-semibold text-neutral-100"
         >
-          Say Hi!
+          Say Hi
         </a>
       </Button>
     </section>
