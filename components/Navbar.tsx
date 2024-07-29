@@ -60,7 +60,7 @@ export default function Navbar() {
         </div>
         <ul
           ref={menuRef}
-          className={`text-neutral-200 flex flex-col items-center justify-center gap-6 md:flex md:flex-row transition-transform duration-300 ease-in-out fixed md:static top-0 right-0 h-[100vh] md:h-auto w-3/4 md:w-auto bg-neutral-800 md:bg-transparent transform ${isMenuOpen ? "translate-x-0" : "translate-x-full"} md:transform-none p-4 md:p-0 z-40`}
+          className={`text-neutral-200 flex flex-col items-center justify-center gap-8 md:flex md:flex-row transition-transform duration-300 ease-in-out fixed md:static top-0 right-0 h-[100vh] md:h-auto w-3/4 md:w-auto bg-neutral-800 md:bg-transparent transform ${isMenuOpen ? "translate-x-0" : "translate-x-full"} md:transform-none p-4 md:p-0 z-40`}
         >
           <button
             onClick={toggleMenu}
