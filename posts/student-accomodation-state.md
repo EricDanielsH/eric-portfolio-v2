@@ -10,7 +10,7 @@ draft: false
 
 # Introduction
 
-As a former student in the UK, I’ve had the unfortunate experience of dealing with the tough realities of student accommodation. What should be an exciting time of **growth**, **learning**, and **independence** is too often overshadowed by the **poor living conditions** that many students are forced to endure. This blog post aims to **shed light on these issues**, explore why they persist, and discuss what can be done to **improve** the situation for future students.
+As a current student in the UK, I’ve had the unfortunate experience of dealing with the tough realities of student accommodation. What should be an exciting time of **growth**, **learning**, and **independence** is too often overshadowed by the **poor living conditions** that many students are forced to endure. This blog post aims to **shed light on these issues**, explore why they persist, and discuss what can be done to **improve** the situation for future students.
 
 # The Exploitation of Inexperience and Limited Options
 
