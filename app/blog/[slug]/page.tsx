@@ -73,10 +73,9 @@ const PostPage: NextPage<PostPageProps> = ({ params }) => {
 
       <hr className="border-[#ff1717] my-8" />
 
-      <article className="prose xl:prose-lg prose-invert prose-neutral text-neutral-300 prose-a:text-[#ff1717]  prose-code:text-neutral-100 prose-headings:tracking-tight prose-headings:text-neutral-200 prose-p:tracking-tight prose-p:leading-[160%]">
+      <article className="prose xl:prose-lg prose-invert prose-neutral text-neutral-300 prose-a:text-[#ff1717]  prose-code:text-neutral-100 prose-headings:tracking-tight prose-headings:text-neutral-200 prose-p:tracking-tight prose-p:leading-[160%] mb-40">
         <Markdown>{post.content}</Markdown>
       </article>
-      <div></div>
     </section>
   );
 };
