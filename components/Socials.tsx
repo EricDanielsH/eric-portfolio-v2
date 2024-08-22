@@ -1,4 +1,5 @@
 import { FaLinkedin, FaGithub } from "react-icons/fa";
+import { IoIosMail } from "react-icons/io";
 import { FaXTwitter } from "react-icons/fa6";
 import Link from "next/link";
 
@@ -25,6 +26,13 @@ export default function Socials() {
         target="_blank"
       >
         <FaXTwitter />
+      </Link>
+      <Link
+        className="text-xl md:text-2xl text-neutral-100 hover:text-primary-500 hover:text-[#ff1717] transition duration-200"
+        href="mailto:eric@ericdaniels.dev"
+        target="_blank"
+      >
+        <IoIosMail />
       </Link>
     </div>
   );
