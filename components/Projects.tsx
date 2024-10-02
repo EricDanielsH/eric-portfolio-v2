@@ -3,6 +3,18 @@ import { ProjectCard } from "@/components/ProjectCard";
 export default function Projects() {
   const projectData = [
     {
+      title: "Minecraft Texture Pack",
+      link: "https://github.com/EricDanielsH/mc-eric-texture-pack",
+      description:
+        "A Minecraft texture pack that adds a personal touch to the game, with custom textures and sounds.",
+      techStack: [
+        "Java",
+        "Minecraft",
+        "Photoshop",
+        "Paint.NET",
+      ],
+    },
+    {
       title: "HybridCoach AI",
       link: "https://hybridcoach-ai.vercel.app",
       description:
