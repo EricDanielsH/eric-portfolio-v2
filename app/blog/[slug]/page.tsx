@@ -4,12 +4,53 @@ import { notFound } from "next/navigation";
 import React from "react";
 import { format } from "date-fns";
 import Markdown from "markdown-to-jsx";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { materialDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 interface PostPageProps {
   params: {
     slug: string;
   };
 }
+
+interface CodeBlockProps {
+  className?: string; // Optional className, since it might not always be present
+  children: string; // The actual code content
+}
+
+const CodeBlock: React.FC<CodeBlockProps> = ({ className, children }) => {
+  let lang = "text"; // Default monospaced text
+  if (className && className.startsWith("lang-")) {
+    lang = className.replace("lang-", "");
+  }
+
+  return (
+    <SyntaxHighlighter language={lang} style={materialDark}>
+      {children}
+    </SyntaxHighlighter>
+  );
+};
+
+// Props for PreBlock
+interface PreBlockProps {
+  children: React.ReactNode;
+  [key: string]: any; // Allow any additional props
+}
+
+// markdown-to-jsx uses <pre><code/></pre> for code blocks
+const PreBlock: React.FC<PreBlockProps> = ({ children, ...rest }) => {
+  // Check if the children are a <code> element
+  if (
+    React.isValidElement(children) &&
+    children.type === "code" &&
+    children.props
+  ) {
+    return <CodeBlock {...children.props} />;
+  }
+
+  // Fallback to regular <pre> if not a <code> block
+  return <pre {...rest}>{children}</pre>;
+};
 
 export async function generateStaticParams() {
   const slugs = getAllSlugs();
@@ -78,11 +119,7 @@ const PostPage: NextPage<PostPageProps> = ({ params }) => {
         <Markdown
           options={{
             overrides: {
-              Code: {
-                component: (props) => (
-                  <ReactSyntaxHighlighter></ReactSyntaxHighlighter>
-                ),
-              },
+              pre: PreBlock,
             },
           }}
         >
