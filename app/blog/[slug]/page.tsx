@@ -115,7 +115,7 @@ const PostPage: NextPage<PostPageProps> = ({ params }) => {
 
       <hr className="border-[#ff1717] my-8" />
 
-      <article className="prose xl:prose-lg prose-invert prose-neutral text-neutral-300 prose-a:text-[#ff1717]  prose-code:text-neutral-100 prose-code:bg-[#2F2F2F] prose-code:px-1 prose-code:py-1 prose-code:rounded-md prose-headings:tracking-tight prose-headings:text-neutral-200 prose-headings:text-lg prose-h1:text-2xl prose-h1:underline prose-h2:text-xl prose-h3:text-lg prose-p:tracking-tight prose-p:leading-[160%] mb-40">
+      <article className="prose xl:prose-lg prose-invert prose-neutral text-neutral-300 prose-a:text-[#ff1717]  prose-code:text-neutral-100 prose-code:bg-[#2F2F2F] prose-code:px-1 prose-code:py-1 prose-code:rounded-md prose-headings:tracking-tight prose-headings:text-neutral-200 prose-headings:text-lg prose-headings:m-0 prose-h1:mt-8 prose-h2:mt-2  prose-h1:text-2xl prose-h1:underline prose-h2:text-xl prose-h3:text-lg prose-p:tracking-tight prose-p:leading-[160%] mb-40">
         <Markdown
           options={{
             overrides: {
