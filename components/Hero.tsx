@@ -4,6 +4,8 @@ import { motion, useAnimation } from "framer-motion";
 import React, { useEffect } from "react";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import Image from "next/image";
+import Socials from "@/components/Socials";
+import { FaLocationDot } from "react-icons/fa6";
 
 export function AuroraBackgroundDemo() {
   const controls = useAnimation();
@@ -34,6 +36,10 @@ export function AuroraBackgroundDemo() {
         <h1 className="text-4xl md:text-7xl font-black text-center text-white tracking-tighter z-10">
           Eric Daniels
         </h1>
+        <div className="text-sm text-neutral-500 flex items-center">
+          <FaLocationDot className="inline-block mr-1" />
+          Lancaster, UK
+        </div>
         <Image
           src="/geass.svg"
           width={300}
@@ -41,10 +47,11 @@ export function AuroraBackgroundDemo() {
           alt="Eric Daniels"
           className="absolute opacity-15 z-0 w-full md:w-2/3"
         />
-        <div className="font-extralight text-small md:text-1xl text-neutral-400 py-2 text-center leading-[140%] tracking-tight">
-          Junior Software Engineer specializing in the creation of
-          pixel-perfect, engaging, and accessible digital experiences.
+        <div className="font-extralight text-small md:text-1xl text-neutral-400 py-2 text-center leading-[140%] tracking-tight mb-4">
+          Software Engineer dedicated to building practical, high-quality
+          solutions and solving real-world problems with code
         </div>
+        <Socials />
       </motion.div>
     </AuroraBackground>
   );
