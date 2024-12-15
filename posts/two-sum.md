@@ -2,15 +2,15 @@
 title: "1. Two Sum"
 summary: "How to solve two sum leetcode problem using hashmap in python"
 date: "14 December 2024"
-lastmod: "4 December 2024"
+lastmod: "14 December 2024"
 author: "Eric Daniels"
 tags: ["leetcode", "python", "hashmap", "array"]
 draft: false
 ---
 
-<a href="https://leetcode.com/problems/two-sum/">Link to the problem</a>
+<a target="_blank" href="https://leetcode.com/problems/two-sum/">Link to the problem</a>
 
-# Introduction
+# Description
 
 Given an array of integers `nums` and an integer `target`, return indices of the two numbers `i` and `j` such that they add up to target, `nums[i] + nums[j] == target`, while `i != j`.
 
