@@ -10,32 +10,37 @@ export default function Projects() {
   const files = fs.readdirSync(folder);
   const MAX_POSTS = 5;
 
-  const posts = files.map((fileName) => {
-    const filePath = path.join(folder, fileName);
-    const fileContents = fs.readFileSync(filePath, "utf8");
-    const { data } = matter(fileContents);
-    const slug = fileName.replace(/\.md$/, "");
+  const posts = files
+    .filter((fileName) => {
+      const filePath = path.join(folder, fileName);
+      return fs.statSync(filePath).isFile() && fileName.endsWith(".md");
+    })
+    .map((fileName) => {
+      const filePath = path.join(folder, fileName);
+      const fileContents = fs.readFileSync(filePath, "utf8");
+      const { data } = matter(fileContents);
+      const slug = fileName.replace(/\.md$/, "");
 
-    // Parse the date from "05 June 2023" to a Date object
-    let date;
-    try {
-      date = parse(data.date, "dd MMMM yyyy", new Date());
-      if (isNaN(date.getTime())) {
-        throw new Error("Invalid date");
+      // Parse the date from "05 June 2023" to a Date object
+      let date;
+      try {
+        date = parse(data.date, "dd MMMM yyyy", new Date());
+        if (isNaN(date.getTime())) {
+          throw new Error("Invalid date");
+        }
+      } catch (error) {
+        console.error(`Error parsing date for file ${fileName}:`, error);
+        date = new Date(); // Fallback to current date or handle as needed
       }
-    } catch (error) {
-      console.error(`Error parsing date for file ${fileName}:`, error);
-      date = new Date(); // Fallback to current date or handle as needed
-    }
 
-    return {
-      slug,
-      title: data.title,
-      summary: data.summary,
-      date, // Store the Date object
-      draft: data.draft,
-    };
-  });
+      return {
+        slug,
+        title: data.title,
+        summary: data.summary,
+        date, // Store the Date object
+        draft: data.draft,
+      };
+    });
 
   // Sort posts by date in descending order (most recent first)
   const sortedPosts = posts.sort((a, b) => b.date.getTime() - a.date.getTime());
