@@ -37,6 +37,7 @@ export const projectData = [
       "TailwindCss",
     ],
   },
+
   {
     title: "HealthBuddy",
     link: "https://drive.google.com/file/d/1UC5hHXO_k3-I8PoQ3owwLltYfy8i2MuS/view?usp=share_link",

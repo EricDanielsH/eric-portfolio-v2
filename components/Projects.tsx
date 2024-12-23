@@ -3,12 +3,12 @@ import { projectData } from "@/lib/data";
 
 export default function Projects() {
   const gridConfig = [
-    { colStart: 1, colEnd: 4, rowStart: 1, rowEnd: 3 }, // First card spans 3 cols, 3 rows
-    { colStart: 4, colEnd: 7, rowStart: 1, rowEnd: 3 }, // Second card spans 3 cols, 3 rows
-    { colStart: 1, colEnd: 5, rowStart: 3, rowEnd: 5 }, // Third card spans 4 cols, 2 rows
-    { colStart: 5, colEnd: 7, rowStart: 3, rowEnd: 5 }, // Fourth card spans 2 cols, 2 rows
-    { colStart: 1, colEnd: 3, rowStart: 5, rowEnd: 7 }, // Fifth card spans 6 cols, 2 rows
-    { colStart: 3, colEnd: 7, rowStart: 5, rowEnd: 7 }, // Sixth card spans 6 cols, 2 rows
+    { colStart: 1, colEnd: 7, rowStart: 1, rowEnd: 5 }, // First card spans 3 cols, 3 rows
+    { colStart: 7, colEnd: 11, rowStart: 1, rowEnd: 5 }, // Second card spans 3 cols, 3 rows
+    { colStart: 1, colEnd: 6, rowStart: 5, rowEnd: 9 }, // Third card spans 4 cols, 2 rows
+    { colStart: 6, colEnd: 11, rowStart: 5, rowEnd: 8 }, // Fourth card spans 2 cols, 2 rows
+    { colStart: 1, colEnd: 6, rowStart: 9, rowEnd: 12 }, // Fifth card spans 6 cols, 2 rows
+    { colStart: 6, colEnd: 11, rowStart: 8, rowEnd: 12 }, // Sixth card spans 6 cols, 2 rows
   ];
 
   return (
@@ -17,7 +17,7 @@ export default function Projects() {
       className="container min-h-[60vh] md:px-0 px-8  max-w-2xl pt-[10vh]"
     >
       <h2 className="mb-8 tracking-tight  font-bold">Projects</h2>
-      <div className="flex flex-col gap-4 md:grid md:grid-cols-6 md:auto-rows-[10rem]">
+      <div className="flex flex-col gap-4 md:grid md:grid-cols-10 md:auto-rows-[5rem]">
         {projectData.map((project, index) => {
           const config = gridConfig[index] || {
             colStart: 1,
