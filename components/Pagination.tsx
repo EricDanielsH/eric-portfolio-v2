@@ -35,7 +35,7 @@ const Pagination: React.FC<PaginationProps> = ({ items, itemsPerPage }) => {
       <div className="flex flex-col gap-2">
         {currentItems.map((post, index) => (
           <article key={index} className="mb-4 flex flex-col items-start group">
-            <p className="text-neutral-600 text-sm flex-none font-mono tracking-tighter">
+            <p className="text-neutral-600 text-sm flex-none  tracking-tighter">
               {format(post.date, "dd MMMM yyyy")}
             </p>
             <Link href={`/blog/${post.slug}`}>
@@ -55,11 +55,11 @@ const Pagination: React.FC<PaginationProps> = ({ items, itemsPerPage }) => {
         <button
           onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
           disabled={currentPage === 1}
-          className="px-4 py-2 bg-neutral-800 text-white rounded disabled:opacity-50 font-mono tracking-tighter"
+          className="px-4 py-2 bg-neutral-800 text-white rounded disabled:opacity-50  tracking-tighter"
         >
           Previous
         </button>
-        <span className="text-neutral-400 font-mono tracking-tighter">
+        <span className="text-neutral-400  tracking-tighter">
           Page {currentPage} of {totalPages}
         </span>
         <button
@@ -67,7 +67,7 @@ const Pagination: React.FC<PaginationProps> = ({ items, itemsPerPage }) => {
             setCurrentPage((prev) => Math.min(prev + 1, totalPages))
           }
           disabled={currentPage === totalPages}
-          className="px-4 py-2 bg-neutral-800 text-white rounded disabled:opacity-50 font-mono tracking-tighter"
+          className="px-4 py-2 bg-neutral-800 text-white rounded disabled:opacity-50  tracking-tighter"
         >
           Next
         </button>

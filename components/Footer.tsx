@@ -7,10 +7,10 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className=" h-[20vh] w-full rounded-md bg-neutral-950 relative flex flex-col items-center justify-center antialiased overflow-hidden">
+    <footer className=" h-[20vh] w-full bg-neutral-300 dark:bg-neutral-950 relative flex flex-col items-center justify-center antialiased overflow-hidden">
       <div className="max-w-2xl mx-auto p-4 flex flex-col gap-4 justify-center items-center relative">
         <Link href="/">
-          <h3 className="relative text-lg md:text-2xl font-black text-center text-neutral-200 tracking-tighter z-10 hover:text-[#ff1717] transition duration-200">
+          <h3 className="relative  text-center tracking-tighter z-10 hover:text-[#ff1717] transition duration-200">
             Eric Daniels
           </h3>
         </Link>
@@ -25,7 +25,7 @@ export default function Footer() {
           />
         </div>
         <Socials />
-        <p className="text-neutral-500 max-w-lg mx-auto text-sm text-center relative z-10">
+        <p className=" max-w-lg mx-auto text-sm text-center relative z-10">
           &copy; {new Date().getFullYear()} Eric Daniels. All rights reserved.
         </p>
       </div>

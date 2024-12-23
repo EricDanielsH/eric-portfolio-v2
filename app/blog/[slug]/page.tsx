@@ -88,7 +88,7 @@ const PostPage: NextPage<PostPageProps> = ({ params }) => {
         {post.title}
       </h1>
       <p className="text-neutral-400 tracking-tight mb-4">{post.summary}</p>
-      <div className="flex justify-between font-mono tracking-tighter">
+      <div className="flex justify-between  tracking-tighter">
         <p className="text-neutral-500 tracking-tight">
           Created on <br />
           {format(new Date(post.date), "dd MMMM yyyy")}
@@ -99,7 +99,7 @@ const PostPage: NextPage<PostPageProps> = ({ params }) => {
       </div>
 
       {post.tags ? (
-        <div className="flex gap-2 my-4 font-mono tracking-tighter">
+        <div className="flex gap-2 my-4  tracking-tighter">
           {post.tags.map((tag, index) => (
             <span
               key={index}

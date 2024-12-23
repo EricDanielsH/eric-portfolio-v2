@@ -5,9 +5,9 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="container min-h-[60vh] px-8 bg-neutral-900 text-white max-w-2xl pt-[10vh]"
+      className="container min-h-[60vh] px-8  max-w-2xl pt-[10vh]"
     >
-      <h2 className="text-white mb-8 tracking-tight animate-fade-in-slide-up delay-long">
+      <h2 className="mb-8 tracking-tight animate-fade-in-slide-up delay-long">
         Projects
       </h2>
       <div className="flex flex-col gap-8">
