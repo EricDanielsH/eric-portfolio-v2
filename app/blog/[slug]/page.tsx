@@ -66,9 +66,7 @@ export async function generateMetadata({
 }: PostPageProps): Promise<Metadata> {
   const post = getPostBySlug(params.slug);
   if (!post) {
-    return {
-      title: "Post not found",
-    };
+    notFound();
   }
 
   return {
@@ -81,7 +79,7 @@ const PostPage: NextPage<PostPageProps> = ({ params }) => {
   const post = getPostBySlug(params.slug);
 
   if (!post) {
-    notFound();
+    notFound(); // Redirect to a 404 page
   }
 
   return (
@@ -113,7 +111,10 @@ const PostPage: NextPage<PostPageProps> = ({ params }) => {
         </div>
       ) : null}
 
-      <a href="/blog" className="hover:text-[#ff1717] underline text-neutral-200 ease-in duration-150">
+      <a
+        href="/blog"
+        className="hover:text-[#ff1717] underline text-neutral-200 ease-in duration-150"
+      >
         Back to blog
       </a>
 

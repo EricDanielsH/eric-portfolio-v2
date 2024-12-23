@@ -18,7 +18,7 @@ module.exports = {
       color: "#ff1717",
     },
     extend: {
-      typography: (theme) => ({
+      typography: (theme:any) => ({
         DEFAULT: {
           css: {
             h1: {

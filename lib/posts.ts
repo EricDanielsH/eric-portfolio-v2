@@ -11,9 +11,14 @@ export interface Post {
   content: string;
 }
 
-export const getPostBySlug = (slug: string): Post => {
+export const getPostBySlug = (slug: string): Post | null => {
   const folder = path.join(process.cwd(), "posts");
   const filePath = path.join(folder, `${slug}.md`);
+  if (!fs.existsSync(filePath)) {
+    console.error(`File not found: ${filePath}`);
+    return null; // Return null if the file doesn't exist
+  }
+
   const fileContents = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(fileContents);
 
@@ -31,5 +36,10 @@ export const getAllSlugs = (): string[] => {
   const folder = path.join(process.cwd(), "posts");
   const files = fs.readdirSync(folder);
 
-  return files.map((fileName) => fileName.replace(/\.md$/, ""));
+  return files
+    .filter((fileName) => {
+      const fullPath = path.join(folder, fileName);
+      return fs.statSync(fullPath).isFile() && fileName.endsWith(".md");
+    })
+    .map((fileName) => fileName.replace(/\.md$/, ""));
 };
