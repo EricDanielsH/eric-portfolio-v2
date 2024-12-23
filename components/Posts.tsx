@@ -49,17 +49,17 @@ export default function Projects() {
   const latestPosts = sortedPosts.slice(0, MAX_POSTS);
 
   return (
-    <section className="pt-[10vh] container min-h-[60vh] px-8 bg-neutral-900 text-white max-w-2xl">
+    <section className="pt-[10vh] container min-h-[60vh] px-8 md:px-0 max-w-2xl">
       <Link
         href="/blog"
         className="w-fit hover:text-[#ff1717] transition duration-300 flex justify-center items-center"
       >
-        <h2 className="text-neutral-100 mt-10 tracking-tight animate-fade-in-slide-up delay-long mb-4">
+        <h2 className="mt-10 tracking-tight animate-fade-in-slide-up delay-long mb-4">
           Posts
         </h2>
         <RxOpenInNewWindow />
       </Link>
-      <p className="text-neutral-400 tracking-tight mb-10">
+      <p className=" tracking-tight mb-10">
         Explore a collection of articles, insights, and stories where I share my
         journey, knowledge, and experiences in software engineering.
         <br />
@@ -73,15 +73,15 @@ export default function Projects() {
                 key={index}
                 className="mb-4 flex flex-col items-start group"
               >
-                <p className="text-neutral-600 text-sm flex-none font-mono tracking-tighter">
+                <p className="text-sm text-gray-400 dark:text-gray-500 flex-none  tracking-tighter">
                   {format(post.date, "dd MMMM yyyy")}
                 </p>
                 <Link href={`/blog/${post.slug}`}>
                   <div>
-                    <h4 className="font-bold text-neutral-200 tracking-tight group-hover:text-[#ff1717] transition duration-200 mb-1">
+                    <h4 className="tracking-tight cursor-pointer group-hover:text-[#ff1717] transition duration-200 mb-1">
                       {post.title}
                     </h4>
-                    <p className="text-neutral-500 tracking-tight leading-[130%]">
+                    <p className="text-gray-700 dark:text-gray-300 tracking-tight leading-[130%]">
                       {post.summary}
                     </p>
                   </div>
@@ -91,7 +91,7 @@ export default function Projects() {
         )}
       </div>
       <Link href="/blog" className="w-fit">
-        <div className="text-[#ff1717] cursor-pointer text-center underline font-bold font-mono tracking-tighter">
+        <div className="text-[#ff1717] cursor-pointer text-center underline font-bold  tracking-tighter">
           View all posts
         </div>
       </Link>

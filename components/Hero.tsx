@@ -29,13 +29,13 @@ export function AuroraBackgroundDemo() {
         animate={controls}
         className="mt-10 relative flex flex-col items-center justify-center px-4"
       >
-        <p className="text-neutral-300">
+        <p className="">
           Hey! I&apos;m
         </p>
-        <h1 className="text-center text-white tracking-tighter z-10">
+        <h1 className="text-center tracking-tighter z-10">
           Eric Daniels
         </h1>
-        <small className="text-neutral-300 flex items-center">
+        <small className="flex items-center">
           <FaLocationDot className="inline-block mr-1" />
           Lancaster, UK
         </small>
@@ -46,7 +46,7 @@ export function AuroraBackgroundDemo() {
           alt="Eric Daniels"
           className="absolute opacity-15 z-0 w-full md:w-2/3"
         />
-        <p className="text-neutral-200 py-2 text-center mb-4">
+        <p className="py-2 text-center mb-4">
           Software Engineer dedicated to building practical, high-quality
           solutions and solving real-world problems with code
         </p>

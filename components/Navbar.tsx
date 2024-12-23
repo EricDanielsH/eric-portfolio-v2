@@ -1,11 +1,15 @@
 "use client";
+
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { ThemeSwitcherButton } from "./ThemeSwitcher";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const menuRef = useRef<HTMLUListElement | null>(null);
+
   const links = [
     { name: "Home", href: "/" },
     { name: "About", href: "/#about" },
@@ -25,20 +29,36 @@ export default function Navbar() {
   };
 
   useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10); // Adjust the scroll threshold if needed
+    };
+
+    document.addEventListener("scroll", handleScroll);
     document.addEventListener("mousedown", handleClickOutside);
+
     return () => {
+      document.removeEventListener("scroll", handleScroll);
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
 
   return (
-    <nav className="fixed h-[8vh] w-full z-30 mb-20 font-mono tracking-tighter">
-      <div className="bg-neutral-900/50 px-6 md:px-14 backdrop-blur w-full h-full flex items-center justify-between md:justify-around">
+    <nav
+      className={`fixed h-[8vh] w-full z-30 transition-colors duration-100 ${isScrolled
+          ? "bg-transparent  "
+          : "bg-transparent"
+        }`}
+    >
+      <div className="px-6 md:px-14 backdrop-blur w-full h-full flex items-center justify-between md:justify-around">
         <Link href="/" className="flex items-end">
           <Image src="/geass.svg" alt="Logo" width={55} height={40} />
           <img src="/meow.gif" alt="Cat gif" className="w-8 h-8" />
         </Link>
-        <div className="md:hidden">
+
+        <div className="md:hidden flex gap-2">
+          {/* button for dark mode on small devices */}
+          <ThemeSwitcherButton />
+
           <button
             onClick={toggleMenu}
             className="text-neutral-200 focus:outline-none hover:text-[#ff1717] transition duration-300"
@@ -61,7 +81,8 @@ export default function Navbar() {
         </div>
         <ul
           ref={menuRef}
-          className={`text-neutral-200 flex flex-col items-center justify-center gap-8 md:flex md:flex-row transition-transform duration-300 ease-in-out fixed md:static top-0 right-0 h-[100vh] md:h-auto w-3/4 md:w-auto bg-neutral-800 md:bg-transparent transform ${isMenuOpen ? "translate-x-0" : "translate-x-full"} md:transform-none p-4 md:p-0 z-40`}
+          className={`flex flex-col items-center justify-center gap-8 md:flex md:flex-row transition-transform  duration-300 ease-in-out fixed md:static top-0 right-0 h-[100vh] md:h-auto w-3/4 md:w-auto bg-neutral-800 md:bg-transparent transform ${isMenuOpen ? "translate-x-0" : "translate-x-full"
+            } md:transform-none p-4 md:p-0 z-40`}
         >
           <button
             onClick={toggleMenu}
@@ -85,12 +106,14 @@ export default function Navbar() {
           {links.map((link, index) => (
             <li
               key={index}
-              className="my-2 md:my-0 hover:text-[#ff1717] transition duration-300 font-medium"
+              className="my-2 md:my-0 cursor-pointer hover:text-[#ff1717] transition duration-300 font-medium"
               onClick={toggleMenu}
             >
               <Link href={link.href}>{link.name}</Link>
             </li>
           ))}
+          {/* button for dark mode on medium and bigger devices */}
+          <ThemeSwitcherButton />
         </ul>
       </div>
     </nav>

@@ -25,22 +25,22 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   return (
     <HeroHighlight>
       <Link href={link} target="_blank" title={`Check out project on ${link}`}>
-      <article className="p-6 md:p-8 flex flex-col justify-start">
-        <motion.h4
+      <article className="p-6 md:p-8 flex flex-col justify-start w-4/5 items-center h-full">
+        <motion.h5
           variants={fadeInUp}
           initial="initial"
           animate="animate"
           transition={{ duration: 0.5, delay: 0.6, ease: [0.4, 0.0, 0.2, 1] }}
-          className="text-base-200 text-left w-full mb-2"
+          className=" text-left w-full mb-2"
         >
           {title}
-        </motion.h4>
+        </motion.h5>
         <motion.p
           variants={fadeInUp}
           initial="initial"
           animate="animate"
           transition={{ duration: 0.9, delay: 0.7, ease: [0.6, 0.0, 0.2, 1] }}
-          className="text-neutral-500 text-left w-full mb-4 flex-grow"
+          className=" text-left text-gray-700 dark:text-gray-300 w-full mb-4 flex-grow"
         >
           {description}
         </motion.p>
@@ -54,7 +54,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           {techStack.map((t, index) => (
             <li
               key={index}
-              className="text-xs md:text-sm text-red-500 border rounded-full px-2 border-red-800 font-mono tracking-tighter"
+              className="text-xs md:text-sm text-red-500 border rounded-full px-2 border-red-800  tracking-tighter"
             >
               {t}
             </li>

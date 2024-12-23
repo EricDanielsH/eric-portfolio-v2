@@ -9,6 +9,10 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  safelist: [
+    { pattern: /col-span-(1|2|3|4|5|6)/ },
+    { pattern: /row-span-(1|2|3|4)/ },
+  ],
   darkMode: "class",
   theme: {
     container: {
@@ -18,7 +22,7 @@ module.exports = {
       color: "#ff1717",
     },
     extend: {
-      typography: (theme:any) => ({
+      typography: (theme: any) => ({
         DEFAULT: {
           css: {
             h1: {
