@@ -25,8 +25,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   return (
     <HeroHighlight>
       <Link href={link} target="_blank" title={`Check out project on ${link}`}>
-      <article className="p-6 md:p-8 flex flex-col justify-start">
-        <motion.h4
+      <article className="p-6 md:p-8 flex flex-col justify-center items-center h-full">
+        <motion.h5
           variants={fadeInUp}
           initial="initial"
           animate="animate"
@@ -34,7 +34,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           className=" text-left w-full mb-2"
         >
           {title}
-        </motion.h4>
+        </motion.h5>
         <motion.p
           variants={fadeInUp}
           initial="initial"

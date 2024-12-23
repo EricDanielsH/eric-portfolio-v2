@@ -2,7 +2,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="container px-8  max-w-2xl pt-[10vh]"
+      className="container px-8 md:px-0 max-w-2xl pt-[10vh]"
     >
       <h2 className=" mb-4 tracking-tight animate-fade-in-slide-up delay-long">
         About Me
