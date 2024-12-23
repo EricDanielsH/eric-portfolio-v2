@@ -18,6 +18,65 @@ module.exports = {
       color: "#ff1717",
     },
     extend: {
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            h1: {
+              fontSize: "2.027rem", // Below md
+              lineHeight: "1.15",
+              fontWeight: "700",
+              "@screen md": {
+                fontSize: "2.986rem", // md and above
+              },
+            },
+            h2: {
+              fontSize: "1.802rem",
+              lineHeight: "1.15",
+              fontWeight: "700",
+              "@screen md": {
+                fontSize: "2.488rem",
+              },
+            },
+            h3: {
+              fontSize: "1.602rem",
+              lineHeight: "1.15",
+              fontWeight: "700",
+              "@screen md": {
+                fontSize: "2.074rem",
+              },
+            },
+            h4: {
+              fontSize: "1.424rem",
+              lineHeight: "1.15",
+              fontWeight: "700",
+              "@screen md": {
+                fontSize: "1.728rem",
+              },
+            },
+            h5: {
+              fontSize: "1.266rem",
+              lineHeight: "1.15",
+              fontWeight: "700",
+              "@screen md": {
+                fontSize: "1.44rem",
+              },
+            },
+            h6: {
+              fontSize: "1.125rem",
+              lineHeight: "1.15",
+              fontWeight: "700",
+            },
+            p: {
+              fontSize: "1rem",
+              lineHeight: "1.6",
+            },
+            small: {
+              fontSize: "0.889rem",
+              lineHeight: "1.4",
+            },
+          },
+        },
+      }),
       fontFamily: {
         "overused-grotesk": ["OverusedGrotesk", "sans-serif"],
       },
@@ -73,7 +132,7 @@ module.exports = {
     function({ addUtilities, theme }: any) {
       const delays = theme("animationDelay");
       const utilities: { [key: string]: { "animation-delay": string } } =
-        Object.keys(delays).reduce((acc:any, key:any) => {
+        Object.keys(delays).reduce((acc: any, key: any) => {
           acc[`.delay-${key}`] = { "animation-delay": delays[key] };
           return acc;
         }, {});

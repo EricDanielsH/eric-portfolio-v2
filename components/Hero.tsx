@@ -29,17 +29,16 @@ export function AuroraBackgroundDemo() {
         animate={controls}
         className="mt-10 relative flex flex-col items-center justify-center px-4"
       >
-        <div className="font-extralight text-xs md:text-lg text-neutral-200">
+        <p className="text-neutral-300">
           Hey! I&apos;m
-        </div>
-
-        <h1 className="text-4xl md:text-7xl font-black text-center text-white tracking-tighter z-10">
+        </p>
+        <h1 className="text-center text-white tracking-tighter z-10">
           Eric Daniels
         </h1>
-        <div className="text-sm text-neutral-500 flex items-center">
+        <small className="text-neutral-300 flex items-center">
           <FaLocationDot className="inline-block mr-1" />
           Lancaster, UK
-        </div>
+        </small>
         <Image
           src="/geass.svg"
           width={300}
@@ -47,10 +46,10 @@ export function AuroraBackgroundDemo() {
           alt="Eric Daniels"
           className="absolute opacity-15 z-0 w-full md:w-2/3"
         />
-        <div className="font-extralight text-small md:text-1xl text-neutral-400 py-2 text-center leading-[140%] tracking-tight mb-4">
+        <p className="text-neutral-200 py-2 text-center mb-4">
           Software Engineer dedicated to building practical, high-quality
           solutions and solving real-world problems with code
-        </div>
+        </p>
         <Socials />
       </motion.div>
     </AuroraBackground>

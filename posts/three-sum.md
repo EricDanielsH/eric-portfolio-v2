@@ -10,7 +10,7 @@ draft: false
 
 <a target="_blank" href="https://leetcode.com/problems/3sum/">Link to the problem</a>
 
-# Description
+## Description
 
 Given an integer array nums, return all the triplets `[nums[i], nums[j], nums[k]]` such that `i != j`, `i != k`, and `j != k`, and `nums[i] + nums[j] + nums[k] == 0`.
 
@@ -49,27 +49,27 @@ Explanation: The only possible triplet sums up to 0.
 
 **Constraints:**
 
-# Solution
+## Solution
 
-## Video Explanation
+### Video Explanation
 
 [![Video Title](https://img.youtube.com/vi/VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=VIDEO_ID)
 
-## Time & Space Complexity
+### Time & Space Complexity
 
 With this approach, we can solve the problem in O(n^2) time complexity and O(1) space complexity, where `n` is the length of the input array `nums`.
 
-## Approach
+### Approach
 
-### Brute Force Approach
+#### Brute Force Approach
 
 We can solve this problem using the brute force approach, where we use a triple nested loop to calculate the sum of each triplet and return the triplets that sum up to zero. However, this approach has a time complexity of O(n^3), which is not efficient.
 
-### Hashmap Approach
+#### Hashmap Approach
 
 Another approach is to use a hashmap to store the frequency of each element in the input array. We can then iterate through the array and for each element, we can calculate the target sum and check if the target sum exists in the hashmap. This approach has a time complexity of O(n^2) and a space complexity of O(n).
 
-### Two-Pointer Approach (Most optimal)
+#### Two-Pointer Approach (Most optimal)
 
 If we have completed previously [167. Two Sum II](https://ericdaniels.dev/blog/two-sum-ii) problem, we can the same the two-pointer approach to solve this problem. We shall:
 - Sort the input array and iterate through the array.
@@ -87,7 +87,7 @@ We also need to remember to:
 
 This approach has a time complexity of O(n^2) and a space complexity of O(1).
 
-## Code
+### Code
 
 ```python
 class Solution:

@@ -10,7 +10,7 @@ draft: false
 
 <a target="_blank" href="https://leetcode.com/problems/two-sum/">Link to the problem</a>
 
-# Description
+## Description
 
 Given an array of integers `nums` and an integer `target`, return indices of the two numbers `i` and `j` such that they add up to target, `nums[i] + nums[j] == target`, while `i != j`.
 
@@ -47,18 +47,18 @@ Output: [0,1]
 - `-10,000,000 <= nums[i] <= 10,000,000`
 - `-10,000,000 <= target <= 10,000,000`
 
-# Solution
+## Solution
 
-## Video Explanation
+### Video Explanation
 
 [![Video Title](https://img.youtube.com/vi/VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=VIDEO_ID)
 
-## Time & Space Complexity
+### Time & Space Complexity
 
 With this approach, we can solve the problem in O(n) time complexity and O(n) space complexity,
 where `n` is the length of the input array `nums`.
 
-## Approach
+### Approach
 
 The first approach that comes to mind is probably the brute force approach, where we can iterate
 over the array and check if the sum of the current element and any other element in the array is
@@ -71,7 +71,7 @@ A better approach is to **use a hashmap** to store the elements of the array and
   - If it is present, we can return the indices of the current element and the element that is the difference between the target and the current element.
   - If it is not present, we add the current element to the hashmap.
 
-## Code
+### Code
 
 ```python
 class Solution:

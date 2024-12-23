@@ -18,6 +18,93 @@
   animation: fadeInSlideUp 0.9s ease-out;
 }
 
+html {
+  scroll-behavior: smooth;
+  line-height: 1.5;
+  font-weight: 400;
+  font-size: 16px;
+
+}
+
+p,
+li,
+h1,
+h2,
+h3,
+h4 {
+  /* helps with overflow of long words */
+  overflow-wrap: break-word;
+
+  /* not supportd for all languages */
+  hyphens: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+@layer base {
+  /* Default: Major Second scale (below md) */
+  h1 {
+    @apply text-[2.027rem]; /* 2.027rem */
+  }
+  h2 {
+    @apply text-[1.802rem]; /* 1.802rem */
+  }
+  h3 {
+    @apply text-[1.602rem]; /* 1.602rem */
+  }
+  h4 {
+    @apply text-[1.424rem]; /* 1.424rem */
+  }
+  h5 {
+    @apply text-[1.266rem]; /* 1.266rem */
+  }
+  h6 {
+    @apply text-[1.125rem]; /* 1.125rem */
+  }
+  p {
+    @apply text-[1rem]; /* 1rem */
+  }
+  small {
+    @apply text-[0.889rem]; /* 0.889rem */
+  }
+
+  /* Override: Minor Third scale (md and larger) */
+  @screen md {
+    h1 {
+      @apply text-[2.986rem]; /* 2.986rem */
+    }
+    h2 {
+      @apply text-[2.488rem]; /* 2.488rem */
+    }
+    h3 {
+      @apply text-[2.074rem]; /* 2.074rem */
+    }
+    h4 {
+      @apply text-[1.728rem]; /* 1.728rem */
+    }
+    h5 {
+      @apply text-[1.44rem]; /* 1.44rem */
+    }
+    h6 {
+      font-size: 1.125rem; /* Directly define for debugging */
+    }
+    p {
+      @apply text-[1rem]; /* 1rem */
+    }
+    small {
+      @apply text-[0.833rem]; /* 0.833rem */
+    }
+  }
+}
+
 /* globals.css */
 @font-face {
   font-family: "OverusedGrotesk";
@@ -67,8 +154,6 @@
   font-style: normal;
 }
 
-
-
 @font-face {
   font-family: "OverusedGrotesk";
   src: url("/fonts/overused_grotesk/OverusedGrotesk-Regular-Italic.otf")
@@ -105,9 +190,6 @@ body {
   font-family: "OverusedGroteks", sans-serif;
 }
 
-html{
-  scroll-behavior: smooth;
-}
 
 @layer utilities {
   .text-balance {

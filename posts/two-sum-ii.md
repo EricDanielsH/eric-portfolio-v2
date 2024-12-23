@@ -10,7 +10,7 @@ draft: false
 
 <a target="_blank" href="https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/description//">Link to the problem</a>
 
-# Description
+## Description
 
 Given a 1-indexed array of integers `numbers` that is already **sorted in non-decreasing order**, find two numbers such that they add up to a specific `target` number. Let these two numbers be numbers `[index1]` and numbers `[index2]` where `1 <= index1 < index2 <= numbers.length`.
 
@@ -55,18 +55,18 @@ index1 = 1, index2 = 2. We return [1, 2].
 - `-1000 <= target <= 1000`
 - The tests are generated such that there is exactly one solution.
 
-# Solution
+## Solution
 
-## Video Explanation
+### Video Explanation
 
 [![Video Title](https://img.youtube.com/vi/VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=VIDEO_ID)
 
-## Time & Space Complexity
+### Time & Space Complexity
 
 With this approach, we can solve the problem in O(n) time complexity and O(1) space complexity,
 where `n` is the length of the input array `numbers`.
 
-## Approach
+### Approach
 
 The first approach that comes to mind is probably the brute force approach, where we can iterate the array and check if the sum of the current element and any other element in the array is equal to the target. This approach has a time complexity of `O(n^2)` and a space complexity of `O(1)`.
 
@@ -80,7 +80,7 @@ We can start with two pointers, one at the beginning of the array and the other 
 
 Remember that the array is 1-indexed, so we need to return the indices added by one `[l + 1, r + 1]`.
 
-## Code
+### Code
 
 ```python
 class Solution:

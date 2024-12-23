@@ -8,15 +8,15 @@ tags: ["go", "blockchain", "tutorial", "crypto"]
 draft: false
 ---
 
-# Introduction
+## Introduction
 
 So far, we've developed a blockchain with a proof-of-work system, enabling mining. Our implementation is approaching a fully functional blockchain but still lacks some crucial features. Today, we'll begin by storing the blockchain in a database and then create a simple command-line interface to interact with it. Essentially, a blockchain is a distributed database. For now, we'll set aside the "distributed" aspect and concentrate on the "database" component.
 
-# Database
+## Database
 
 We currently store our blockchain in memory, which is not ideal for a production system. To address this, we'll use a simple key-value store to persist the blockchain data. For this tutorial, we'll use [BoltDB](https://github.com/boltdb/bolt)[^1] , a pure Go key-value store developed by Ben Johnson.
 
-## BoltDB
+### BoltDB
 
 In BoltDB, data is stored in buckets, which are similar to tables in a relational database. BoltDB is a lightweight, fast, and easy-to-use database that is well-suited for our blockchain implementation.
 
@@ -36,7 +36,7 @@ After installing _bbolt_, we can import it into our project:
 import "go.etcd.io/bbolt"
 ```
 
-## Database Structure
+### Database Structure
 
 The structure of our database will follow the way Bitcoin Core stores its blockchain data.
 Bitcoin Core uses two main buckets:
@@ -68,7 +68,7 @@ The two main `key -> value` pairs that we will use are:
 
 This is all we need to know to start implementing our persistence mechanism using BoltDB.
 
-# Serialisation & Deserialisation
+## Serialisation & Deserialisation
 
 Before we can store our blockchain in the database, we need to serialise and deserialise our `Block` structure into the `[]byte` type.
 
@@ -119,7 +119,7 @@ func  DeserialiseBlock(d []byte) *Block {
 
 And that's it! We can now serialise and deserialise our `Block` structure. Very simple!
 
-# Database Persistence Integration
+## Database Persistence Integration
 
 We will need to modify our `NewBlockchain` function from the previous tutorial to include the database.
 What is currently does, is create a new blockchain with a genesis block. What we want it to do is
@@ -347,7 +347,7 @@ This is also very simple:
 4. Update the last hash (the tip) in the database.
 5. Update the tip in the `Blockchain` struct.
 
-# Printing the Blockchain
+## Printing the Blockchain
 
 After this updates, our code has a small flaw. We lost the ability to print the blockchain because we are not storing the blocks in an array anymore.
 
@@ -400,7 +400,7 @@ func (i *BlockchainIterator) Next() *Block {
 }
 ```
 
-# CLI
+## CLI
 
 Our implementation didn't have any way to interact with the program, so we need to improve this. We will create a simple command-line interface (CLI) to interact with our blockchain. We will create a few commands:
 
@@ -594,11 +594,11 @@ Hash: 0000012fbac34e67e81d2d7b9fc8f9a5b2f1b1e1f3b63c2937c05c7c5baf12cd
 PoW: true
 ```
 
-# Conclusion
+## Conclusion
 
 In this tutorial, we learned how to persist our blockchain data in a database using BoltDB. We also created a simple command-line interface to interact with our blockchain. We now have a fully functional blockchain with database persistence and a CLI. In the next tutorial, we will implement transactions and a wallet system to interact with our blockchain.
 
-# External links
+## External links
 
 - [Complete code](https://github.com/EricDanielsH/go-blockchain/tree/part-3)
 

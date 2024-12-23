@@ -26,21 +26,21 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     <HeroHighlight>
       <Link href={link} target="_blank" title={`Check out project on ${link}`}>
       <article className="p-6 md:p-8 flex flex-col justify-start">
-        <motion.h3
+        <motion.h4
           variants={fadeInUp}
           initial="initial"
           animate="animate"
           transition={{ duration: 0.5, delay: 0.6, ease: [0.4, 0.0, 0.2, 1] }}
-          className="text-lg md:text-2xl font-bold text-base-200 leading-relaxed text-left w-full mb-2 tracking-tight"
+          className="text-base-200 text-left w-full mb-2"
         >
           {title}
-        </motion.h3>
+        </motion.h4>
         <motion.p
           variants={fadeInUp}
           initial="initial"
           animate="animate"
           transition={{ duration: 0.9, delay: 0.7, ease: [0.6, 0.0, 0.2, 1] }}
-          className="text-neutral-500 text-base text-left w-full mb-4 leading-[140%] flex-grow"
+          className="text-neutral-500 text-left w-full mb-4 flex-grow"
         >
           {description}
         </motion.p>

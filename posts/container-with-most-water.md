@@ -10,7 +10,7 @@ draft: false
 
 <a target="_blank" href="https://leetcode.com/problems/container-with-most-water/">Link to the problem</a>
 
-# Description
+## Description
 
 You are given an integer array `height` of length `n`. There are `n` vertical lines drawn such that the two endpoints of the `ith` line are `(i, 0)` and `(i, height[i])`.
 
@@ -46,17 +46,17 @@ Output: 1
 - `2 <= n <= 105`
 - `0 <= height[i] <= 104`
 
-# Solution
+## Solution
 
-## Video Explanation
+### Video Explanation
 
 [![Video Title](https://img.youtube.com/vi/VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=VIDEO_ID)
 
-## Time & Space Complexity
+### Time & Space Complexity
 
 With this approach, we can solve the problem in O(n) time complexity and O(1) space complexity, where `n` is the length of the input array `height`.
 
-## Approach
+### Approach
 
 First, the first approach that comes to mind is the brute force approach, where we use a double nexsted loop to calculate the area of each container and return the maximum area. However, this approach has a time complexity of O(n^2), which is not efficient, but its a good way to get an idea on how to start the problem.
 
@@ -70,7 +70,7 @@ The optimal approach to solve this problem is to use the two-pointer approach.
 
 In this problem, it is irrelevant which pointer to move if the heights are equal, so we can move either pointer. You could choose to move the pointer to the next highest height, but it doesn't matter.
 
-## Code
+### Code
 
 ```python
 class Solution:

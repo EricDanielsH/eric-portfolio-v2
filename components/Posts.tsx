@@ -9,7 +9,12 @@ import { RxOpenInNewWindow } from "react-icons/rx";
 export default function Projects() {
   const MAX_POSTS = 5;
   const folder = "./posts/";
-  const files = fs.readdirSync(folder);
+  const files = fs.readdirSync(folder).filter((fileName) => {
+    const fullPath = path.join(folder, fileName);
+    return (
+      fs.statSync(fullPath).isFile() && fileName.endsWith(".md") // Ensure it's a file and ends with .md
+    );
+  });
 
   const posts = files.map((fileName) => {
     const filePath = path.join(folder, fileName);
@@ -44,14 +49,14 @@ export default function Projects() {
   const latestPosts = sortedPosts.slice(0, MAX_POSTS);
 
   return (
-    <section className="pt-[10vh] container min-h-[60vh] px-8 bg-neutral-900 text-white max-w-2xl mb-10">
+    <section className="pt-[10vh] container min-h-[60vh] px-8 bg-neutral-900 text-white max-w-2xl">
       <Link
         href="/blog"
         className="w-fit hover:text-[#ff1717] transition duration-300 flex justify-center items-center"
       >
-        <h1 className="text-xl md:text-4xl font-semibold text-neutral-100 mt-10 tracking-tight animate-fade-in-slide-up delay-long mb-4">
+        <h2 className="text-neutral-100 mt-10 tracking-tight animate-fade-in-slide-up delay-long mb-4">
           Posts
-        </h1>
+        </h2>
         <RxOpenInNewWindow />
       </Link>
       <p className="text-neutral-400 tracking-tight mb-10">
@@ -73,10 +78,10 @@ export default function Projects() {
                 </p>
                 <Link href={`/blog/${post.slug}`}>
                   <div>
-                    <h2 className="text-lg md:text-2xl font-bold text-neutral-200 tracking-tight group-hover:text-[#ff1717] transition duration-200">
+                    <h4 className="font-bold text-neutral-200 tracking-tight group-hover:text-[#ff1717] transition duration-200 mb-1">
                       {post.title}
-                    </h2>
-                    <p className="text-neutral-500 text-base tracking-tight leading-[130%]">
+                    </h4>
+                    <p className="text-neutral-500 tracking-tight leading-[130%]">
                       {post.summary}
                     </p>
                   </div>

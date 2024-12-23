@@ -10,7 +10,7 @@ draft: false
 
 <a target="_blank" href="https://leetcode.com/problems/trapping-rain-water/">Link to the problem</a>
 
-# Description
+## Description
 
 Given `n` non-negative integers representing an elevation map where the width of each bar is `1`, compute how much water it can trap after raining.
 
@@ -40,18 +40,18 @@ Output: 9
 - `1 <= n <= 2 * 104`
 - `0 <= height[i] <= 105`
 
-# Solution
+## Solution
 
-## Video Explanation
+### Video Explanation
 
 [![Video Title](https://img.youtube.com/vi/VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=VIDEO_ID)
 
-## Time & Space Complexity
+### Time & Space Complexity
 
 With this approach, we can solve the problem in O(n) time complexity and O(1) space complexity,
 where `n` is the length of the input array `height`.
 
-## Approach
+### Approach
 
 We can solve this problem using two pointers `left` and `right`, and two variables that save what is the maximum height found before `maxLeft` and `maxRight`. What we need to do is:
 
@@ -64,7 +64,7 @@ We can solve this problem using two pointers `left` and `right`, and two variabl
 
 - Keep track of the maximum height from the left and right sides and update it if we find a new maximum height.
 
-## Code
+### Code
 
 ```python
 class Solution:

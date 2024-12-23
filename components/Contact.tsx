@@ -14,7 +14,7 @@ export default function Contact() {
         you have a question or just want to say hi, I’ll try my best to get back
         to you!
       </p>
-      <Button >
+      <Button containerClassName="hover:text-[#ff1717] transition duration-200">
         <a
           href="mailto:portfolio@ericdaniels.dev"
           className="text-lg md:text-xl font-semibold text-neutral-100 font-mono tracking-tighter hover:text-[#ff1717] transition duration-200"

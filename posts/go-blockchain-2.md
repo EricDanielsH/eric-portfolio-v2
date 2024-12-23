@@ -8,11 +8,11 @@ tags: ["go", "blockchain", "tutorial", "crypto"]
 draft: false
 ---
 
-# Introduction
+## Introduction
 
 In the previous article, we constructed a simple data structure that forms the foundation of a blockchain database. We enabled the addition of blocks, with each block being linked to the previous one in a chain-like manner. However, our initial implementation has a critical flaw: adding blocks to the chain is straightforward and inexpensive. One of the core principles of blockchain and Bitcoin is that adding new blocks should be a challenging task. Today, we are going to address this issue.
 
-# Proof of Work
+## Proof of Work
 
 A fundamental concept of blockchain is that significant effort must be expended to add data to it. This strenuous effort is what makes the blockchain secure and consistent. Additionally, a reward is given for this effort (this is how miners earn coins).
 
@@ -33,17 +33,17 @@ Check the Hash: Determine if the hash meets certain predefined requirements.
 Validation: If the hash meets the requirements, the process is complete. If not, increment the counter and repeat steps 3 and 4.
 This method is essentially a brute force algorithm: modify the counter, calculate a new hash, check it, and if it doesn't meet the requirements, increment the counter and try again. This repetitive process is what makes Proof-of-Work computationally expensive.
 
-## Hash Requirements
+### Hash Requirements
 
 The specific requirements that a hash must meet are crucial to the Proof-of-Work process. In the original Hashcash implementation, the requirement was that the first 20 bits of a hash must be zeros. In Bitcoin, these requirements are adjusted periodically. This adjustment ensures that despite increases in computational power and the number of miners, a block is still generated approximately every 10 minutes.
 
-## Demonstrating Proof-of-Work
+### Demonstrating Proof-of-Work
 
 To illustrate how this algorithm works, consider how a hash needs to meet specific criteria. For example, in a simplified scenario, a valid hash might need to start with a certain number of leading zero bytes. This requirement ensures that the computational effort to find a valid hash remains significant, maintaining the integrity and security of the blockchain.
 
 Through this process, Bitcoin ensures that adding new blocks to the blockchain remains a resource-intensive task, providing security and stability to the entire network.
 
-# Implementation
+## Implementation
 
 First, we need to set the difficulty of the Proof-of-Work algorithm. This difficulty determines how many leading zeros the hash must have. The higher the difficulty, the more challenging it is to find a valid hash.
 
@@ -189,7 +189,7 @@ func main() {
 }
 ```
 
-# Conclusion
+## Conclusion
 
 Our blockchain is now more closely aligned with its real-world architecture: adding blocks requires significant effort, making mining feasible. However, it still lacks several essential features: the blockchain database is not persistent, and it lacks wallets, addresses, transactions, and a consensus mechanism. We will implement these features in future articles.
 
