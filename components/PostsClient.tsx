@@ -4,6 +4,7 @@ import React from "react";
 import { format } from "date-fns";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { RxOpenInNewWindow } from "react-icons/rx";
 
 interface Post {
   slug: string;
@@ -35,6 +36,7 @@ export default function PostsClient({ posts }: PostsClientProps) {
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           Blog
+        <RxOpenInNewWindow />
         </motion.h2>
       </Link>
       <motion.p
