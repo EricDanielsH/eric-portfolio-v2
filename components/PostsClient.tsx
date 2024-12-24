@@ -36,8 +36,8 @@ export default function PostsClient({ posts }: PostsClientProps) {
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           Blog
-        <RxOpenInNewWindow />
         </motion.h2>
+        <RxOpenInNewWindow />
       </Link>
       <motion.p
         className="tracking-tight mb-10"
