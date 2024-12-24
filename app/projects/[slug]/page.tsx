@@ -1,7 +1,8 @@
-import { NextPage } from "next";
-import { getProjectBySlug } from "../../../lib/projects";
+import { Metadata, NextPage } from "next";
+import { getProjectBySlug, getAllSlugs, Project } from "../../../lib/projects";
 import { notFound } from "next/navigation";
 import React from "react";
+import { format } from "date-fns";
 import Markdown from "markdown-to-jsx";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { materialDark } from "react-syntax-highlighter/dist/esm/styles/prism";
