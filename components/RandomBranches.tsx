@@ -29,18 +29,6 @@ function polarToCartesian(x = 0, y = 0, r = 0, theta = 0) {
   return [x + dx, y + dy];
 }
 
-function getViewportSize() {
-  const vw = Math.max(
-    document.documentElement.clientWidth,
-    window.innerWidth || 0,
-  );
-  const vh = Math.max(
-    document.documentElement.clientHeight,
-    window.innerHeight || 0,
-  );
-  return { width: vw, height: vh };
-}
-
 const RandomBranches = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -54,12 +42,23 @@ const RandomBranches = () => {
   const random = Math.random;
 
   const resizeHandler = useCallback(() => {
-    const newSize = getViewportSize();
-    setSize((prev) => {
-      if (prev?.width === newSize.width && prev?.height === newSize.height)
-        return prev;
-      return newSize;
-    });
+    if (typeof window !== "undefined" && typeof document !== "undefined") {
+      const vw = Math.max(
+        document.documentElement.clientWidth,
+        window.innerWidth || 0,
+      );
+      const vh = Math.max(
+        document.documentElement.clientHeight,
+        window.innerHeight || 0,
+      );
+      const newSize = { width: vw, height: vh };
+
+      setSize((prev) => {
+        if (prev?.width === newSize.width && prev?.height === newSize.height)
+          return prev;
+        return newSize;
+      });
+    }
   }, []);
 
   useEffect(() => {
@@ -120,7 +119,6 @@ const RandomBranches = () => {
       ctx.strokeStyle = `rgba(255, 23, 23, ${opacity})`;
       prevStepsRef.current = [];
 
-      // Always include all four directions
       stepsRef.current = [
         () => step(randomMiddle() * size.width, 0, r90),
         () => step(randomMiddle() * size.width, size.height, -r90),
