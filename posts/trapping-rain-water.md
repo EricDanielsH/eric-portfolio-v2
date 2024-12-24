@@ -82,7 +82,7 @@ class Solution:
                     water += maxRight - height[right]
                 right -= 1
                 maxRight = max(height[right], maxRight)
-k            else:
+            else:
                 if maxLeft - height[left] > 0:
                     water += maxLeft - height[left]
                 left += 1

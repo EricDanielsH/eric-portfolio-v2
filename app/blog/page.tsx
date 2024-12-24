@@ -54,11 +54,11 @@ export default function Projects() {
   const publishedPosts = sortedPosts.filter((post) => !post.draft);
 
   return (
-    <section className="container min-h-[60vh] px-8 bg-neutral-900 text-white max-w-2xl mt-20 mb-40">
-      <h1 className="text-neutral-100 mt-10 tracking-tight animate-fade-in-slide-up delay-long mb-4">
+    <section className="container min-h-[60vh] px-8  max-w-2xl mt-20 mb-40">
+      <h1 className=" mt-10 tracking-tight animate-fade-in-slide-up delay-long mb-4">
         Posts
       </h1>
-      <p className="text-neutral-400 mb-10">
+      <p className=" mb-10">
         Explore a collection of articles, insights, and stories where I share my
         journey, knowledge, and experiences in software engineering.
       </p>

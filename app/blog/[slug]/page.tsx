@@ -83,17 +83,17 @@ const PostPage: NextPage<PostPageProps> = ({ params }) => {
   }
 
   return (
-    <section className="container min-h-[60vh] px-8 bg-neutral-900 text-white max-w-2xl">
-      <h1 className="text-neutral-100 mt-20 tracking-tight mb-4">
+    <section className="container min-h-[60vh] px-8 md:px-0  max-w-2xl">
+      <h1 className="mt-20  mb-4">
         {post.title}
       </h1>
-      <p className="text-neutral-400 tracking-tight mb-4">{post.summary}</p>
+      <p className="  mb-4">{post.summary}</p>
       <div className="flex justify-between  tracking-tighter">
-        <p className="text-neutral-500 tracking-tight">
+        <p className=" tracking-tight">
           Created on <br />
           {format(new Date(post.date), "dd MMMM yyyy")}
         </p>
-        <p className="text-neutral-500 tracking-tight">
+        <p className=" tracking-tight">
           Updated on <br /> {format(new Date(post.lastmod), "dd MMMM yyyy")}
         </p>
       </div>
@@ -113,14 +113,14 @@ const PostPage: NextPage<PostPageProps> = ({ params }) => {
 
       <a
         href="/blog"
-        className="hover:text-[#ff1717] underline text-neutral-200 ease-in duration-150"
+        className="hover:text-[#ff1717] underline ease-in duration-150"
       >
         Back to blog
       </a>
 
       <hr className="border-[#ff1717] my-8" />
 
-      <article className="prose prose-invert prose-neutral text-neutral-300 prose-a:text-[#ff1717]  prose-code:text-neutral-100 prose-code:bg-[#2F2F2F] prose-code:px-1 prose-code:py-1 prose-code:rounded-md prose-p:tracking-tight prose-p:leading-[160%] mb-40">
+      <article className="prose prose-neutral  prose-a:text-[#ff1717]   dark:prose-code:bg-[#2F2F2F] prose-code:bg-gray-300 prose-code:px-1 prose-code:py-1 prose-code:rounded-md prose-p:tracking-tight prose-p:leading-[160%] mb-40">
         <Markdown
           options={{
             overrides: {
