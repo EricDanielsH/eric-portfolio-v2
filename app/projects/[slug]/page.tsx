@@ -1,5 +1,5 @@
 import { Metadata, NextPage } from "next";
-import { getPostBySlug, getAllSlugs, Post } from "../../../lib/posts";
+import { getProjectBySlug, getAllSlugs, Project } from "../../../lib/projects";
 import { notFound } from "next/navigation";
 import React from "react";
 import { format } from "date-fns";
@@ -52,31 +52,9 @@ const PreBlock: React.FC<PreBlockProps> = ({ children, ...rest }) => {
   return <pre {...rest}>{children}</pre>;
 };
 
-export async function generateStaticParams() {
-  const slugs = getAllSlugs();
-  return slugs.map((slug) => ({
-    slug,
-  }));
-}
-
-export const dynamicParams = true;
-
-export async function generateMetadata({
-  params,
-}: PostPageProps): Promise<Metadata> {
-  const post = getPostBySlug(params.slug);
-  if (!post) {
-    notFound();
-  }
-
-  return {
-    title: post.title,
-    description: post.content.slice(0, 150),
-  };
-}
-
 const PostPage: NextPage<PostPageProps> = ({ params }) => {
-  const post = getPostBySlug(params.slug);
+  const post = getProjectBySlug(params.slug);
+  console.log("hello", params.slug);
 
   if (!post) {
     notFound(); // Redirect to a 404 page
@@ -84,43 +62,32 @@ const PostPage: NextPage<PostPageProps> = ({ params }) => {
 
   return (
     <section className="container min-h-[60vh] px-8 md:px-0  max-w-2xl">
-      <h1 className="mt-20  mb-4">
-        {post.title}
-      </h1>
-      <p className="  mb-4">{post.summary}</p>
-      <div className="flex justify-between  tracking-tighter">
-        <p className=" tracking-tight">
-          Created on <br />
-          {format(new Date(post.date), "dd MMMM yyyy")}
-        </p>
-        <p className=" tracking-tight">
-          Updated on <br /> {format(new Date(post.lastmod), "dd MMMM yyyy")}
-        </p>
-      </div>
-
-      {post.tags ? (
-        <div className="flex gap-2 my-4  tracking-tighter">
-          {post.tags.map((tag, index) => (
-            <span
+      <h1 className="mt-20  mb-4">{post.title}</h1>
+      <p className="  mb-4">{post.description}</p>
+      {post.techStack ? (
+        <ul className="flex flex-wrap gap-2 mb-6 w-full items-start max-w-full">
+          {post.techStack.map((tag, index) => (
+            <li
               key={index}
-              className="px-2 py-1 bg-neutral-800 text-neutral-300 text-xs rounded-md"
+              className="text-xs md:text-sm text-red-500 border rounded-full px-2 border-red-800  tracking-tighter"
             >
               {tag}
-            </span>
+            </li>
           ))}
-        </div>
+        </ul>
       ) : null}
 
       <a
-        href="/blog"
-        className="hover:text-[#ff1717] underline ease-in duration-150"
+        href="/"
+        className="hover:text-[#ff1717] font-mono ease-in duration-150"
       >
-        Back to blog
+        <span className="font-serif mr-1 font-extrabold">{">"}</span>
+        {`cd ..`}
       </a>
 
       <hr className="border-[#ff1717] my-8" />
 
-      <article className="prose dark:prose-invert  prose-a:text-[#ff1717]   dark:prose-code:bg-[#2F2F2F] prose-code:bg-gray-300 prose-code:px-1 prose-code:py-1 prose-code:rounded-md prose-p:tracking-tight prose-p:leading-[160%] mb-40">
+      <article className="prose dark:prose-invert prose-a:text-[#ff1717]   dark:prose-code:bg-[#2F2F2F] prose-code:bg-gray-300 prose-code:px-1 prose-code:py-1 prose-code:rounded-md prose-p:tracking-tight prose-p:leading-[160%] mb-40">
         <Markdown
           options={{
             overrides: {

@@ -22,45 +22,49 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   description,
   techStack,
 }) => {
+  const slug = title.toLowerCase().replace(/\s/g, "-");
   return (
     <HeroHighlight>
-      <Link href={link} target="_blank" title={`Check out project on ${link}`}>
-      <article className="p-6 md:p-8 flex flex-col justify-start w-4/5 items-center h-full">
-        <motion.h5
-          variants={fadeInUp}
-          initial="initial"
-          animate="animate"
-          transition={{ duration: 0.5, delay: 0.6, ease: [0.4, 0.0, 0.2, 1] }}
-          className=" text-left w-full mb-2"
-        >
-          {title}
-        </motion.h5>
-        <motion.p
-          variants={fadeInUp}
-          initial="initial"
-          animate="animate"
-          transition={{ duration: 0.9, delay: 0.7, ease: [0.6, 0.0, 0.2, 1] }}
-          className=" text-left text-gray-700 dark:text-gray-300 w-full mb-4 flex-grow"
-        >
-          {description}
-        </motion.p>
-        <motion.ul
-          variants={fadeInUp}
-          initial="initial"
-          animate="animate"
-          transition={{ duration: 1, delay: 0.8, ease: [0.6, 0.0, 0.2, 1] }}
-          className="flex flex-wrap gap-2 max-w-full"
-        >
-          {techStack.map((t, index) => (
-            <li
-              key={index}
-              className="text-xs md:text-sm text-red-500 border rounded-full px-2 border-red-800  tracking-tighter"
-            >
-              {t}
-            </li>
-          ))}
-        </motion.ul>
-      </article>
+      <Link
+        href={`/projects/${slug}`}
+        title={`Check out project on www.ericdaniels.dev/projects/${link}`}
+      >
+        <article className="p-6 md:p-8 flex flex-col justify-start w-full  h-full">
+          <motion.h5
+            variants={fadeInUp}
+            initial="initial"
+            animate="animate"
+            transition={{ duration: 0.5, delay: 0.6, ease: [0.4, 0.0, 0.2, 1] }}
+            className=" text-left w-full mb-2"
+          >
+            {title}
+          </motion.h5>
+          <motion.p
+            variants={fadeInUp}
+            initial="initial"
+            animate="animate"
+            transition={{ duration: 0.9, delay: 0.7, ease: [0.6, 0.0, 0.2, 1] }}
+            className=" text-left text-gray-700 dark:text-gray-300 w-4/5 mb-4 flex-grow"
+          >
+            {description}
+          </motion.p>
+          <motion.ul
+            variants={fadeInUp}
+            initial="initial"
+            animate="animate"
+            transition={{ duration: 1, delay: 0.8, ease: [0.6, 0.0, 0.2, 1] }}
+            className="flex flex-wrap gap-2 w-full items-start max-w-full"
+          >
+            {techStack.map((t, index) => (
+              <li
+                key={index}
+                className="text-xs md:text-sm text-red-500 border rounded-full px-2 border-red-800  tracking-tighter"
+              >
+                {t}
+              </li>
+            ))}
+          </motion.ul>
+        </article>
       </Link>
     </HeroHighlight>
   );

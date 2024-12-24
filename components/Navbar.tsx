@@ -11,7 +11,6 @@ export default function Navbar() {
   const menuRef = useRef<HTMLUListElement | null>(null);
 
   const links = [
-    { name: "Home", href: "/" },
     { name: "About", href: "/#about" },
     { name: "Projects", href: "/#projects" },
     { name: "Blog", href: "/blog" },
