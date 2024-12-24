@@ -1,100 +1,30 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
-import { format, parse } from "date-fns";
 import React from "react";
-import Link from "next/link";
-import { RxOpenInNewWindow } from "react-icons/rx";
+import { getAllSlugs, getPostBySlug, Post } from "@/lib/posts";
+import PostsClient from "./PostsClient"; // Import the client component
 
-export default function Projects() {
-  const MAX_POSTS = 5;
-  const folder = "./posts/";
-  const files = fs.readdirSync(folder).filter((fileName) => {
-    const fullPath = path.join(folder, fileName);
-    return (
-      fs.statSync(fullPath).isFile() && fileName.endsWith(".md") // Ensure it's a file and ends with .md
-    );
+const MAX_POSTS = 5;
+
+export default function Posts() {
+  // Fetch all slugs
+  const slugs = getAllSlugs();
+
+  // Fetch all posts
+  const posts: (Post & { slug: string })[] = slugs
+    .map((slug) => {
+      const post = getPostBySlug(slug);
+      return post ? { ...post, slug } : null; // Include slug with post data
+    })
+    .filter((post): post is Post & { slug: string } => post !== null); // Type guard to filter out null values
+
+  // Sort posts by date in descending order
+  const sortedPosts = posts.sort((a, b) => {
+    const dateA = new Date(a.date).getTime();
+    const dateB = new Date(b.date).getTime();
+    return dateB - dateA;
   });
 
-  const posts = files.map((fileName) => {
-    const filePath = path.join(folder, fileName);
-    const fileContents = fs.readFileSync(filePath, "utf8");
-    const { data } = matter(fileContents);
-    const slug = fileName.replace(/\.md$/, "");
-
-    // Parse the date from "05 June 2023" to a Date object
-    let date;
-    try {
-      date = parse(data.date, "dd MMMM yyyy", new Date());
-      if (isNaN(date.getTime())) {
-        throw new Error("Invalid date");
-      }
-    } catch (error) {
-      console.error(`Error parsing date for file ${fileName}:`, error);
-      date = new Date(); // Fallback to current date or handle as needed
-    }
-
-    return {
-      slug,
-      title: data.title,
-      summary: data.summary,
-      date, // Store the Date object
-      draft: data.draft,
-    };
-  });
-
-  // Sort posts by date in descending order (most recent first)
-  const sortedPosts = posts.sort((a, b) => b.date.getTime() - a.date.getTime());
-
+  // Get the latest posts
   const latestPosts = sortedPosts.slice(0, MAX_POSTS);
 
-  return (
-    <section className="pt-[10vh] container min-h-[60vh] px-8 md:px-0 max-w-2xl">
-      <Link
-        href="/blog"
-        className="w-fit hover:text-[#ff1717] transition duration-300 flex justify-center items-center"
-      >
-        <h2 className="mt-10 tracking-tight animate-fade-in-slide-up delay-long mb-4">
-          Posts
-        </h2>
-        <RxOpenInNewWindow />
-      </Link>
-      <p className=" tracking-tight mb-10">
-        Explore a collection of articles, insights, and stories where I share my
-        journey, knowledge, and experiences in software engineering.
-        <br />
-        <br /> Some of my latest posts:
-      </p>
-      <div className="flex flex-col gap-2 mb-4">
-        {latestPosts.map(
-          (post, index) =>
-            !post.draft && (
-              <article
-                key={index}
-                className="mb-4 flex flex-col items-start group"
-              >
-                <p className="text-sm text-gray-400 dark:text-gray-500 flex-none  tracking-tighter">
-                  {format(post.date, "dd MMMM yyyy")}
-                </p>
-                <Link href={`/blog/${post.slug}`}>
-                  <div>
-                    <h4 className="tracking-tight cursor-pointer group-hover:text-[#ff1717] transition duration-200 mb-1">
-                      {post.title}
-                    </h4>
-                    <p className="text-gray-700 dark:text-gray-300 tracking-tight leading-[130%]">
-                      {post.summary}
-                    </p>
-                  </div>
-                </Link>
-              </article>
-            ),
-        )}
-      </div>
-      <Link href="/blog" className="w-fit">
-        <div className="text-[#ff1717] cursor-pointer text-center underline font-bold  tracking-tighter">
-          View all posts
-        </div>
-      </Link>
-    </section>
-  );
+  return <PostsClient posts={latestPosts} />;
 }
