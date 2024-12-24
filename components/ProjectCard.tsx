@@ -25,9 +25,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   const slug = title.toLowerCase().replace(/\s/g, "-");
   return (
     <HeroHighlight>
-      <LinkPreview url={`https://ericdaniels.dev/projects/${slug}`}>
+      <LinkPreview url={`https://ericdaniels.dev/projects/${slug}`} className="h-full">
         <article
-          className="p-6 md:p-8 flex flex-col justify-start w-full  h-full"
+          className="p-6 md:p-8 flex flex-col justify-end h-full w-full "
           title={`See more in ${link}`}
         >
           <motion.h5
@@ -44,7 +44,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             initial="initial"
             animate="animate"
             transition={{ duration: 0.9, delay: 0.7, ease: [0.6, 0.0, 0.2, 1] }}
-            className=" text-left text-gray-700 dark:text-gray-300 w-4/5 mb-4 flex-grow"
+            className=" text-left text-gray-700 dark:text-gray-300 w-4/5 mb-4 "
           >
             {description}
           </motion.p>

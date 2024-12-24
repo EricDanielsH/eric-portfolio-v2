@@ -30,7 +30,7 @@ export default function Projects() {
       >
         Projects
       </motion.h2>
-      <div className="flex flex-col gap-4 md:grid md:grid-cols-10 md:auto-rows-[5rem]">
+      <div className="flex flex-col h-full gap-4 md:grid md:grid-cols-10 md:auto-rows-[5rem]">
         {projectData.map((project, index) => {
           const config = gridConfig[index] || {
             colStart: 1,
@@ -46,7 +46,7 @@ export default function Projects() {
                 gridColumn: `${config.colStart} / ${config.colEnd}`,
                 gridRow: `${config.rowStart} / ${config.rowEnd}`,
               }}
-              className="rounded-2xl bg-gray-500 shadow-md flex items-center justify-center"
+              className="rounded-2xl bg-gray-500 shadow-md flex items-center justify-center h-full"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{

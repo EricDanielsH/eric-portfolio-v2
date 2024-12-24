@@ -1,4 +1,5 @@
 "use client";
+
 import * as HoverCardPrimitive from "@radix-ui/react-hover-card";
 import Image from "next/image";
 import { encode } from "qss";
@@ -31,7 +32,7 @@ export const LinkPreview = ({
   className,
   width = 200,
   height = 125,
-  quality = 50,
+  quality = 75,
   layout = "fixed",
   isStatic = false,
   imageSrc = "",
@@ -55,7 +56,6 @@ export const LinkPreview = ({
   }
 
   const [isOpen, setOpen] = React.useState(false);
-
   const [isMounted, setIsMounted] = React.useState(false);
 
   React.useEffect(() => {
@@ -64,18 +64,25 @@ export const LinkPreview = ({
 
   const springConfig = { stiffness: 100, damping: 15 };
   const x = useMotionValue(0);
+  const y = useMotionValue(0);
 
   const translateX = useSpring(x, springConfig);
+  const translateY = useSpring(y, springConfig);
 
-  const handleMouseMove = (event: any) => {
-    const targetRect = event.target.getBoundingClientRect();
+  const handleMouseMove = (event: React.MouseEvent) => {
+    const targetRect = event.currentTarget.getBoundingClientRect();
     const eventOffsetX = event.clientX - targetRect.left;
-    const offsetFromCenter = (eventOffsetX - targetRect.width / 2) / 2; // Reduce the effect to make it subtle
-    x.set(offsetFromCenter);
+    const eventOffsetY = event.clientY - targetRect.top;
+
+    const offsetFromCenterX = (eventOffsetX - targetRect.width / 2) / 3; // X-axis effect
+    const offsetFromCenterY = (eventOffsetY - targetRect.height / 2) / 3; // Y-axis effect
+
+    x.set(offsetFromCenterX);
+    y.set(offsetFromCenterY);
   };
 
   return (
-    <>
+    <div className="h-full">
       {isMounted ? (
         <div className="hidden">
           <Image
@@ -118,7 +125,7 @@ export const LinkPreview = ({
                 animate={{
                   opacity: 1,
                   y: 0,
-                  scale: 1,
+                  scale: 1.5,
                   transition: {
                     type: "spring",
                     stiffness: 260,
@@ -129,6 +136,7 @@ export const LinkPreview = ({
                 className="shadow-xl rounded-xl"
                 style={{
                   x: translateX,
+                  y: translateY, // Apply Y-axis motion
                 }}
               >
                 <Link
@@ -152,6 +160,6 @@ export const LinkPreview = ({
           </AnimatePresence>
         </HoverCardPrimitive.Content>
       </HoverCardPrimitive.Root>
-    </>
+    </div>
   );
 };
