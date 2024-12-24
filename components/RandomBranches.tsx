@@ -14,8 +14,8 @@ function initCanvas(canvas: HTMLCanvasElement, width = 400, height = 400) {
   if (!ctx) throw new Error("Unable to get 2D context");
 
   const dpi = window.devicePixelRatio || 1;
-  canvas.style.width = `${width}px`;
-  canvas.style.height = `${height}px`;
+  canvas.style.width = width + "px";
+  canvas.style.height = height + "px";
   canvas.width = Math.floor(width * dpi);
   canvas.height = Math.floor(height * dpi);
   ctx.scale(dpi, dpi);
@@ -29,8 +29,21 @@ function polarToCartesian(x = 0, y = 0, r = 0, theta = 0) {
   return [x + dx, y + dy];
 }
 
+function getViewportSize() {
+  const vw = Math.max(
+    document.documentElement.clientWidth,
+    window.innerWidth || 0,
+  );
+  const vh = Math.max(
+    document.documentElement.clientHeight,
+    window.innerHeight || 0,
+  );
+  return { width: vw, height: vh };
+}
+
 const RandomBranches = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const [size, setSize] = useState<{ width: number; height: number } | null>(
     null,
   );
@@ -41,26 +54,25 @@ const RandomBranches = () => {
   const random = Math.random;
 
   const resizeHandler = useCallback(() => {
-    const newWidth = window.innerWidth;
-    const newHeight = document.documentElement.clientHeight;
+    const newSize = getViewportSize();
     setSize((prev) => {
-      if (prev?.width === newWidth && prev?.height === newHeight) return prev;
-      return { width: newWidth, height: newHeight };
+      if (prev?.width === newSize.width && prev?.height === newSize.height)
+        return prev;
+      return newSize;
     });
   }, []);
 
   useEffect(() => {
     resizeHandler();
-    const debounceResize = setTimeout(resizeHandler, 100);
-    return () => clearTimeout(debounceResize);
+    window.addEventListener("resize", resizeHandler);
+    return () => window.removeEventListener("resize", resizeHandler);
   }, [resizeHandler]);
 
   useEffect(() => {
-    if (!size || size.width === 0 || size.height === 0) return;
+    if (!size || !containerRef.current) return;
 
     const canvas = canvasRef.current!;
     const { ctx } = initCanvas(canvas, size.width, size.height);
-    const { width, height } = canvas;
 
     const step = (
       x: number,
@@ -103,17 +115,18 @@ const RandomBranches = () => {
     const randomMiddle = () => random() * 0.6 + 0.2;
 
     const start = () => {
-      ctx.clearRect(0, 0, width, height);
+      ctx.clearRect(0, 0, size.width, size.height);
       ctx.lineWidth = 1;
       ctx.strokeStyle = `rgba(255, 23, 23, ${opacity})`;
       prevStepsRef.current = [];
+
+      // Always include all four directions
       stepsRef.current = [
-        () => step(randomMiddle() * size.width, -5, r90),
-        () => step(randomMiddle() * size.width, size.height + 5, -r90),
-        () => step(-5, randomMiddle() * size.height, 0),
-        () => step(size.width + 5, randomMiddle() * size.height, r180),
+        () => step(randomMiddle() * size.width, 0, r90),
+        () => step(randomMiddle() * size.width, size.height, -r90),
+        () => step(0, randomMiddle() * size.height, 0),
+        () => step(size.width, randomMiddle() * size.height, r180),
       ];
-      if (size.width < 500) stepsRef.current = stepsRef.current.slice(0, 2);
     };
 
     const frame = () => {
@@ -133,24 +146,22 @@ const RandomBranches = () => {
     start();
     frame();
 
-    window.addEventListener("resize", resizeHandler);
-
     return () => {
-      window.removeEventListener("resize", resizeHandler);
       if (animationFrameRef.current) {
         cancelAnimationFrame(animationFrameRef.current);
       }
     };
-  }, [size, random, resizeHandler]);
+  }, [size, random]);
 
   return (
     <div
+      ref={containerRef}
       style={{
         position: "fixed",
         top: 0,
-        bottom: 0,
         left: 0,
-        right: 0,
+        width: "100%",
+        height: "100%",
         pointerEvents: "none",
         zIndex: 0,
         maskImage: "radial-gradient(circle, transparent, black)",
@@ -161,7 +172,9 @@ const RandomBranches = () => {
         <canvas
           ref={canvasRef}
           style={{
-            display: size.width > 0 && size.height > 0 ? "block" : "none",
+            display: "block",
+            width: "100%",
+            height: "100%",
           }}
         />
       )}
