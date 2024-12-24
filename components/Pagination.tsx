@@ -1,8 +1,8 @@
-// components/Pagination.tsx
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { format } from "date-fns";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface PaginationProps {
   items: {
@@ -32,34 +32,56 @@ const Pagination: React.FC<PaginationProps> = ({ items, itemsPerPage }) => {
 
   return (
     <div>
-      <div className="flex flex-col gap-2 mt-10">
-        {currentItems.map((post, index) => (
-          <article key={index} className="mb-4 flex flex-col items-start group">
-            <p className="text-neutral-600 text-sm flex-none  tracking-tighter">
-              {format(post.date, "dd MMMM yyyy")}
-            </p>
-            <Link href={`/blog/${post.slug}`}>
-              <div>
-                <h2 className="tracking-tight group-hover:text-[#ff1717] transition duration-200">
-                  {post.title}
-                </h2>
-                <p className="tracking-tight leading-[130%]">
-                  {post.summary}
-                </p>
-              </div>
-            </Link>
-          </article>
-        ))}
+      <div className="flex flex-col gap-2 pt-[10vh]">
+        <AnimatePresence mode="wait">
+          {currentItems.map((post, index) => (
+            <motion.article
+              key={post.slug}
+              className="mb-4 flex flex-col items-start group"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+              transition={{
+                delay: index * 0.1, // Add a slight stagger effect
+                duration: 0.5,
+                ease: "easeOut",
+              }}
+            >
+              <p className="text-neutral-600 text-sm flex-none tracking-tighter">
+                {format(post.date, "dd MMMM yyyy")}
+              </p>
+              <Link href={`/blog/${post.slug}`}>
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <h2 className="text-[1.602rem] tracking-tight group-hover:text-[#ff1717] transition duration-200">
+                    {post.title}
+                  </h2>
+                  <p className="tracking-tight leading-[130%]">
+                    {post.summary}
+                  </p>
+                </motion.div>
+              </Link>
+            </motion.article>
+          ))}
+        </AnimatePresence>
       </div>
-      <div className="flex justify-between items-center mt-10">
+
+      <motion.div
+        className="flex justify-between items-center mt-10"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
         <button
           onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
           disabled={currentPage === 1}
-          className="px-4 py-2 bg-neutral-800 text-white rounded disabled:opacity-50  tracking-tighter"
+          className="px-4 py-2 bg-neutral-800 text-white rounded disabled:opacity-50 tracking-tighter"
         >
           Previous
         </button>
-        <span className="text-neutral-400  tracking-tighter">
+        <span className="text-neutral-400 tracking-tighter">
           Page {currentPage} of {totalPages}
         </span>
         <button
@@ -67,11 +89,11 @@ const Pagination: React.FC<PaginationProps> = ({ items, itemsPerPage }) => {
             setCurrentPage((prev) => Math.min(prev + 1, totalPages))
           }
           disabled={currentPage === totalPages}
-          className="px-4 py-2 bg-neutral-800 text-white rounded disabled:opacity-50  tracking-tighter"
+          className="px-4 py-2 bg-neutral-800 text-white rounded disabled:opacity-50 tracking-tighter"
         >
           Next
         </button>
-      </div>
+      </motion.div>
     </div>
   );
 };
