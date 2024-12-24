@@ -15,8 +15,8 @@ export function AuroraBackgroundDemo() {
       opacity: 1,
       y: 0,
       transition: {
-        delay: 0.3,
-        duration: 0.8,
+        delay: 0.1, // Reduced delay
+        duration: 0.5, // Maximum 0.5s duration
         ease: "easeInOut",
       },
     });
@@ -29,12 +29,8 @@ export function AuroraBackgroundDemo() {
         animate={controls}
         className="mt-10 relative flex flex-col items-center justify-center px-4"
       >
-        <p className="">
-          Hey! I&apos;m
-        </p>
-        <h1 className="text-center tracking-tighter z-10">
-          Eric Daniels
-        </h1>
+        <p className="">Hey! I&apos;m</p>
+        <h1 className="text-center tracking-tighter z-10">Eric Daniels</h1>
         <small className="flex items-center">
           <FaLocationDot className="inline-block mr-1" />
           Lancaster, UK
