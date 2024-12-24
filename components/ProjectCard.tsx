@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { HeroHighlight } from "./ui/hero-highlight";
-import Link from "next/link";
+import { LinkPreview } from "@/components/ui/link-preview";
 
 // Animation variant for fading in and moving up
 const fadeInUp = {
@@ -25,11 +25,11 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   const slug = title.toLowerCase().replace(/\s/g, "-");
   return (
     <HeroHighlight>
-      <Link
-        href={`/projects/${slug}`}
-        title={`Check out project on www.ericdaniels.dev/projects/${link}`}
-      >
-        <article className="p-6 md:p-8 flex flex-col justify-start w-full  h-full">
+      <LinkPreview url={`https://ericdaniels.dev/projects/${slug}`}>
+        <article
+          className="p-6 md:p-8 flex flex-col justify-start w-full  h-full"
+          title={`See more in ${link}`}
+        >
           <motion.h5
             variants={fadeInUp}
             initial="initial"
@@ -65,7 +65,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             ))}
           </motion.ul>
         </article>
-      </Link>
+      </LinkPreview>
     </HeroHighlight>
   );
 };
