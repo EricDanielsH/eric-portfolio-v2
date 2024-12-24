@@ -1,9 +1,10 @@
+import { ShootingStars } from "@/components/ui/shooting-starts";
+import { StarsBackground } from "@/components/ui/starts-background";
+import RandomBranches from "@/components/RandomBranches";
+
 export default function About() {
   return (
-    <section
-      id="about"
-      className="container px-8 md:px-0 max-w-2xl pt-[10vh]"
-    >
+    <section id="about" className="container px-8 md:px-0 max-w-2xl pt-[10vh]">
       <h2 className=" mb-4 tracking-tight animate-fade-in-slide-up delay-long">
         About Me
       </h2>

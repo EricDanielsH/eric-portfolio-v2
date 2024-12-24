@@ -46,7 +46,7 @@ export function AuroraBackgroundDemo() {
           alt="Eric Daniels"
           className="absolute opacity-15 z-0 w-full md:w-2/3"
         />
-        <p className="py-2 text-center mb-4">
+        <p className="py-2 text-center mb-4 z-10">
           Software Engineer dedicated to building practical, high-quality
           solutions and solving real-world problems with code
         </p>

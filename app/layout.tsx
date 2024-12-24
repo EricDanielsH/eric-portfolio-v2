@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { ShootingStars } from "@/components/ui/shooting-starts";
+import { StarsBackground } from "@/components/ui/starts-background";
+import RandomBranches from "@/components/RandomBranches";
 
 export const metadata: Metadata = {
   title: "Eric Daniels",
@@ -19,7 +22,6 @@ export default function RootLayout({
       const theme = localStorage.getItem('theme') || 'light';
       const html = document.documentElement;
       html.classList.add(theme);
-      html.setAttribute('data-theme', theme);
     })();
   `;
 
@@ -33,8 +35,11 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen flex flex-col">
+        {/* Background Effect */}
+        <RandomBranches />
+
         <Navbar />
-        <main className="flex-grow">{children}</main>
+        <main>{children}</main>
         <Footer />
       </body>
     </html>

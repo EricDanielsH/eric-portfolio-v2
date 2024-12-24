@@ -104,13 +104,13 @@ h6 {
   }
 }
 
-:root {
+html.light {
   --bg-color: white;
   --text-color: black;
   --heading-color: #333;
 }
 
-.dark {
+html.dark {
   --bg-color: #050505;
   --text-color: white;
   --heading-color: #eee;
