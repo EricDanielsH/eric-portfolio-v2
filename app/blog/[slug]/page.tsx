@@ -83,10 +83,8 @@ const PostPage: NextPage<PostPageProps> = ({ params }) => {
   }
 
   return (
-    <section className="container min-h-[60vh] px-8 md:px-0  max-w-2xl">
-      <h1 className="mt-20  mb-4">
-        {post.title}
-      </h1>
+    <section className="container min-h-[60vh] z-10 px-8 md:px-0  max-w-2xl">
+      <h1 className="mt-20  mb-4">{post.title}</h1>
       <p className="  mb-4">{post.summary}</p>
       <div className="flex justify-between  tracking-tighter">
         <p className=" tracking-tight">
@@ -121,8 +119,10 @@ const PostPage: NextPage<PostPageProps> = ({ params }) => {
 
       <hr className="border-[#ff1717] my-8" />
 
-      <article className="prose dark:prose-invert  prose-a:text-[#ff1717]   dark:prose-code:bg-[#2F2F2F] prose-code:bg-gray-300 prose-code:px-1 prose-code:py-1 prose-code:rounded-md prose-p:tracking-tight prose-p:leading-[160%] mb-40">
+      <article className="prose dark:prose-invert  prose-a:text-[#ff1717]   dark:prose-code:bg-[#2F2F2F] prose-code:bg-gray-300 prose-code:px-1 prose-code:py-1 prose-code:rounded-md prose-p:tracking-tight prose-p:leading-[160%] z-10 mb-40">
         <Markdown
+          className="z-10"
+          style={{ zIndex: 10 }}
           options={{
             overrides: {
               pre: PreBlock,

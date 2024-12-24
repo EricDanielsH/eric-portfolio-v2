@@ -6,10 +6,10 @@ const r180 = Math.PI;
 const r90 = Math.PI / 2;
 const r15 = Math.PI / 12;
 const color = "#ff1717";
-const opacity = 0.25;
+const opacity = 0.08;
 
 const MIN_BRANCH = 8;
-const MAX_BRANCH_LENGTH = 200; // Maximum branch length in pixels
+const MAX_BRANCH_LENGTH = 250; // Maximum branch length in pixels
 
 function initCanvas(canvas: HTMLCanvasElement, width = 400, height = 400) {
   const ctx = canvas.getContext("2d");
@@ -37,10 +37,9 @@ function polarToCartesian(x = 0, y = 0, r = 0, theta = 0) {
 
 const RandomBranches = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const [size, setSize] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight,
-  });
+  const [size, setSize] = useState<{ width: number; height: number } | null>(
+    null
+  );
 
   const random = Math.random;
 
@@ -49,6 +48,12 @@ const RandomBranches = () => {
   }, []);
 
   useEffect(() => {
+    setSize({ width: window.innerWidth, height: window.innerHeight });
+  }, []);
+
+  useEffect(() => {
+    if (!size || size.width === 0 || size.height === 0) return;
+
     const canvas = canvasRef.current!;
     const { ctx } = initCanvas(canvas, size.width, size.height);
     const { width, height } = canvas;
@@ -60,9 +65,9 @@ const RandomBranches = () => {
       x: number,
       y: number,
       rad: number,
-      counter = { value: 0, totalLength: 0 },
+      counter = { value: 0, totalLength: 0 }
     ) => {
-      const length = random() * 5;
+      const length = random() * 8;
       counter.value += 1;
       counter.totalLength += length;
 
@@ -149,7 +154,12 @@ const RandomBranches = () => {
         WebkitMaskImage: "radial-gradient(circle, transparent, black)",
       }}
     >
-      <canvas ref={canvasRef} width="200" height="200" />
+      {size && (
+        <canvas
+          ref={canvasRef}
+          style={{ display: size.width > 0 && size.height > 0 ? "block" : "none" }}
+        />
+      )}
     </div>
   );
 };
