@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { ProjectCard } from "@/components/ProjectCard";
 import { projectData } from "@/lib/data";
 
@@ -12,11 +15,21 @@ export default function Projects() {
   ];
 
   return (
-    <section
+    <motion.section
       id="projects"
-      className="container min-h-[60vh] md:px-0 px-8  max-w-2xl pt-[10vh]"
+      className="container min-h-[60vh] md:px-0 px-8 max-w-2xl pt-[10vh]"
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: "easeOut" }} // Duration limited to 0.5s
     >
-      <h2 className="mb-8 tracking-tight  font-bold">Projects</h2>
+      <motion.h2
+        className="mb-8 tracking-tight font-bold"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.1, duration: 0.4 }} // Reduced duration
+      >
+        Projects
+      </motion.h2>
       <div className="flex flex-col gap-4 md:grid md:grid-cols-10 md:auto-rows-[5rem]">
         {projectData.map((project, index) => {
           const config = gridConfig[index] || {
@@ -27,13 +40,21 @@ export default function Projects() {
           }; // Default config
 
           return (
-            <div
+            <motion.div
               key={index}
               style={{
                 gridColumn: `${config.colStart} / ${config.colEnd}`,
                 gridRow: `${config.rowStart} / ${config.rowEnd}`,
               }}
               className="rounded-2xl bg-gray-500 shadow-md flex items-center justify-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                delay: index * 0.1, // Reduced delay for stagger effect
+                duration: 0.5, // Maximum duration
+                ease: "easeOut",
+              }}
+              viewport={{ once: true }}
             >
               <ProjectCard
                 title={project.title}
@@ -41,10 +62,10 @@ export default function Projects() {
                 description={project.description}
                 techStack={project.techStack}
               />
-            </div>
+            </motion.div>
           );
         })}
       </div>
-    </section>
+    </motion.section>
   );
 }
