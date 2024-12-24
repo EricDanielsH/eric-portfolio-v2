@@ -32,7 +32,7 @@ const Pagination: React.FC<PaginationProps> = ({ items, itemsPerPage }) => {
 
   return (
     <div>
-      <div className="flex flex-col gap-2 pt-[10vh]">
+      <div className="flex flex-col gap-2 mt-10">
         <AnimatePresence mode="wait">
           {currentItems.map((post, index) => (
             <motion.article
@@ -40,7 +40,7 @@ const Pagination: React.FC<PaginationProps> = ({ items, itemsPerPage }) => {
               className="mb-4 flex flex-col items-start group"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 20 }}
+              exit={{ opacity: 0, y: -20 }} // Smooth exit animation
               transition={{
                 delay: index * 0.1, // Add a slight stagger effect
                 duration: 0.5,
@@ -72,19 +72,29 @@ const Pagination: React.FC<PaginationProps> = ({ items, itemsPerPage }) => {
         className="flex justify-between items-center mt-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <button
+        <motion.button
+          whileHover={{ scale: currentPage !== 1 ? 1.05 : 1 }} // Scale only if clickable
+          whileTap={{ scale: currentPage !== 1 ? 0.95 : 1 }}
           onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
           disabled={currentPage === 1}
           className="px-4 py-2 bg-neutral-800 text-white rounded disabled:opacity-50 tracking-tighter"
         >
           Previous
-        </button>
-        <span className="text-neutral-400 tracking-tighter">
+        </motion.button>
+        <motion.span
+          className="text-neutral-400 tracking-tighter"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
+        >
           Page {currentPage} of {totalPages}
-        </span>
-        <button
+        </motion.span>
+        <motion.button
+          whileHover={{ scale: currentPage !== totalPages ? 1.05 : 1 }} // Scale only if clickable
+          whileTap={{ scale: currentPage !== totalPages ? 0.95 : 1 }}
           onClick={() =>
             setCurrentPage((prev) => Math.min(prev + 1, totalPages))
           }
@@ -92,7 +102,7 @@ const Pagination: React.FC<PaginationProps> = ({ items, itemsPerPage }) => {
           className="px-4 py-2 bg-neutral-800 text-white rounded disabled:opacity-50 tracking-tighter"
         >
           Next
-        </button>
+        </motion.button>
       </motion.div>
     </div>
   );

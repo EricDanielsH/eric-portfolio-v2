@@ -6,27 +6,27 @@ import { projectData } from "@/lib/data";
 
 export default function Projects() {
   const gridConfig = [
-    { colStart: 1, colEnd: 7, rowStart: 1, rowEnd: 5 }, // First card spans 3 cols, 3 rows
-    { colStart: 7, colEnd: 11, rowStart: 1, rowEnd: 5 }, // Second card spans 3 cols, 3 rows
-    { colStart: 1, colEnd: 6, rowStart: 5, rowEnd: 9 }, // Third card spans 4 cols, 2 rows
-    { colStart: 6, colEnd: 11, rowStart: 5, rowEnd: 8 }, // Fourth card spans 2 cols, 2 rows
-    { colStart: 1, colEnd: 6, rowStart: 9, rowEnd: 12 }, // Fifth card spans 6 cols, 2 rows
-    { colStart: 6, colEnd: 11, rowStart: 8, rowEnd: 12 }, // Sixth card spans 6 cols, 2 rows
+    { colStart: 1, colEnd: 7, rowStart: 1, rowEnd: 5 },
+    { colStart: 7, colEnd: 11, rowStart: 1, rowEnd: 5 },
+    { colStart: 1, colEnd: 6, rowStart: 5, rowEnd: 9 },
+    { colStart: 6, colEnd: 11, rowStart: 5, rowEnd: 8 },
+    { colStart: 1, colEnd: 6, rowStart: 9, rowEnd: 12 },
+    { colStart: 6, colEnd: 11, rowStart: 8, rowEnd: 12 },
   ];
 
   return (
     <motion.section
       id="projects"
-      className="container min-h-[60vh] md:px-0 px-8 max-w-2xl pt-[10vh]"
-      initial={{ opacity: 0, y: 50 }}
+      className="container min-h-[60vh] md:px-0 px-8 max-w-2xl pt-[15vh]" // Increased padding for navbar
+      initial={{ opacity: 0, y: 30 }} // Adjusted y offset
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, ease: "easeOut" }} // Duration limited to 0.5s
+      transition={{ duration: 0.5, ease: "easeOut" }}
     >
       <motion.h2
         className="mb-8 tracking-tight font-bold"
-        initial={{ opacity: 0, y: -20 }}
+        initial={{ opacity: 0, y: -10 }} // Smaller y offset
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.1, duration: 0.4 }} // Reduced duration
+        transition={{ delay: 0.1, duration: 0.4 }}
       >
         Projects
       </motion.h2>
@@ -37,7 +37,7 @@ export default function Projects() {
             colEnd: 2,
             rowStart: 1,
             rowEnd: 2,
-          }; // Default config
+          };
 
           return (
             <motion.div
@@ -47,11 +47,11 @@ export default function Projects() {
                 gridRow: `${config.rowStart} / ${config.rowEnd}`,
               }}
               className="rounded-2xl bg-gray-500 shadow-md flex items-center justify-center h-full"
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 10 }} // Smaller downward animation
               whileInView={{ opacity: 1, y: 0 }}
               transition={{
-                delay: index * 0.1, // Reduced delay for stagger effect
-                duration: 0.5, // Maximum duration
+                delay: index * 0.1,
+                duration: 0.5,
                 ease: "easeOut",
               }}
               viewport={{ once: true }}
