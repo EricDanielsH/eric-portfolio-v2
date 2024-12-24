@@ -56,12 +56,20 @@ export default function Projects() {
   return (
     <section className="container min-h-[60vh] px-8  max-w-2xl mt-20 mb-40">
       <h1 className=" mt-10 tracking-tight animate-fade-in-slide-up delay-long mb-4">
-        Posts
+        Blog
       </h1>
-      <p className=" mb-10">
+      <p className="mb-4">
         Explore a collection of articles, insights, and stories where I share my
         journey, knowledge, and experiences in software engineering.
       </p>
+      <a
+        href="/"
+        className="hover:text-[#ff1717] mb-8 font-mono ease-in duration-150"
+      >
+        <span className="font-serif mr-1 font-extrabold">{">"}</span>
+        {`cd ..`}
+      </a>
+
       <Pagination items={publishedPosts} itemsPerPage={MAX_POSTS} />
     </section>
   );

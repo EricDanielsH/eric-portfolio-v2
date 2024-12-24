@@ -6,30 +6,40 @@ import { flushSync } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
 function useTheme() {
-  const [theme, setTheme] = React.useState(() => {
-    if (typeof window !== "undefined") {
-      return localStorage.getItem("theme") || "light";
-    }
-    return "light";
-  });
+  const [theme, setTheme] = React.useState<string | null>(null); // Start with null to avoid flickering
 
   React.useEffect(() => {
-    document.documentElement.classList.remove("light", "dark");
-    document.documentElement.classList.add(theme);
-    localStorage.setItem("theme", theme);
-  }, [theme]);
+    const storedTheme = localStorage.getItem("theme") || "light";
+    setTheme(storedTheme);
 
-  return { theme, setTheme };
+    // Apply the theme immediately
+    document.documentElement.classList.remove("light", "dark");
+    document.documentElement.classList.add(storedTheme);
+  }, []);
+
+  const toggleTheme = useCallback(() => {
+    setTheme((prevTheme) => {
+      const newTheme = prevTheme === "light" ? "dark" : "light";
+
+      // Update the theme
+      document.documentElement.classList.remove("light", "dark");
+      document.documentElement.classList.add(newTheme);
+      localStorage.setItem("theme", newTheme);
+
+      return newTheme;
+    });
+  }, []);
+
+  return { theme, toggleTheme };
 }
 
 export function ThemeSwitcherButton() {
-  const { theme, setTheme } = useTheme();
+  const { theme, toggleTheme } = useTheme();
 
-  const toggleTheme = useCallback(() => {
-    flushSync(() => {
-      setTheme((prev) => (prev === "light" ? "dark" : "light"));
-    });
-  }, [setTheme]);
+  // Prevent rendering until the theme is set
+  if (!theme) {
+    return null;
+  }
 
   return (
     <button

@@ -123,16 +123,24 @@ button {
   cursor: pointer;
 }
 
+/* Disable transitions on initial load */
+html {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: none;
+}
+
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
-  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth fade effect */
+  transition: none;
   font-family: 'Inter', sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  color: var(--heading-color);
-  transition: color 0.3s ease; /* Smooth fade effect */
+/* Re-enable transitions for theme toggle */
+html[data-theme="dark"] body,
+html[data-theme="light"] body {
+  transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 @layer utilities {

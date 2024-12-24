@@ -60,7 +60,7 @@ export default function Navbar() {
 
           <button
             onClick={toggleMenu}
-            className="text-neutral-200 focus:outline-none hover:text-[#ff1717] transition duration-300"
+            className="focus:outline-none hover:text-[#ff1717] transition duration-300"
           >
             <svg
               className="w-8 h-6"
@@ -80,12 +80,12 @@ export default function Navbar() {
         </div>
         <ul
           ref={menuRef}
-          className={`flex flex-col items-center justify-center gap-8 md:flex md:flex-row transition-transform  duration-300 ease-in-out fixed md:static top-0 right-0 h-[100vh] md:h-auto w-3/4 md:w-auto bg-neutral-800 md:bg-transparent transform ${isMenuOpen ? "translate-x-0" : "translate-x-full"
+          className={`flex flex-col items-center justify-center gap-8 md:flex md:flex-row transition-transform  duration-300 ease-in-out fixed md:static top-0 right-0 h-[100vh] md:h-auto w-3/4 md:w-auto  backdrop-blur-xl bg-gray-300 dark:bg-gray-500 md:bg-transparent transform ${isMenuOpen ? "translate-x-0" : "translate-x-full"
             } md:transform-none p-4 md:p-0 z-40`}
         >
           <button
             onClick={toggleMenu}
-            className="absolute top-6 right-6 text-neutral-200 md:hidden hover:text-[#ff1717] transition duration-300"
+            className="absolute top-6 right-6 md:hidden hover:text-[#ff1717] transition duration-300"
           >
             <svg
               className="w-6 h-6"

@@ -113,9 +113,10 @@ const PostPage: NextPage<PostPageProps> = ({ params }) => {
 
       <a
         href="/blog"
-        className="hover:text-[#ff1717] underline ease-in duration-150"
+        className="hover:text-[#ff1717] font-mono ease-in duration-150"
       >
-        Back to blog
+        <span className="font-serif mr-1 font-extrabold">{">"}</span>
+        {`cd ..`}
       </a>
 
       <hr className="border-[#ff1717] my-8" />

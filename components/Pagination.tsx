@@ -32,7 +32,7 @@ const Pagination: React.FC<PaginationProps> = ({ items, itemsPerPage }) => {
 
   return (
     <div>
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2 mt-10">
         {currentItems.map((post, index) => (
           <article key={index} className="mb-4 flex flex-col items-start group">
             <p className="text-neutral-600 text-sm flex-none  tracking-tighter">

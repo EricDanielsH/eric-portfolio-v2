@@ -14,8 +14,24 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const setInitialThemeScript = `
+    (function() {
+      const theme = localStorage.getItem('theme') || 'light';
+      const html = document.documentElement;
+      html.classList.add(theme);
+      html.setAttribute('data-theme', theme);
+    })();
+  `;
+
   return (
     <html lang="en">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: setInitialThemeScript,
+          }}
+        />
+      </head>
       <body className="min-h-screen flex flex-col">
         <Navbar />
         <main className="flex-grow">{children}</main>
