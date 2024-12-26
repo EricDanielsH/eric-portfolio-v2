@@ -1,6 +1,7 @@
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
-import { FaXTwitter } from "react-icons/fa6";
+import { FaBluesky } from "react-icons/fa6";
+import { IoMdDocument } from "react-icons/io";
 import Link from "next/link";
 
 export default function Socials() {
@@ -10,6 +11,7 @@ export default function Socials() {
         className="text-lg md:text-2xl hover:text-primary-500 hover:text-[#ff1717] transition duration-200"
         href="https://www.linkedin.com/in/EricDanielsH/"
         target="_blank"
+        title="LinkedIn"
       >
         <FaLinkedin />
       </Link>
@@ -17,20 +19,32 @@ export default function Socials() {
         className="text-lg md:text-2xl hover:text-primary-500 hover:text-[#ff1717] transition duration-200"
         href="https://www.github.com/ericdanielsh"
         target="_blank"
+        title="Github"
       >
         <FaGithub />
       </Link>
       <Link
         className="text-lg md:text-2xl hover:text-primary-500 hover:text-[#ff1717] transition duration-200"
-        href="https://www.twitter.com/ericdanielsh"
+        href="https://bsky.app/profile/ericdaniels.dev"
         target="_blank"
+        title="Bluesky"
       >
-        <FaXTwitter />
+        <FaBluesky />
       </Link>
+
       <Link
         className="text-xl md:text-2xl hover:text-primary-500 hover:text-[#ff1717] transition duration-200"
         href="mailto:eric@ericdaniels.dev"
         target="_blank"
+        title="Email"
+      >
+        <IoIosMail />
+      </Link>
+      <Link
+        className="text-xl md:text-2xl hover:text-primary-500 hover:text-[#ff1717] transition duration-200"
+        href="https://drive.google.com/file/d/1aoLGwg-HDeoJy6aeYqvBeq8VaqOMQuIX/view?usp=sharing"
+        target="_blank"
+        title="Resume"
       >
         <IoIosMail />
       </Link>
