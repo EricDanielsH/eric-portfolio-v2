@@ -30,7 +30,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           className="p-6 md:p-8 flex flex-col justify-end h-full w-full "
           title={`See more in ${link}`}
         >
-          <motion.h3
+          <motion.h4
             variants={fadeInUp}
             initial="initial"
             animate="animate"
@@ -38,13 +38,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             className=" text-left w-full mb-2"
           >
             {title}
-          </motion.h3>
+          </motion.h4>
           <motion.p
             variants={fadeInUp}
             initial="initial"
             animate="animate"
             transition={{ duration: 0.9, delay: 0.7, ease: [0.6, 0.0, 0.2, 1] }}
-            className=" text-left text-gray-700 dark:text-gray-300 w-4/5 mb-4 "
+            className=" text-left text-gray-700 dark:text-gray-300 w-5/5 mb-4 "
           >
             {description}
           </motion.p>

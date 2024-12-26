@@ -3,7 +3,7 @@ export const projectData = [
     title: "SmartLab System",
     link: "https://github.com/EricDanielsH/mc-eric-texture-pack",
     description:
-      "System build for measuring and monitoring temperature, light sound and other environmental factors in a lab, using Raspberry Pi Pico Ws.",
+      "System build for measuring and monitoring temperature, light sound and other environmental factors in a lab, using Raspberry Pi Pico Ws. Can detect the location of any person of the lab based on the intensity of the network signal.",
     techStack: [
       "C",
       "C++",
@@ -19,14 +19,14 @@ export const projectData = [
     title: "Minecraft Texture Pack",
     link: "https://github.com/EricDanielsH/mc-eric-texture-pack",
     description:
-      "A Minecraft texture pack that adds a personal touch to the game, with custom textures and sounds.",
+      "A Minecraft texture pack that adds a personal touch to the game, with custom textures and sounds. Works in every version of Minecraft.",
     techStack: ["Java", "Minecraft", "Photoshop", "Paint.NET"],
   },
   {
     title: "HybridCoach AI",
     link: "https://hybridcoach-ai.vercel.app",
     description:
-      "AI-powered fitness app that generates personalized workout plans based on user's goals, preferences, and fitness level.",
+      "AI-powered fitness app that generates personalized workout plans based on user's goals, preferences, and fitness level. Follows a hybrid training approach.",
     techStack: [
       "Next.js",
       "Typescript",
@@ -57,7 +57,7 @@ export const projectData = [
     title: "LUCribCheck",
     link: "https://lucribcheck.com/",
     description:
-      "Share and discover reviews on homes in Lancaster, UK, helping others make informed decisions about properties and neighborhoods.",
+      "Share and discover reviews on homes in Lancaster, UK, helping others make informed decisions about properties and neighborhoods. Built to combat the lack of transparency in the real estate market.",
     techStack: [
       "Next.js",
       "AWS S3",
