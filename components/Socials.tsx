@@ -1,7 +1,7 @@
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
 import { FaBluesky } from "react-icons/fa6";
-import { IoMdDocument } from "react-icons/io";
+import { GrDocumentPdf } from "react-icons/gr";
 import Link from "next/link";
 
 export default function Socials() {
@@ -46,7 +46,7 @@ export default function Socials() {
         target="_blank"
         title="Resume"
       >
-        <IoIosMail />
+        <GrDocumentPdf />
       </Link>
     </div>
   );
