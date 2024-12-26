@@ -37,33 +37,21 @@ module.exports = {
               fontSize: "1.802rem",
               lineHeight: "1.15",
               fontWeight: "700",
-              "@screen md": {
-                fontSize: "2.488rem",
-              },
             },
             h3: {
               fontSize: "1.602rem",
               lineHeight: "1.15",
               fontWeight: "700",
-              "@screen md": {
-                fontSize: "2.074rem",
-              },
             },
             h4: {
               fontSize: "1.424rem",
               lineHeight: "1.15",
               fontWeight: "700",
-              "@screen md": {
-                fontSize: "1.728rem",
-              },
             },
             h5: {
               fontSize: "1.266rem",
               lineHeight: "1.15",
               fontWeight: "700",
-              "@screen md": {
-                fontSize: "1.44rem",
-              },
             },
             h6: {
               fontSize: "1.125rem",

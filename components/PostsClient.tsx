@@ -73,9 +73,9 @@ export default function PostsClient({ posts }: PostsClientProps) {
                 whileHover={{ scale: 1 }}
                 transition={{ duration: 0.2 }}
               >
-                <h4 className="tracking-tight cursor-pointer group-hover:text-[#ff1717] transition duration-200 mb-1">
+                <h3 className="tracking-tight cursor-pointer group-hover:text-[#ff1717] transition duration-200 mb-1">
                   {post.title}
-                </h4>
+                </h3>
                 <p className="text-gray-700 dark:text-gray-300 tracking-tight leading-[130%]">
                   {post.summary}
                 </p>
