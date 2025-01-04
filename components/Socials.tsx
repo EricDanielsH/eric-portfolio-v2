@@ -1,6 +1,6 @@
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
-import { FaBluesky } from "react-icons/fa6";
+import { FaBluesky, FaXTwitter } from "react-icons/fa6";
 import { GrDocumentPdf } from "react-icons/gr";
 import Link from "next/link";
 
@@ -23,6 +23,16 @@ export default function Socials() {
       >
         <FaGithub />
       </Link>
+
+      <Link
+        className="text-lg md:text-2xl hover:text-primary-500 hover:text-[#ff1717] transition duration-200"
+        href="https://x.com/ericdanielsh"
+        target="_blank"
+        title="X/Twitter"
+      >
+        <FaXTwitter />
+      </Link>
+
       <Link
         className="text-lg md:text-2xl hover:text-primary-500 hover:text-[#ff1717] transition duration-200"
         href="https://bsky.app/profile/ericdaniels.dev"

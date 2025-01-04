@@ -11,6 +11,7 @@ export interface Post {
   content: string;
 }
 
+// hello
 export const getProjectBySlug = (slug: string): Post | null => {
   const folder = path.join(process.cwd(), "projects");
   const filePath = path.join(folder, `${slug}.md`);
