@@ -35,7 +35,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             initial="initial"
             animate="animate"
             transition={{ duration: 0.5, delay: 0.6, ease: [0.4, 0.0, 0.2, 1] }}
-            className=" text-left w-full mb-2"
+            className=" text-left w-full mb-2 text-lg"
           >
             {title}
           </motion.h4>
