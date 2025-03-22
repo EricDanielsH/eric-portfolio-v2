@@ -69,11 +69,11 @@ export default function PostsClient({ posts }: PostsClientProps) {
             </p>
             <Link href={`/blog/${post.slug}`}>
               <motion.div
-                initial={{ scale: 0.95 }}
-                whileHover={{ scale: 1 }}
+                initial={{ scale: 1 }}
+                whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.2 }}
               >
-                <h3 className="tracking-tight cursor-pointer group-hover:text-[#ff1717] transition duration-200 mb-1">
+                <h3 className="tracking-tight cursor-pointer group-hover:text-[#ff1717] transition duration-200 mb-1 text-lg">
                   {post.title}
                 </h3>
                 <p className="text-gray-700 dark:text-gray-300 tracking-tight leading-[130%]">
