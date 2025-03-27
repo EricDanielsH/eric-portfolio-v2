@@ -27,7 +27,7 @@ export function AuroraBackgroundDemo() {
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={controls}
-        className="mt-10 relative flex flex-col items-center justify-center px-4"
+        className="mt-10 max-w-xl relative flex flex-col items-center justify-center px-4"
       >
         <p className="">Hey! I&apos;m</p>
         <h1 className="text-center tracking-tighter z-10">Eric Daniels</h1>
@@ -35,14 +35,7 @@ export function AuroraBackgroundDemo() {
           <FaLocationDot className="inline-block mr-1" />
           Lancaster, UK
         </small>
-        <Image
-          src="/geass.svg"
-          width={300}
-          height={200}
-          alt="Eric Daniels"
-          className="absolute opacity-15 z-0 w-full md:w-2/3"
-        />
-        <p className="py-2 text-center mb-4 z-10">
+        <p className="py-2 text-center mb-4 z-10 font-normal">
           Software Engineer dedicated to building practical, high-quality
           solutions and solving real-world problems with code
         </p>
