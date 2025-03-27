@@ -68,3 +68,29 @@ export const projectData = [
     ],
   },
 ];
+
+export const experience = [
+  {
+    name: "DBS Bank",
+    href: "https://www.dbs.com.sg",
+    title: "Graduate Associate (SEED Programme)",
+    logo: "/dbs.png",
+    start: "Jul 2023",
+    description: [
+      "Developed the Java backend for a bank account servicing process with multiple channel integrations using Activiti workflow",
+      "Built a custom database migration tool using Python and MariaDB and facilitated the migration of 1000+ processes from a vendor platform",
+    ],
+  },
+  {
+    name: "Singapore Institute of Technology",
+    href: "https://www.singaporetech.edu.sg",
+    title: "Software Developer (Contract)",
+    logo: "/sit.png",
+    start: "Apr 2023",
+    end: "Jun 2023",
+    description: [
+      "Built NFTVue, a NFT gallery website that allows students to connect their crypto wallets to view and verify their school event-issued NFTs",
+      "Worked on DemoConstruct, a full-stack web application (React + Python) that uses Meshroom to reconstruct 3D models from captured images",
+    ],
+  },
+];
