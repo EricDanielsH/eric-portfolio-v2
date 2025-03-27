@@ -27,12 +27,12 @@ export default function Projects({ limit }: Props) {
         initial={{ opacity: 0, y: -10 }} // Smaller y offset
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1, duration: 0.4 }}
-        className="flex justify-between items-center"
+        className="flex justify-between mb-4 items-center"
       >
-        <h2 className="tracking-tight font-bold mb-4">Projects</h2>
+        <h2 className="tracking-tight font-bold text-xl">Projects</h2>
         <Link
           href="/projects"
-          className="flex gap-1 items-center text-gray-400 dark:text-gray-600 underline hover:text-[#ff1717] cursor-pointer transition duration-300"
+          className="flex gap-1 items-center text-gray-400 dark:text-gray-600 underline hover:text-[#ff1717] cursor-pointer transition duration-300 text-sm"
         >
           See more! <FaLongArrowAltRight />
         </Link>
