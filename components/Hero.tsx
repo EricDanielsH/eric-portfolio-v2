@@ -30,7 +30,7 @@ export function AuroraBackgroundDemo() {
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={controls}
-        className="max-w-xl mt-[15vh] relative flex flex-col items-start justify-center px-4"
+        className="max-w-xl mt-[15vh] relative flex flex-col items-start justify-center"
       >
         <div className="flex items-center gap-4">
           <Image
@@ -48,9 +48,9 @@ export function AuroraBackgroundDemo() {
             </small>
           </div>
         </div>
-        <p className="py-2 text-left mb-4 z-10 font-normal">
+        <p className="py-2 text-left mb-4 z-10 break-keep whitespace-normal font-normal [hyphens:none]">
           Software Engineer dedicated to building practical, high-quality
-          solutions and solving real-world problems with code
+          solutions and solving real-world problems with code.
         </p>
         <div className="flex items-center gap-4">
           <Button variant="outline">
