@@ -1,32 +1,32 @@
 "use client";
 
-import { Button } from "@/components/ui/moving-border";
 import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
 
 export default function Contact() {
   return (
     <motion.section
       id="contact"
-      className="container max-h-[60vh] px-8 max-w-lg pt-[10vh] mb-20 flex flex-col items-center"
+      className="container px-8 md:px-0 max-w-xl pt-[10vh] mb-20 flex flex-col items-start"
       initial={{ opacity: 0, y: 50 }} // Fade in and slide up
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
       <motion.h2
-        className="text-center mb-4 tracking-tight"
+        className="text-left mb-4 tracking-tight text-2xl"
         initial={{ opacity: 0, y: -20 }} // Slight slide down and fade in
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
       >
-        Get in touch
+        contact me
       </motion.h2>
       <motion.p
-        className="text-base md:text-lg text-center mb-14"
+        className="text-base text-left mb-8"
         initial={{ opacity: 0, y: 20 }} // Slide up and fade in
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut", delay: 0.4 }}
       >
-        I’m actively seeking new opportunities. My inbox is always open—whether
+        I’m actively seeking new opportunities.<br/> My inbox is always open—whether
         you have a question or just want to say hi, I’ll try my best to get back
         to you!
       </motion.p>
@@ -35,12 +35,12 @@ export default function Contact() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, ease: "easeOut", delay: 0.6 }}
       >
-        <Button containerClassName="hover:text-[#ff1717] transition duration-200">
-          <a
-            href="mailto:portfolio@ericdaniels.dev"
-            className="text-lg md:text-xl font-semibold text-neutral-100 tracking-tighter hover:text-[#ff1717] transition duration-200"
-          >
-            Say Hi
+        <Button
+          variant="outline"
+          className="hover:text-[#ff1717] transition duration-200 border-gray-400 dark:border-gray-700"
+        >
+          <a href="mailto:portfolio@ericdaniels.dev" className="">
+            Send email
           </a>
         </Button>
       </motion.div>

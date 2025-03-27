@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function Socials() {
   return (
-    <div className="flex  gap-10 z-10">
+    <div className="flex  gap-8 z-10">
       <Link
         className="text-lg md:text-2xl hover:text-primary-500 hover:text-[#ff1717] transition duration-200"
         href="https://www.linkedin.com/in/EricDanielsH/"

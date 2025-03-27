@@ -35,7 +35,7 @@ const experienceData = [
 export default function Experience() {
   return (
     <motion.section
-      className="container md:px-0 px-8 max-w-xl w-full pt-[10vh]" // Increased padding for navbar
+      className="container md:px-0 flex flex-col justify-center items-start px-8 max-w-xl w-full pt-[10vh]" // Increased padding for navbar
       initial={{ opacity: 0, y: 30 }} // Adjusted y offset
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}

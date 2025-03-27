@@ -28,12 +28,12 @@ export default function BlogPageClient({
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
       <motion.h1
-        className="tracking-tight mb-4"
+        className="tracking-tight mb-4 text-2xl"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, ease: "easeOut" }}
       >
-        Blog
+        blog
       </motion.h1>
       <motion.p
         className="mb-4"
@@ -44,18 +44,10 @@ export default function BlogPageClient({
         Explore a collection of articles, insights, and stories where I share my
         journey, knowledge, and experiences in software engineering.
       </motion.p>
-      <motion.a
-        href="/"
-        className="hover:text-[#ff1717] mb-8 font-mono ease-in duration-150"
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        transition={{ duration: 0.3, ease: "easeOut" }}
-      >
+      <a href="/" className="hover:text-[#ff1717] mb-4 font-mono">
         <span className="font-serif mr-1 font-extrabold">{">"}</span>
         {`cd ..`}
-      </motion.a>
+      </a>
 
       <motion.div
         initial={{ opacity: 0 }}

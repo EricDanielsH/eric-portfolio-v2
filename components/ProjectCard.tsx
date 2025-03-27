@@ -19,7 +19,10 @@ export function ProjectCard({ project }: Props) {
   const { name, href, description, image, tags, links } = project;
 
   return (
-    <Card className="flex flex-col">
+    <Card
+      className="flex flex-col hover:shadow-none
+      "
+    >
       <CardHeader>
         {image && (
           <Link href={href || image}>

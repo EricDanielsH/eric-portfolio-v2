@@ -18,7 +18,7 @@ export default function Projects({ limit }: Props) {
   return (
     <motion.section
       id="projects"
-      className="container md:px-0 px-8 max-w-xl" // Increased padding for navbar
+      className="container md:px-0 px-8 max-w-xl w-full" // Increased padding for navbar
       initial={{ opacity: 0, y: 30 }} // Adjusted y offset
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
