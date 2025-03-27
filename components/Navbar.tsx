@@ -11,10 +11,9 @@ export default function Navbar() {
   const menuRef = useRef<HTMLUListElement | null>(null);
 
   const links = [
-    { name: "About", href: "/#about" },
-    { name: "Projects", href: "/#projects" },
-    { name: "Blog", href: "/blog" },
-    { name: "Contact Me", href: "/#contact" },
+    { name: "projects", href: "/#projects" },
+    { name: "blog", href: "/blog" },
+    { name: "contact", href: "/#contact" },
   ];
 
   const toggleMenu = () => {
@@ -43,14 +42,13 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed h-[8vh] w-full z-30 transition-colors duration-100 ${isScrolled
+      className={`fixed h-[8vh] flex justify-center w-full z-30 transition-colors duration-100 ${isScrolled
           ? "bg-transparent  "
           : "bg-transparent"
         }`}
     >
-      <div className="px-6 md:px-14 backdrop-blur w-full h-full flex items-center justify-between md:justify-around">
+      <div className="px-6 md:px-14 backdrop-blur w-full max-w-3xl h-full flex items-center justify-between md:justify-around">
         <Link href="/" className="flex items-end">
-          <Image src="/geass.svg" alt="Logo" width={55} height={40} />
           <img src="/meow.gif" alt="Cat gif" className="w-8 h-8" />
         </Link>
 
@@ -80,7 +78,7 @@ export default function Navbar() {
         </div>
         <ul
           ref={menuRef}
-          className={`flex flex-col items-center justify-center gap-8 md:flex md:flex-row transition-transform  duration-300 ease-in-out fixed md:static top-0 right-0 h-[100vh] md:h-auto w-3/4 md:w-auto bg-neutral-300 dark:bg-neutral-800 dark:md:bg-transparent md:bg-transparent transform ${isMenuOpen ? "translate-x-0" : "translate-x-full"
+          className={`flex flex-col items-center justify-center gap-4 md:flex md:flex-row transition-transform  duration-300 ease-in-out fixed md:static top-0 right-0 h-[100vh] md:h-auto w-3/4 md:w-auto bg-neutral-300 dark:bg-neutral-800 dark:md:bg-transparent md:bg-transparent transform ${isMenuOpen ? "translate-x-0" : "translate-x-full"
             } md:transform-none p-4 md:p-0 z-40`}
         >
           <button
@@ -105,7 +103,7 @@ export default function Navbar() {
           {links.map((link, index) => (
             <li
               key={index}
-              className="my-2 md:my-0 cursor-pointer hover:text-[#ff1717] transition duration-300 font-medium"
+              className="my-2 md:my-0 cursor-pointer hover:text-[#ff1717] transition duration-300 font-normal text-gray-700 dark:text-gray-400"
               onClick={toggleMenu}
             >
               <Link href={link.href}>{link.name}</Link>
