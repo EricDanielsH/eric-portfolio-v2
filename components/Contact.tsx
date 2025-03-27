@@ -7,7 +7,7 @@ export default function Contact() {
   return (
     <motion.section
       id="contact"
-      className="container px-8 md:px-0 max-w-xl pt-[10vh] mb-20 flex flex-col items-start"
+      className="container px-8 md:px-0 max-w-xl pt-[10vh] flex flex-col items-start"
       initial={{ opacity: 0, y: 50 }} // Fade in and slide up
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}

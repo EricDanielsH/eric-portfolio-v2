@@ -33,6 +33,7 @@ export default function Home() {
       <Projects limit={2} />
       <Posts />
       <Contact />
+      <div className="mb-20"></div>
     </div>
   );
 }

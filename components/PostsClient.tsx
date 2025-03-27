@@ -21,7 +21,7 @@ interface PostsClientProps {
 export default function PostsClient({ posts }: PostsClientProps) {
   return (
     <motion.section
-      className="pt-[10vh] container min-h-[60vh] px-8 md:px-0 max-w-xl"
+      className="pt-[10vh] container px-8 md:px-0 max-w-xl"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
@@ -61,11 +61,11 @@ export default function PostsClient({ posts }: PostsClientProps) {
         <br />
         <br /> Some of my latest posts:
       </motion.p>
-      <div className="flex flex-col gap-2 mb-4">
+      <div className="flex flex-col gap-4">
         {posts.map((post, index) => (
           <motion.article
             key={index}
-            className="mb-4 flex flex-col items-start group"
+            className=" flex flex-col items-start group"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{
