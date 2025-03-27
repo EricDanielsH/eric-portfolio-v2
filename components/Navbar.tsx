@@ -41,7 +41,7 @@ export default function Navbar() {
           {links.map((link, index) => (
             <li
               key={index}
-              className="my-2 md:my-0 cursor-pointer hover:text-[#ff1717] transition duration-300 font-normal text-gray-700 dark:text-gray-400"
+              className="my-2 md:my-0 cursor-pointer hover:text-[#ff1717] transition duration-300 font-normal text-gray-700 dark:text-gray-100"
             >
               <Link href={link.href}>{link.name}</Link>
             </li>

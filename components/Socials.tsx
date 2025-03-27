@@ -25,38 +25,12 @@ export default function Socials() {
       </Link>
 
       <Link
-        className="text-lg md:text-2xl hover:text-primary-500 hover:text-[#ff1717] transition duration-200"
-        href="https://x.com/ericdanielsh"
-        target="_blank"
-        title="X/Twitter"
-      >
-        <FaXTwitter />
-      </Link>
-
-      <Link
-        className="text-lg md:text-2xl hover:text-primary-500 hover:text-[#ff1717] transition duration-200"
-        href="https://bsky.app/profile/ericdaniels.dev"
-        target="_blank"
-        title="Bluesky"
-      >
-        <FaBluesky />
-      </Link>
-
-      <Link
         className="text-xl md:text-2xl hover:text-primary-500 hover:text-[#ff1717] transition duration-200"
         href="mailto:eric@ericdaniels.dev"
         target="_blank"
         title="Email"
       >
         <IoIosMail />
-      </Link>
-      <Link
-        className="text-xl md:text-2xl hover:text-primary-500 hover:text-[#ff1717] transition duration-200"
-        href="https://drive.google.com/file/d/1aoLGwg-HDeoJy6aeYqvBeq8VaqOMQuIX/view?usp=sharing"
-        target="_blank"
-        title="Resume"
-      >
-        <GrDocumentPdf />
       </Link>
     </div>
   );
