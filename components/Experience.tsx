@@ -41,12 +41,12 @@ export default function Experience() {
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
       <motion.h2
-        className="mb-4 tracking-tight font-bold"
+        className="mb-4 tracking-tight font-bold text-2xl"
         initial={{ opacity: 0, y: -10 }} // Smaller y offset
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1, duration: 0.4 }}
       >
-        Experience
+        experience
       </motion.h2>
 
       <div>
