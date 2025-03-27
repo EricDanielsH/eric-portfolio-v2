@@ -9,7 +9,7 @@ export default function Home() {
     <div className="min-h-screen">
       <Hero />
       <Experience />
-      <Projects />
+      <Projects limit={2} />
       <Posts />
       <Contact />
     </div>

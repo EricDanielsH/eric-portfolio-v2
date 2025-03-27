@@ -9,7 +9,7 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
   const links = [
-    { name: "projects", href: "/#projects" },
+    { name: "projects", href: "/projects" },
     { name: "blog", href: "/blog" },
     { name: "contact", href: "/#contact" },
   ];
@@ -30,7 +30,7 @@ export default function Navbar() {
     <nav
       className={`fixed h-[8vh] flex items-center justify-center w-full z-30 transition-colors duration-100 bg-transparent`}
     >
-      <div className="px-6 md:px-14 backdrop-blur w-full h-full flex items-center justify-center">
+      <div className="px-0 md:px-14 backdrop-blur w-full h-full flex items-center justify-center">
         <div className="px-6 md:px-14  w-full max-w-3xl h-full flex items-center justify-between">
           <Link href="/" className="flex items-end">
             <Image

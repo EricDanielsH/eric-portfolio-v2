@@ -1,19 +1,20 @@
 "use client";
+import { FaLongArrowAltRight } from "react-icons/fa";
 
 import { motion } from "framer-motion";
 import { ProjectCard } from "@/components/ProjectCard";
 import { projectData } from "@/lib/data";
+import Link from "next/link";
 
-export default function Projects() {
-  const gridConfig = [
-    { colStart: 1, colEnd: 7, rowStart: 1, rowEnd: 5 },
-    { colStart: 7, colEnd: 11, rowStart: 1, rowEnd: 5 },
-    { colStart: 1, colEnd: 6, rowStart: 5, rowEnd: 9 },
-    { colStart: 6, colEnd: 11, rowStart: 5, rowEnd: 8 },
-    { colStart: 1, colEnd: 6, rowStart: 9, rowEnd: 12 },
-    { colStart: 6, colEnd: 11, rowStart: 8, rowEnd: 12 },
-  ];
+interface Props {
+  limit?: number;
+}
 
+export default function Projects({ limit }: Props) {
+  let projects = projectData
+  if (limit) {
+    projects = projectData.slice(0, limit);
+  }
   return (
     <motion.section
       id="projects"
@@ -22,50 +23,25 @@ export default function Projects() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
-      <motion.h2
-        className="mb-8 tracking-tight font-bold"
+      <motion.div
         initial={{ opacity: 0, y: -10 }} // Smaller y offset
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1, duration: 0.4 }}
+        className="flex justify-between items-center"
       >
-        Projects
-      </motion.h2>
-      <div className="flex flex-col h-full gap-4 md:grid md:grid-cols-10 md:auto-rows-[5rem]">
-        {projectData.map((project, index) => {
-          const config = gridConfig[index] || {
-            colStart: 1,
-            colEnd: 2,
-            rowStart: 1,
-            rowEnd: 2,
-          };
-
-          return (
-            <motion.div
-              key={index}
-              style={{
-                gridColumn: `${config.colStart} / ${config.colEnd}`,
-                gridRow: `${config.rowStart} / ${config.rowEnd}`,
-              }}
-              className="rounded-2xl bg-gray-500 shadow-md flex items-center justify-center h-full"
-              initial={{ opacity: 0, y: 10 }} // Smaller downward animation
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{
-                delay: index * 0.1,
-                duration: 0.5,
-                ease: "easeOut",
-              }}
-              viewport={{ once: true }}
-            >
-              <ProjectCard
-                title={project.title}
-                link={project.link}
-                description={project.description}
-                techStack={project.techStack}
-              />
-            </motion.div>
-          );
-        })}
-      </div>
+        <h2 className="tracking-tight font-bold mb-4">Projects</h2>
+        <Link
+          href="/projects"
+          className="flex gap-1 items-center text-gray-400 dark:text-gray-600 underline hover:text-[#ff1717] cursor-pointer transition duration-300"
+        >
+          See more! <FaLongArrowAltRight />
+        </Link>
+      </motion.div>
+      <section className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        {projects.map((project, id) => (
+          <ProjectCard key={id} project={project} />
+        ))}
+      </section>
     </motion.section>
   );
 }

@@ -1,71 +1,71 @@
-"use client";
-import { motion } from "framer-motion";
-import { HeroHighlight } from "./ui/hero-highlight";
-import { LinkPreview } from "@/components/ui/link-preview";
+import { Badge } from "@/components/ui/Badge";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/Card";
+import { Project } from "@/lib/schemas";
+import Image from "next/image";
+import Link from "next/link";
+import Icon from "./Icon";
 
-// Animation variant for fading in and moving up
-const fadeInUp = {
-  initial: { opacity: 0, y: 30 }, // Start 30px above
-  animate: { opacity: 1, y: 0 }, // Move to original position
-};
-
-interface ProjectCardProps {
-  title: string;
-  link: string;
-  description: string;
-  techStack: string[];
+interface Props {
+  project: Project;
 }
 
-export const ProjectCard: React.FC<ProjectCardProps> = ({
-  title,
-  link,
-  description,
-  techStack,
-}) => {
-  const slug = title.toLowerCase().replace(/\s/g, "-");
+export function ProjectCard({ project }: Props) {
+  const { name, href, description, image, tags, links } = project;
+
   return (
-    <HeroHighlight>
-      <LinkPreview url={`https://ericdaniels.dev/projects/${slug}`} className="h-full">
-        <article
-          className="p-6 md:p-8 flex flex-col justify-end h-full w-full "
-          title={`See more in ${link}`}
-        >
-          <motion.h4
-            variants={fadeInUp}
-            initial="initial"
-            animate="animate"
-            transition={{ duration: 0.5, delay: 0.6, ease: [0.4, 0.0, 0.2, 1] }}
-            className=" text-left w-full mb-2 text-lg"
-          >
-            {title}
-          </motion.h4>
-          <motion.p
-            variants={fadeInUp}
-            initial="initial"
-            animate="animate"
-            transition={{ duration: 0.9, delay: 0.7, ease: [0.6, 0.0, 0.2, 1] }}
-            className=" text-left text-gray-700 dark:text-gray-300 w-5/5 mb-4 "
-          >
-            {description}
-          </motion.p>
-          <motion.ul
-            variants={fadeInUp}
-            initial="initial"
-            animate="animate"
-            transition={{ duration: 1, delay: 0.8, ease: [0.6, 0.0, 0.2, 1] }}
-            className="flex flex-wrap gap-2 w-full items-start max-w-full"
-          >
-            {techStack.map((t, index) => (
-              <li
-                key={index}
-                className="text-xs md:text-sm text-red-500 border rounded-full px-2 border-red-800  tracking-tighter"
+    <Card className="flex flex-col">
+      <CardHeader>
+        {image && (
+          <Link href={href || image}>
+            <Image
+              src={image}
+              alt={name}
+              width={500}
+              height={300}
+              className="h-40 w-full object-cover object-top"
+            />
+          </Link>
+        )}
+      </CardHeader>
+      <CardContent className="flex flex-col gap-2">
+        <CardTitle className="text-base">{name}</CardTitle>
+        <div className="prose max-w-full text-pretty font-sans text-xs text-muted-foreground dark:prose-invert">
+          {description}
+        </div>
+      </CardContent>
+      <CardFooter className="flex h-full flex-col items-start justify-between gap-4">
+        {tags && tags.length > 0 && (
+          <div className="mt-2 flex flex-wrap gap-1">
+            {tags.toSorted().map((tag) => (
+              <Badge
+                key={tag}
+                className="px-1 py-0 text-[10px]"
+                variant="secondary"
               >
-                {t}
-              </li>
+                {tag}
+              </Badge>
             ))}
-          </motion.ul>
-        </article>
-      </LinkPreview>
-    </HeroHighlight>
+          </div>
+        )}
+        {links && links.length > 0 && (
+          <div className="flex flex-row flex-wrap items-start gap-1">
+            {links.toSorted().map((link, idx) => (
+              <Link href={link?.href} key={idx} target="_blank">
+                <Badge key={idx} className="flex gap-2 px-2 py-1 text-[10px]">
+                  <Icon name={link.icon} className="size-3" />
+                  {link.name}
+                </Badge>
+              </Link>
+            ))}
+          </div>
+        )}
+      </CardFooter>
+    </Card>
   );
-};
+}
