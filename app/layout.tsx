@@ -35,9 +35,6 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen flex flex-col">
-        {/* Background Effect */}
-        <RandomBranches />
-
         <Navbar />
         <main>{children}</main>
         <Footer />
