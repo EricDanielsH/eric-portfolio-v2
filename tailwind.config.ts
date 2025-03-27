@@ -13,7 +13,7 @@ module.exports = {
     { pattern: /col-span-(1|2|3|4|5|6)/ },
     { pattern: /row-span-(1|2|3|4)/ },
   ],
-  darkMode: "dark",
+  darkMode: "class",
   theme: {
     container: {
       center: true,

@@ -39,7 +39,7 @@ export function ThemeSwitcherButton() {
   return (
     <button
       onClick={toggleTheme}
-      className="p-2 rounded-md text-gray-700 dark:text-gray-400 transition duration-300 relative cursor-pointer"
+      className="p-2 rounded-md text-gray-700 dark:text-gray-400 transition duration-200 relative cursor-pointer"
     >
       {theme === "dark" ? <Moon size={20} /> : <SunDim size={20} />}
     </button>

@@ -127,19 +127,6 @@ h6 {
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
-
-}
-
-html.light {
-  --bg-color: white;
-  --text-color: black;
-  --heading-color: #333;
-}
-
-html.dark {
-  --bg-color: #050505;
-  --text-color: white;
-  --heading-color: #eee;
 }
 
 a,
@@ -149,33 +136,12 @@ button {
   cursor: pointer;
 }
 
-/* Disable transitions on initial load */
-html {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  transition: none;
-}
-
-body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  transition: none;
-  font-family: 'Inter', sans-serif;
-}
-
-/* Re-enable transitions for theme toggle */
-html[data-theme="dark"] body,
-html[data-theme="light"] body {
-  transition: background-color 0.15s ease, color 0.15s ease;
-}
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
 }
-
-
 
 @layer base {
   * {
