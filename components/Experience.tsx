@@ -10,28 +10,6 @@ import {
 import Timeline from "@/components/Timeline";
 import { experience } from "@/lib/data";
 
-const experienceData = [
-  {
-    jobTitle: "Software Engineer",
-    company: "TechCorp",
-    dates: "Jan 2022 – Present",
-    points: [
-      "Developed and maintained scalable web applications using React and Node.js",
-      "Improved performance of internal APIs by 35%",
-      "Led a team of 3 engineers in Agile sprints",
-    ],
-  },
-  {
-    jobTitle: "Frontend Developer",
-    company: "Designify",
-    dates: "May 2020 – Dec 2021",
-    points: [
-      "Redesigned core product UI, increasing user engagement by 50%",
-      "Collaborated with UX team to implement A/B tests",
-    ],
-  },
-];
-
 export default function Experience() {
   return (
     <motion.section
@@ -41,15 +19,15 @@ export default function Experience() {
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
       <motion.h2
-        className="mb-4 tracking-tight font-bold text-2xl"
+        className="mb-4 tracking-tight font-semibold text-2xl"
         initial={{ opacity: 0, y: -10 }} // Smaller y offset
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1, duration: 0.4 }}
       >
-        experience
+        experience ✨
       </motion.h2>
 
-      <div>
+      <div className="w-full max-w-xl">
         <Timeline experience={experience} />
       </div>
     </motion.section>

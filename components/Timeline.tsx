@@ -8,7 +8,7 @@ interface Props {
 
 export default function Timeline({ experience }: Props) {
   return (
-    <ul className="ml-2 md:ml-10 border-l w-full max-w-xl flex flex-col gap-4">
+    <ul className="ml-0 border-l w-full max-w-xl flex flex-col gap-4">
       {experience.map((exp, id) => (
         <TimelineItem key={id} experience={exp} />
       ))}
