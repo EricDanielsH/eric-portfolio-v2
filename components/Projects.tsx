@@ -1,10 +1,8 @@
 "use client";
-import { FaLongArrowAltRight } from "react-icons/fa";
 
 import { motion } from "framer-motion";
 import { ProjectCard } from "@/components/ProjectCard";
 import { projectData } from "@/lib/data";
-import Link from "next/link";
 
 interface Props {
   limit?: number;

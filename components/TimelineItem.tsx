@@ -65,7 +65,7 @@ export default function TimelineItem({ experience }: Props) {
             </AccordionTrigger>
             <AccordionContent>
               <ul className="ml-4 list-disc text-sm space-y-2">
-                {description.map((point, i) => (
+                {description && description.map((point, i) => (
                   <li key={i} className="dark:text-gray-300">
                     {point}
                   </li>
@@ -76,7 +76,7 @@ export default function TimelineItem({ experience }: Props) {
         </Accordion>
 
         {/* Optional external links (badges) */}
-        {links?.length > 0 && (
+        {links && links?.length > 0 && (
           <div className="mt-2 flex flex-row flex-wrap items-start gap-2">
             {links.map((link, idx) => (
               <Link href={link.href} key={idx}>
