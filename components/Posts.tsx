@@ -2,7 +2,7 @@ import React from "react";
 import { getAllSlugs, getPostBySlug, Post } from "@/lib/posts";
 import PostsClient from "./PostsClient"; // Import the client component
 
-const MAX_POSTS = 5;
+const MAX_POSTS = 3;
 
 export default function Posts() {
   // Fetch all slugs

@@ -34,36 +34,25 @@ const Pagination: React.FC<PaginationProps> = ({ items, itemsPerPage }) => {
     <div>
       <div className="flex flex-col gap-2 mt-10">
         <AnimatePresence mode="wait">
-          {currentItems.map((post, index) => (
-            <motion.article
+          {currentItems.map((post, _) => (
+            <article
               key={post.slug}
-              className="mb-4 flex flex-col items-start group"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }} // Smooth exit animation
-              transition={{
-                delay: index * 0.1, // Add a slight stagger effect
-                duration: 0.5,
-                ease: "easeOut",
-              }}
+              className="mb-4 flex flex-col items-start group cursor-pointer"
             >
               <p className="text-neutral-600 text-sm flex-none tracking-tighter">
                 {format(post.date, "dd MMMM yyyy")}
               </p>
               <Link href={`/blog/${post.slug}`}>
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <h2 className="text-[1.602rem] tracking-tight group-hover:text-[#ff1717] transition duration-200">
+                <div>
+                  <h2 className="text-base tracking-tight group-hover:text-[#ff1717] transition duration-200">
                     {post.title}
                   </h2>
                   <p className="tracking-tight leading-[130%]">
                     {post.summary}
                   </p>
-                </motion.div>
+                </div>
               </Link>
-            </motion.article>
+            </article>
           ))}
         </AnimatePresence>
       </div>

@@ -17,7 +17,7 @@ export const AuroraBackground = ({
     <main>
       <div
         className={cn(
-          "relative flex flex-col min-h-[60vh] items-center justify-center   transition-bg",
+          "relative flex flex-col min-h-[30vh] items-center justify-center   transition-bg",
           className,
         )}
         {...props}

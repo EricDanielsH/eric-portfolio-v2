@@ -34,10 +34,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-screen flex flex-col">
-        {/* Background Effect */}
-        <RandomBranches />
-
+      <body className="min-h-screen flex flex-col w-full">
         <Navbar />
         <main>{children}</main>
         <Footer />

@@ -5,6 +5,7 @@ import { format } from "date-fns";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { RxOpenInNewWindow } from "react-icons/rx";
+import { FaLongArrowAltRight } from "react-icons/fa";
 
 interface Post {
   slug: string;
@@ -20,27 +21,37 @@ interface PostsClientProps {
 export default function PostsClient({ posts }: PostsClientProps) {
   return (
     <motion.section
-      className="pt-[10vh] container min-h-[60vh] px-8 md:px-0 max-w-2xl"
+      className="pt-[10vh] container px-8 md:px-0 max-w-xl"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
-      <Link
-        href="/blog"
-        className="w-fit hover:text-[#ff1717] transition duration-300 flex justify-center items-center"
-      >
-        <motion.h2
-          className="mt-10 tracking-tight animate-fade-in-slide-up delay-long mb-4"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
+      <div className="flex justify-between items-center mb-4">
+        <Link
+          href="/blog"
+          className="w-fit hover:text-[#ff1717] transition duration-300 flex justify-center items-center"
         >
-          Blog
-        </motion.h2>
-        <RxOpenInNewWindow />
-      </Link>
+          <motion.h2
+            className="tracking-tight text-2xl animate-fade-in-slide-up delay-long font-semibold"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+          >
+            blog 🧑🏻‍💻
+          </motion.h2>
+          <RxOpenInNewWindow className="mb-4" />
+        </Link>
+        <Link
+          href="/blog"
+          className="flex gap-1 items-center text-gray-500 dark:text-gray-400 underline hover:text-[#ff1717] dark:hover:text-[#ff1717] cursor-pointer transition duration-300 text-sm"
+        >
+          See more!
+          <FaLongArrowAltRight />
+        </Link>
+      </div>
+
       <motion.p
-        className="tracking-tight mb-10"
+        className="tracking-tight mb-4"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.2, duration: 0.5, ease: "easeOut" }}
@@ -50,11 +61,11 @@ export default function PostsClient({ posts }: PostsClientProps) {
         <br />
         <br /> Some of my latest posts:
       </motion.p>
-      <div className="flex flex-col gap-2 mb-4">
+      <div className="flex flex-col gap-4">
         {posts.map((post, index) => (
           <motion.article
             key={index}
-            className="mb-4 flex flex-col items-start group"
+            className=" flex flex-col items-start group"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{
@@ -73,7 +84,7 @@ export default function PostsClient({ posts }: PostsClientProps) {
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.2 }}
               >
-                <h3 className="tracking-tight cursor-pointer group-hover:text-[#ff1717] transition duration-200 mb-1 text-lg">
+                <h3 className="text-base tracking-tight cursor-pointer group-hover:text-[#ff1717] transition duration-200">
                   {post.title}
                 </h3>
                 <p className="text-gray-700 dark:text-gray-300 tracking-tight leading-[130%]">
@@ -84,17 +95,6 @@ export default function PostsClient({ posts }: PostsClientProps) {
           </motion.article>
         ))}
       </div>
-      <Link href="/blog" className="w-fit">
-        <motion.div
-          className="text-[#ff1717] cursor-pointer text-center underline font-bold tracking-tighter"
-          initial={{ opacity: 0, y: 20 }}
-          whileHover={{ y: -3 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-        >
-          View all posts
-        </motion.div>
-      </Link>
     </motion.section>
   );
 }
