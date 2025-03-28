@@ -84,9 +84,9 @@ const PostPage: NextPage<PostPageProps> = ({ params }) => {
 
   return (
     <section className="container min-h-[60vh] z-10 px-8 md:px-0  max-w-2xl">
-      <h1 className="mt-20  mb-4">{post.title}</h1>
+      <h1 className="mt-20 mb-4 text-2xl">{post.title}</h1>
       <p className="  mb-4">{post.summary}</p>
-      <div className="flex justify-between  tracking-tighter">
+      <div className="flex justify-between text-gray-600 dark:text-gray-500  tracking-tighter">
         <p className=" tracking-tight">
           Created on <br />
           {format(new Date(post.date), "dd MMMM yyyy")}

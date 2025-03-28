@@ -51,6 +51,7 @@ export function AuroraBackgroundDemo() {
         <p className="py-2 text-left mb-4 z-10 break-keep whitespace-normal font-normal [hyphens:none]">
           Software Engineer dedicated to building practical, high-quality
           solutions and solving real-world problems with code.
+          Currently focusing on quantitative development.
         </p>
         <div className="flex items-center gap-4">
           <Button variant="outline">

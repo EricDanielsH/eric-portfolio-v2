@@ -71,50 +71,100 @@
 
 export const experience = [
   {
-    name: "DBS Bank",
-    href: "https://www.dbs.com.sg",
-    title: "Graduate Associate (SEED Programme)",
-    logo: "/dbs.png",
-    start: "Jul 2023",
+    name: "Lancaster University CS Department",
+    href: "https://www.lancs.ac.uk/scc",
+    title: "Internet Applications Teaching Assistant",
+    logo: "/lancs.png",
+    start: "Jan 2025",
     description: [
-      "Developed the Java backend for a bank account servicing process with multiple channel integrations using Activiti workflow",
-      "Built a custom database migration tool using Python and MariaDB and facilitated the migration of 1000+ processes from a vendor platform",
+      "Provided one-on-one support to students, clarifying complex topics and helping troubleshoot coding issues",
+      "Maintained classroom control and engagement for groups of 200+ students per week",
+      "Taught JavaScript for both interactivity and server-side development",
+      "Guided students through building RESTful APIs using Axios and Express",
+      "Explained and demonstrated how to create and implement WebSockets for real-time communication",
     ],
   },
   {
-    name: "Singapore Institute of Technology",
-    href: "https://www.singaporetech.edu.sg",
-    title: "Software Developer (Contract)",
-    logo: "/sit.png",
-    start: "Apr 2023",
-    end: "Jun 2023",
+    name: "Lancaster University CS Department",
+    href: "https://www.lancs.ac.uk/scc",
+    title: "Data Engineering Teaching Assistant",
+    logo: "/lancs.png",
+    start: "Oct 2024",
+    end: "Jan 2025",
     description: [
-      "Built NFTVue, a NFT gallery website that allows students to connect their crypto wallets to view and verify their school event-issued NFTs",
-      "Worked on DemoConstruct, a full-stack web application (React + Python) that uses Meshroom to reconstruct 3D models from captured images",
+      "Facilitated group discussions and review sessions, fostering collaboration and peer-to-peer learning",
+      "Provided one-on-one support to students, clarifying complex topics and helping troubleshoot coding issues",
+      "Taught relational data models, functional dependencies, and normalization (1NF–3NF)",
+      "Delivered sessions covering both SQL (MySQL) and NoSQL (MongoDB) database systems",
     ],
   },
 ];
 
-
-
-
-
-
-
-
 export const projectData = [
   {
-    name: "Tradingview Telegram Alerts",
+    name: "Smart Environment System",
     description:
-      "Real-time trading alerts with chart snapshots sent to Telegram, designed to keep traders informed and responsive to market changes",
-    image: "/tv-tele-alerts.png",
+      "Award-winning environment management platform—recognised as Best Project of the Year at the Lancaster University Project Showcase—designed to let users configure, visualize, and control zones, entities, and emergency alerts through a seamless web interface",
+    image: "/airport-env.png",
     tags: [
-      "Python",
-      "FastAPI",
-      "Docker",
-      "Fly.io",
-      "Selenium",
-      "Telegram Bot API",
+      "React",
+      "Next.js",
+      "C++",
+      "Supabase",
+      "Prisma",
+      "TailwindCSS",
+      "Agile Methodology",
+      "Raspberry Pi",
+      "Edge Impulse",
+    ],
+    links: [
+      {
+        name: "Demo",
+        href: "https://www.youtube.com/watch?si=ENdLPThsaKRQVi14&v=fzZrk8lb2D8&feature=youtu.be",
+        icon: "youtube",
+      },
+      {
+        name: "Source",
+        href: "https://github.com/tedawf/tradingview-telegram-alerts",
+        icon: "github",
+      },
+    ],
+  },
+  {
+    name: "Remote Robotics Control for Nuclear Plants",
+    description:
+      "AI-driven fire detection system and implemented inverse kinematics for Spot’s movement using Python, designed for deployment in nuclear plant environments. Developed a React and Next.js app to display live sensor data and enable remote operation. Created as part of the Atkinsons Realis Hackathon",
+    href: "",
+    image: "/atkinsons.png",
+    tags: ["Python", "Next.js", "React", "AWS"],
+    links: [
+      {
+        name: "Article",
+        href: "https://www.linkedin.com/posts/ericdanielsh_hackafuture2025-hackafuture2025-innovation-activity-7295492497944838145-3EUN?utm_source=share&utm_medium=member_desktop&rcm=ACoAAELlQhABVBSFnjLAqM-pHQsp-HlSzYAVmWU",
+        icon: "linkedin",
+      },
+      {
+        name: "Source",
+        href: "https://github.com/miguelklemmsilva/hackathon-robots",
+        icon: "github",
+      },
+    ],
+  },
+
+  {
+    name: "Smart Lab System",
+    description:
+      "System build for measuring and monitoring temperature, light sound and other environmental factors in a lab, using Raspberry Pi Pico Ws. Can detect the location of any person of the lab based on the intensity of the network signal.",
+    image: "/showcase.png",
+    tags: [
+      "C",
+      "C++",
+      "Kotlin",
+      "React",
+      "Typescript",
+      "PlatfromIO",
+      "Raspberry Pi",
+      "PostgreSQL",
     ],
     links: [
       {
@@ -124,80 +174,119 @@ export const projectData = [
       },
     ],
   },
+  //     name: "Minecraft Texture Pack",
+  //     link: "https://github.com/EricDanielsH/mc-eric-texture-pack",
+  //     description:
+  //       "A Minecraft texture pack that adds a personal touch to the game, with custom textures and sounds. Works in every version of Minecraft.",
+  //     techStack: ["Java", "Minecraft", "Photoshop", "Paint.NET"],
+
   {
-    name: "NFTVue",
+    name: "Minecraft Texture Pack",
     description:
-      "Non-Fungible Tokens (NFTs) Gallery Viewer website that allows users to connect their crypto wallets to view and verify their tokens",
-    href: "https://nftvue.vercel.app",
-    image: "/nftvue.png",
-    tags: [
-      "NextJS",
-      "TailwindCSS",
-      "MetaMask",
-      "WalletConnect",
-      "Web3",
-      "NFTScan",
-      "HashKey DID",
-    ],
+      "A Minecraft texture pack that adds a personal touch to the game, with custom textures and sounds. Works in every version of Minecraft.",
+    image: "/minecraft.png",
+    tags: ["Java", "Minecraft", "Photoshop", "Paint.NET"],
     links: [
-      {
-        name: "Website",
-        href: "https://nftvue.vercel.app",
-        icon: "globe",
-      },
-    ],
-  },
-  {
-    name: "Portfolio 2023 (Outdated)",
-    description: "Simple markdown portfolio made with Astro 🚀",
-    href: "https://tedawf-dot-com.netlify.app",
-    image: "/old-portfolio.png",
-    tags: ["Astro", "TailwindCSS", "Netlify", "SEO"],
-    links: [
-      {
-        name: "Website",
-        href: "https://tedawf-dot-com.netlify.app",
-        icon: "globe",
-      },
       {
         name: "Source",
-        href: "https://github.com/tedawf/portfolio-2023",
+        href: "https://github.com/EricDanielsH/mc-eric-texture-pack",
         icon: "github",
       },
     ],
   },
+  //   {
+  //     name: "HybridCoach AI",
+  //     link: "https://hybridcoach-ai.vercel.app",
+  //     description:
+  //       "AI-powered fitness app that generates personalized workout plans based on user's goals, preferences, and fitness level. Follows a hybrid training approach.",
+  //     techStack: [
+  //       "Next.js",
+  //       "Typescript",
+  //       "OpenAI",
+  //       "Stripe",
+  //       "NextAuth",
+  //       "MongoDB",
+  //       "TailwindCss",
+  //     ],
+  //   },
+
   {
-    name: "Rapid Ride Fight (Final Year)",
+    name: "HybridCoach AI",
     description:
-      "3D capture-the-flag, multiplayer boat fighting, with smart AI and water graphics",
-    href: "https://games.digipen.edu/games/rapid-ride-fight",
-    image: "/rrf.png",
-    tags: ["C/C++", "OpenGL", "Custom Game Engine", "3D"],
+      "AI-powered fitness app that generates personalized workout plans based on user's goals, preferences, and fitness level. Follows a hybrid training approach.",
+    href: "https://hybridcoach-ai.vercel.app",
+    image: "/coach.png",
+    tags: [
+      "Next.js",
+      "Typescript",
+      "OpenAI",
+      "Stripe",
+      "NextAuth",
+      "MongoDB",
+      "TailwindCss",
+    ],
     links: [
       {
-        name: "Gameplay",
-        href: "https://www.youtube.com/watch?v=bge3fiypg5U",
-        icon: "youtube",
-      },
-      {
-        name: "Trailer",
-        href: "https://www.youtube.com/watch?v=PNAO-aI1Daw",
-        icon: "youtube",
+        name: "Website",
+        href: "https://hybridcoach-ai.vercel.app",
+        icon: "globe",
       },
     ],
   },
+  //   {
+  //     name: "HealthBuddy",
+  //     link: "https://drive.google.com/file/d/1UC5hHXO_k3-I8PoQ3owwLltYfy8i2MuS/view?usp=share_link",
+  //     description:
+  //       "Keep you and your Buddy healthy. Calorie tracking app that helps users maintain a healthy lifestyle.",
+  //     techStack: ["React Native", "Firebase", "Node.js", "TypeScript", "Expo"],
+  //   },
+
   {
-    name: "Glowing Under (2nd Year)",
+    name: "HealthBuddy",
     description:
-      "2D platformer with a focus on puzzle-solving, no-death exploration and storytelling",
-    href: "https://games.digipen.edu/games/glowing-under",
-    image: "/gu.png",
-    tags: ["C/C++", "OpenGL", "Custom Game Engine", "2D"],
+      "Keep you and your Buddy healthy. Calorie tracking app that helps users maintain a healthy lifestyle.",
+    image: "/buddy.png",
+    tags: ["TypeScript", "React Native", "Firebase", "Node.js", "Expo"],
     links: [
       {
-        name: "Trailer",
-        href: "https://www.youtube.com/watch?v=u6RYwBZlSfg",
-        icon: "youtube",
+        name: "Presentation",
+        href: "https://drive.google.com/file/d/1UC5hHXO_k3-I8PoQ3owwLltYfy8i2MuS/view?usp=share_link",
+        icon: "presentation",
+      },
+    ],
+  },
+  //   {
+  //     title: "LUCribCheck",
+  //     link: "https://lucribcheck.com/",
+  //     description:
+  //       "Share and discover reviews on homes in Lancaster, UK, helping others make informed decisions about properties and neighborhoods. Built to combat the lack of transparency in the real estate market.",
+  //     techStack: [
+  //       "Next.js",
+  //       "AWS S3",
+  //       "NextAuth",
+  //       "MongoDB",
+  //       "TailwindCss",
+  //       "Typescript",
+  //     ],
+  //   },
+  {
+    name: "LUCribCheck",
+    description:
+      "Share and discover reviews on homes in Lancaster, UK, helping others make informed decisions about properties and neighborhoods. Built to combat the lack of transparency in the real estate market.",
+    image: "/cribcheck.png",
+    tags: [
+      "TypeScript",
+      "Next.js",
+      "AWS S3",
+      "NextAuth",
+      "MongoDB",
+      "TailwindCss",
+    ],
+    links: [
+      {
+        name: "Website",
+        href: "https://lucribcheck.com/",
+        icon: "globe",
       },
     ],
   },

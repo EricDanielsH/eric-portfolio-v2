@@ -25,7 +25,7 @@ export function ProjectCard({ project }: Props) {
     >
       <CardHeader>
         {image && (
-          <Link href={href || image}>
+          <Link href={href || image} target="_blank">
             <Image
               src={image}
               alt={name}

@@ -17,7 +17,7 @@ export default function Home() {
           href="/projects"
           className="w-fit hover:text-[#ff1717] transition duration-300 flex justify-center items-center"
         >
-          <h2 className="tracking-tight font-bold text-2xl">projects</h2>
+          <h2 className="tracking-tight font-semibold text-2xl">projects 🔨</h2>
           <RxOpenInNewWindow className="mb-4" />
         </Link>
 

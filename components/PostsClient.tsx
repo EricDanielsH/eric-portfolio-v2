@@ -32,12 +32,12 @@ export default function PostsClient({ posts }: PostsClientProps) {
           className="w-fit hover:text-[#ff1717] transition duration-300 flex justify-center items-center"
         >
           <motion.h2
-            className="tracking-tight text-2xl animate-fade-in-slide-up delay-long"
+            className="tracking-tight text-2xl animate-fade-in-slide-up delay-long font-semibold"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
           >
-            blog
+            blog 🧑🏻‍💻
           </motion.h2>
           <RxOpenInNewWindow className="mb-4" />
         </Link>

@@ -13,12 +13,12 @@ export default function Contact() {
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
       <motion.h2
-        className="text-left mb-4 tracking-tight text-2xl"
+        className="text-left font-semibold mb-4 tracking-tight text-2xl"
         initial={{ opacity: 0, y: -20 }} // Slight slide down and fade in
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
       >
-        contact me
+        contact me 💬
       </motion.h2>
       <motion.p
         className="text-base text-left mb-8"
