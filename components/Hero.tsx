@@ -41,7 +41,9 @@ export function AuroraBackgroundDemo() {
             className="rounded-full border-gray-300 dark:border-gray-700 border-2"
           />
           <div className="flex flex-col">
-            <h1 className="z-10 font-semibold text-xl md:text-3xl">Hey, I&apos;m Eric 👋🏼</h1>
+            <h1 className="z-10 font-semibold text-xl md:text-3xl">
+              Hey, I&apos;m Eric 👋🏼
+            </h1>
             <small className="flex items-center">
               <FaLocationDot className="inline-block mr-1" />
               Lancaster, UK
@@ -50,20 +52,20 @@ export function AuroraBackgroundDemo() {
         </div>
         <p className="py-2 text-left mb-4 z-10 break-keep whitespace-normal font-normal [hyphens:none]">
           Software Engineer dedicated to building practical, high-quality
-          solutions and solving real-world problems with code.
-          Currently focusing on quantitative development.
+          solutions and solving real-world problems with code. Currently
+          focusing on quantitative development.
         </p>
         <div className="flex items-center gap-4">
-          <Button variant="outline">
-            <Link
-              href="https://drive.google.com/file/d/1aoLGwg-HDeoJy6aeYqvBeq8VaqOMQuIX/view?usp=sharing"
-              target="_blank"
-              title="Resume"
-              className="flex gap-2 items-center"
-            >
+          <Link
+            href="https://drive.google.com/file/d/1aoLGwg-HDeoJy6aeYqvBeq8VaqOMQuIX/view?usp=sharing"
+            target="_blank"
+            title="Resume"
+            className="flex gap-2 items-center"
+          >
+            <Button variant="outline">
               Resume <LuFileDown size={50} />
-            </Link>
-          </Button>
+            </Button>
+          </Link>
           <Socials />
         </div>
       </motion.div>
