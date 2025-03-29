@@ -5,7 +5,7 @@ date: "16 December 2024"
 lastmod: "16 December 2024"
 author: "Eric Daniels"
 tags: ["leetcode", "python", "hashmap", "array"]
-draft: false
+draft: true
 ---
 
 <a target="_blank" href="https://leetcode.com/problems/trapping-rain-water/">Link to the problem</a>
