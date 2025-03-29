@@ -164,7 +164,7 @@ export const projectData: {
       name: "Smart Lab System",
       description:
         "System build for measuring and monitoring temperature, light sound and other environmental factors in a lab, using Raspberry Pi Pico Ws. Can detect the location of any person of the lab based on the intensity of the network signal.",
-      image: "/showcase.png",
+      image: "/bubbles.jpg",
       tags: [
         "C",
         "C++",
@@ -176,11 +176,6 @@ export const projectData: {
         "PostgreSQL",
       ],
       links: [
-        {
-          name: "Source",
-          href: "https://github.com/tedawf/tradingview-telegram-alerts",
-          icon: "github",
-        },
       ],
     },
 
