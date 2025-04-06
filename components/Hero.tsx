@@ -42,7 +42,16 @@ export function AuroraBackgroundDemo() {
           />
           <div className="flex flex-col">
             <h1 className="z-10 font-semibold text-xl md:text-3xl">
-              Hey, I&apos;m Eric 👋🏼
+              Hey, I&apos;m Eric{" "}
+              <motion.span
+                whileHover={{
+                  rotate: [0, 15, -10, 15, -10, 0], // Waving motion
+                  transition: { duration: 0.6 },
+                }}
+                style={{ display: "inline-block" }}
+              >
+                👋🏼
+              </motion.span>
             </h1>
             <small className="flex items-center">
               <FaLocationDot className="inline-block mr-1" />
